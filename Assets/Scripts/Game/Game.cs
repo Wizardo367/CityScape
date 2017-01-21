@@ -118,6 +118,6 @@ public class Game : MonoBehaviour
 
         // Place building
         GameObject go = Resources.Load<GameObject>("Prefabs/" + randBuilding);
-        Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Buildings").transform);
+        Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Game").transform);
     }
 }
