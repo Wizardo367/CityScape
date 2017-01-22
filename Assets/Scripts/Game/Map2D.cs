@@ -82,7 +82,7 @@ public class Map2D : MonoBehaviour
         foreach (TileData tileData in tileDataContainer.tileDataList)
         {
             // Create tile
-            Tile tile = Map2D.CreateTile(tileData);
+            Tile tile = CreateTile(tileData);
             // Make tile a child object
             tile.gameObject.transform.parent = parentGO.transform;
             // Add tile to list
@@ -101,13 +101,13 @@ public class Map2D : MonoBehaviour
     public static Tile CreateTile(TileType tileType, Vector3 position)
     {
         // Get prefab of tileType
-        GameObject gameObject = Resources.Load<GameObject>("Prefabs/" + tileType.ToString());
+        GameObject gameObject = Resources.Load<GameObject>("Prefabs/" + tileType);
 
         // Instantiate
-        GameObject go = Instantiate(gameObject, position, Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(gameObject, position, Quaternion.identity);
         // Get tile script
         Tile tile = go.GetComponent<Tile>();
-
+        
         // Store tile data
         tile.StoreData();
 
@@ -123,8 +123,6 @@ public class Map2D : MonoBehaviour
     public static Tile CreateTile(TileData data)
     {
         // Create tile
-        Tile tile = CreateTile(data.tileType, new Vector3(data.posX, data.posY, data.posZ));
-        // Return tile
-        return tile;
+        return CreateTile(data.tileType, new Vector3(data.posX, data.posY, data.posZ));
     }
 }

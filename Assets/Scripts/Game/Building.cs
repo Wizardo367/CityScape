@@ -112,7 +112,6 @@ public abstract class Building : MonoBehaviour
     /// <returns></returns>
     public virtual float CollectTax(float collectionInterval, float lastCollection)
     {
-        float tax;
         float timePassed = collectionInterval - lastCollection;
 
         // Calculate the amount of time that has passed since the last collection
@@ -120,7 +119,7 @@ public abstract class Building : MonoBehaviour
             timePassed = collectionInterval + (timePassed * -1);
 
         // Calculate the amount of tax generated
-        tax = ((taxPercentage * occupantCount) / (level * happiness)) * 100;
+        float tax = ((taxPercentage * occupantCount) / (level * happiness)) * 100;
 
         // Correct the amount of tax for the amount of time that has passed since the last collection
         tax *= (timePassed / collectionInterval);

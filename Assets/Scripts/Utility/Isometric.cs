@@ -5,6 +5,7 @@
  */
 
 // Website used: https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511
+// Website used: https://breadcrumbsinteractive.com/two-unity-tricks-isometric-games/
 
 using UnityEngine;
 
@@ -22,9 +23,12 @@ public static class Isometric
     public static Vector2 CartToIso(float x, float y)
     {
         // Convert the coordinates from cartesian to isometric
-        Vector2 newCoordinates = new Vector2();
-        newCoordinates.x = (x - y);
-        newCoordinates.y = ((x + y) / 2);
+        Vector2 newCoordinates = new Vector2
+        {
+            x = x - y,
+            y = (x + y) * 0.5f
+        };
+
         return newCoordinates;
     }
 
@@ -63,5 +67,21 @@ public static class Isometric
     {
         // Convert the coordinates from cartesian to isometric
         return IsoToCart(coordinates.x, coordinates.y);
+    }
+
+    public static void DepthSort(GameObject go)
+    {
+        // Get all children
+        Transform[] spriteTransforms = go.GetComponentsInChildren<Transform>();
+        SpriteRenderer[] spriteRenderers = go.GetComponentsInChildren<SpriteRenderer>();
+
+        int noOfChildren = spriteTransforms.Length;
+        const int isometricRangePerYUnit = 100;
+
+        // Depth sort
+        for (int i = 0; i < noOfChildren; i++)
+        {
+            spriteRenderers[i].sortingOrder = -(int)(go.transform.position.y * isometricRangePerYUnit) + i;
+        }
     }
 }

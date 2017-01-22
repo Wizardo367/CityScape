@@ -14,7 +14,8 @@ public class MouseControls : MonoBehaviour
     public Vector2 cameraBottomRightBound;
 
     private Vector3 origin;
-    private Vector3 lastPostion; // Last position recorded, used for optimisation
+
+    private float lastMouseScroll;
 
     void Start()
     {
@@ -25,7 +26,12 @@ public class MouseControls : MonoBehaviour
     {
         // Zoom
         float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + ((mouseWheel != 0) ? -Mathf.Sign(mouseWheel) : 0) / smoothScrollLevel, zoomMin, zoomMax);
+
+        if (mouseWheel != lastMouseScroll)
+        {
+            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + ((mouseWheel != 0) ? -Mathf.Sign(mouseWheel) : 0) / smoothScrollLevel,zoomMin, zoomMax);
+            lastMouseScroll = mouseWheel;
+        }
     }
 
     void LateUpdate()
@@ -43,7 +49,7 @@ public class MouseControls : MonoBehaviour
             {
                 // Calculate new position
                 Vector3 newPosition = new Vector3(origin.x + difference.x, origin.y + difference.y, -10);
-          
+
                 // Check new position
                 if (applyCameraBounds)
                 {
@@ -59,7 +65,6 @@ public class MouseControls : MonoBehaviour
                 }
 
                 // Set position
-                lastPostion = transform.position;
                 transform.position = newPosition;
             }
         }

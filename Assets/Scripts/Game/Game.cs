@@ -102,15 +102,31 @@ public class Game : MonoBehaviour
         if (mapTiles == null)
         {
             RestoreWorldFiles();
-            mapTiles = Map2D.Load(Path.Combine(baseFilePath, worldName + ".xml"));
+            LoadWorld(worldName);
         }
     }
 
     public void SpawnBuidling()
     {
-        // Pick random tile position
-        int randTileIndex = Random.Range(0, mapTiles.Count);
-        Vector3 tilePosition = mapTiles[randTileIndex].transform.position;
+        // Pick a random tile
+        Tile randTile;
+
+        while (true)
+        {
+            int randTileIndex = Random.Range(0, mapTiles.Count);
+            randTile = mapTiles[randTileIndex];
+
+            // Check if the tile is buildable
+            if (randTile.buildable)
+            {
+                // Add to occupied tiles
+                // Exit loop
+                break;
+            }
+        }
+
+        // Get tile position
+        Vector3 tilePosition = randTile.transform.position;
 
         // Pick random building
         string randBuildingType = ((BuildingType)Random.Range(0, 3)).ToString();
@@ -118,6 +134,9 @@ public class Game : MonoBehaviour
 
         // Place building
         GameObject go = Resources.Load<GameObject>("Prefabs/" + randBuilding);
-        Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Game").transform);
+        GameObject newBuilding = Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Game").transform);
+
+        // Make child of Buildings GameObject
+        newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
     }
 }

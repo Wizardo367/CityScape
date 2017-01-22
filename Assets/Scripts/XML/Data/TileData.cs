@@ -4,7 +4,6 @@
  *        Year: 2016
  */
 
-using System.Xml;
 using System.Xml.Serialization;
 
 // Video used: https://www.youtube.com/watch?v=Y8Di-Q6qpU4
