@@ -12,13 +12,13 @@ public class Game : MonoBehaviour
 {
     private static Game instance;
 
-    List<GameObject> buildings;
+    List<GameObject> buildings = new List<GameObject>();
     List<Tile> mapTiles = new List<Tile>();
     Vector3 mapCentre;
 
     Camera mainCamera;
 
-    string baseFilePath, worldName;
+    private string _baseFilePath, _worldName;
 
     public static Game Instance { get { return instance; } }
 
@@ -38,8 +38,8 @@ public class Game : MonoBehaviour
         mainCamera = Camera.main;
 
         // File paths
-        baseFilePath = Application.persistentDataPath;
-        worldName = "world_beach";
+        _baseFilePath = Application.persistentDataPath;
+        _worldName = "world_beach";
 
         // Initialise the game
         InitGame();
@@ -65,7 +65,7 @@ public class Game : MonoBehaviour
         TextAsset[] worlds = Resources.LoadAll<TextAsset>("Worlds/");
 
         foreach (TextAsset world in worlds)
-            File.WriteAllText(Path.Combine(baseFilePath, world.name + ".xml"), world.text);
+            File.WriteAllText(Path.Combine(_baseFilePath, world.name + ".xml"), world.text);
     }
 
     public void Save()
@@ -80,7 +80,7 @@ public class Game : MonoBehaviour
             tileDataContainer.tileDataList.Add(tile.data);
 
         // Serialize data
-        XMLSerializer.Serialize(tileDataContainer, Path.Combine(baseFilePath, worldName + ".xml"));
+        XMLSerializer.Serialize(tileDataContainer, Path.Combine(_baseFilePath, _worldName + ".xml"));
     }
 
     public bool Load()
@@ -88,7 +88,7 @@ public class Game : MonoBehaviour
         // Load the game
 
         // Load the world
-        LoadWorld(worldName);
+        LoadWorld(_worldName);
 
         return true;
     }
@@ -96,7 +96,7 @@ public class Game : MonoBehaviour
     public void LoadWorld(string worldName)
     {
         // World map
-        mapTiles = Map2D.Load(Path.Combine(baseFilePath, worldName + ".xml"));
+        mapTiles = Map2D.Load(Path.Combine(_baseFilePath, worldName + ".xml"));
 
         // Check if mapTiles is null, if so try again
         if (mapTiles == null)
@@ -138,5 +138,8 @@ public class Game : MonoBehaviour
 
         // Make child of Buildings GameObject
         newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
+
+        // Add to list
+        buildings.Add(newBuilding);
     }
 }

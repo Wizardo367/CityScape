@@ -20,6 +20,11 @@ public abstract class Building : MonoBehaviour
     public Vector2 levelMinMax;
     public Vector2 happinessMinMax;
 
+    private int taxPercentage;
+    private int occupantCount;
+    private int level;
+    private int happiness;
+
     void Awake()
     {
         // Set variables
@@ -38,13 +43,11 @@ public abstract class Building : MonoBehaviour
             case BuildingType.Office:
                 occupantMinMax = new Vector2(0, 500);
                 break;
-            default:
-                break;
         }
     }
 
     // Properties
-    public int taxPercentage
+    public int TaxPercentage
     {
         get
         {
@@ -52,14 +55,16 @@ public abstract class Building : MonoBehaviour
         }
         set
         {
-            if (taxPercentage < taxMinMax.x)
-                taxPercentage = (int)taxMinMax.x;
-            else if (taxPercentage > taxMinMax.y)
-                taxPercentage = (int)taxMinMax.y;
+            if (value < taxMinMax.x)
+                taxPercentage = (int) taxMinMax.x;
+            else if (value > taxMinMax.y)
+                taxPercentage = (int) taxMinMax.y;
+            else
+                taxPercentage = value;
         }
     }
 
-    public int occupantCount
+    public int OccupantCount
     {
         get
         {
@@ -67,14 +72,16 @@ public abstract class Building : MonoBehaviour
         }
         set
         {
-            if (occupantCount < occupantMinMax.x)
-                occupantCount = (int)occupantMinMax.x;
-            else if (occupantCount > occupantMinMax.y)
-                occupantCount = (int)occupantMinMax.y;
+            if (value < occupantMinMax.x)
+                occupantCount = (int) occupantMinMax.x;
+            else if (value > occupantMinMax.y)
+                occupantCount = (int) occupantMinMax.y;
+            else
+                occupantCount = value;
         }
     }
 
-    public int level
+    public int Level
     {
         get
         {
@@ -82,14 +89,16 @@ public abstract class Building : MonoBehaviour
         }
         set
         {
-            if (level < levelMinMax.x)
-                level = (int)levelMinMax.x;
-            else if (level > levelMinMax.y)
-                level = (int)levelMinMax.y;
+            if (value < levelMinMax.x)
+                level = (int) levelMinMax.x;
+            else if (value > levelMinMax.y)
+                level = (int) levelMinMax.y;
+            else
+                level = value;
         }
     }
 
-    public int happiness
+    public int Happiness
     {
         get
         {
@@ -97,10 +106,12 @@ public abstract class Building : MonoBehaviour
         }
         set
         {
-            if (happiness < happinessMinMax.x)
-                happiness = (int)happinessMinMax.x;
-            else if (happiness > happinessMinMax.y)
-                happiness = (int)happinessMinMax.y;
+            if (value < happinessMinMax.x)
+                happiness = (int) happinessMinMax.x;
+            else if (value > happinessMinMax.y)
+                happiness = (int) happinessMinMax.y;
+            else
+                happiness = value;
         }
     }
 

@@ -13,8 +13,8 @@ public class Tile : MonoBehaviour
 {
     public TileData data = new TileData();
 
-    public bool buildable = false;
-    public bool destructable = false;
+    public bool buildable;
+    public bool destructable;
     public TileType tileType;
 
     /// <summary>

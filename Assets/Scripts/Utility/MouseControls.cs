@@ -27,46 +27,44 @@ public class MouseControls : MonoBehaviour
         // Zoom
         float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
 
-        if (mouseWheel != lastMouseScroll)
-        {
-            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + ((mouseWheel != 0) ? -Mathf.Sign(mouseWheel) : 0) / smoothScrollLevel,zoomMin, zoomMax);
-            lastMouseScroll = mouseWheel;
-        }
+        if (Mathf.Approximately(mouseWheel, lastMouseScroll)) return;
+
+        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + (Mathf.Approximately(mouseWheel, 0f) ? -Mathf.Sign(mouseWheel) : 0f) / smoothScrollLevel,zoomMin, zoomMax);
+        lastMouseScroll = mouseWheel;
     }
 
     void LateUpdate()
     {
         // Check if the mouse pointer is over a UI element
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject()) return;
+
+        // Pan
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 difference = transform.position - mousePos;
+
+        if (Input.GetMouseButtonDown(0))
+            origin = mousePos;
+        else if (Input.GetMouseButton(0))
         {
-            // Pan
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 difference = transform.position - mousePos;
+            // Calculate new position
+            Vector3 newPosition = new Vector3(origin.x + difference.x, origin.y + difference.y, -10);
 
-            if (Input.GetMouseButtonDown(0))
-                origin = mousePos;
-            else if (Input.GetMouseButton(0))
+            // Check new position
+            if (applyCameraBounds)
             {
-                // Calculate new position
-                Vector3 newPosition = new Vector3(origin.x + difference.x, origin.y + difference.y, -10);
+                if (newPosition.x > cameraTopLeftBound.x)
+                    newPosition.x = cameraTopLeftBound.x;
+                else if (newPosition.x < cameraBottomRightBound.x)
+                    newPosition.x = cameraBottomRightBound.x;
 
-                // Check new position
-                if (applyCameraBounds)
-                {
-                    if (newPosition.x > cameraTopLeftBound.x)
-                        newPosition.x = cameraTopLeftBound.x;
-                    else if (newPosition.x < cameraBottomRightBound.x)
-                        newPosition.x = cameraBottomRightBound.x;
-
-                    if (newPosition.y < cameraTopLeftBound.y)
-                        newPosition.y = cameraTopLeftBound.y;
-                    else if (newPosition.y > cameraBottomRightBound.y)
-                        newPosition.y = cameraBottomRightBound.y;
-                }
-
-                // Set position
-                transform.position = newPosition;
+                if (newPosition.y < cameraTopLeftBound.y)
+                    newPosition.y = cameraTopLeftBound.y;
+                else if (newPosition.y > cameraBottomRightBound.y)
+                    newPosition.y = cameraBottomRightBound.y;
             }
+
+            // Set position
+            transform.position = newPosition;
         }
     }
 }

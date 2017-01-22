@@ -11,7 +11,7 @@ public class PurchasableTile : Tile
 {
     public new PurchasableTileData data = new PurchasableTileData();
 
-    public float price = 0f;
+    public float price;
 
     // Initialisation
     void Awake()

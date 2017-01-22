@@ -52,9 +52,14 @@ public static class Isometric
     public static Vector2 IsoToCart(float x, float y)
     {
         // Convert the coordinates from cartesian to isometric
-        Vector2 newCoordinates = new Vector2();
-        newCoordinates.x = (2 * y + x) / 2;
-        newCoordinates.y = (2 * y - x) / 2;
+        float yTwo = 2 * y;
+
+        Vector2 newCoordinates = new Vector2()
+        {
+            x = (yTwo + x) * 0.5f,
+            y = (yTwo - x) * 0.5f
+        };
+
         return newCoordinates;
     }
 

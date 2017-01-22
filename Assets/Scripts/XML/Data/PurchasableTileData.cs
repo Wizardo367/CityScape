@@ -4,7 +4,6 @@
  *        Year: 2016
  */
 
-using System.Xml;
 using System.Xml.Serialization;
 
 /// <summary>
