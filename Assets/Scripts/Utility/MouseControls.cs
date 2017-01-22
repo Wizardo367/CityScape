@@ -29,7 +29,7 @@ public class MouseControls : MonoBehaviour
 
         if (Mathf.Approximately(mouseWheel, lastMouseScroll)) return;
 
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + (Mathf.Approximately(mouseWheel, 0f) ? -Mathf.Sign(mouseWheel) : 0f) / smoothScrollLevel,zoomMin, zoomMax);
+        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + (!Mathf.Approximately(mouseWheel, 0f) ? -Mathf.Sign(mouseWheel) : 0f) / smoothScrollLevel,zoomMin, zoomMax);
         lastMouseScroll = mouseWheel;
     }
 

@@ -101,10 +101,10 @@ public class Map2D : MonoBehaviour
     public static Tile CreateTile(TileType tileType, Vector3 position)
     {
         // Get prefab of tileType
-        GameObject gameObject = Resources.Load<GameObject>("Prefabs/" + tileType);
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/" + tileType);
 
         // Instantiate
-        GameObject go = Instantiate(gameObject, position, Quaternion.identity);
+        GameObject go = Instantiate(prefab, position, Quaternion.identity);
         // Get tile script
         Tile tile = go.GetComponent<Tile>();
         
