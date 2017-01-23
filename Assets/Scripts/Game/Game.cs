@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
 
     Camera mainCamera;
 
+    private bool _paused;
     private string _baseFilePath, _worldName;
 
     public static Game Instance { get { return instance; } }
@@ -99,11 +100,10 @@ public class Game : MonoBehaviour
         mapTiles = Map2D.Load(Path.Combine(_baseFilePath, worldName + ".xml"));
 
         // Check if mapTiles is null, if so try again
-        if (mapTiles == null)
-        {
-            RestoreWorldFiles();
-            LoadWorld(worldName);
-        }
+        if (mapTiles != null) return;
+
+        RestoreWorldFiles();
+        LoadWorld(worldName);
     }
 
     public void SpawnBuidling()
@@ -141,5 +141,12 @@ public class Game : MonoBehaviour
 
         // Add to list
         buildings.Add(newBuilding);
+    }
+
+    public void TogglePause()
+    {
+        // Toggle timescale for pausing and playing
+        Time.timeScale = !_paused ? 0 : 1;
+        _paused = !_paused;
     }
 }
