@@ -154,7 +154,7 @@ public class Map2D : MonoBehaviour
             Vector3 randTilePosition = randTile.transform.position;
 
             // Check if the tile is buildable, occupied and whether the map is full
-            if (!randTile.buildable &&
+            if (!randTile.buildable ||
                 Buildings.Count != Tiles.Count &&
                 Buildings.Any(building => building.transform.position == randTilePosition)) continue;
 
