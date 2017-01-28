@@ -1,7 +1,7 @@
 ﻿/*
  *       Class: Map2D
  *      Author: Harish Bhagat
- *        Year: 2016
+ *        Year: 2017
  */
 
 // Website used: https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511
@@ -9,51 +9,67 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 /// <summary>
 /// A class to be used for generating and loading 2D cartesian and isometric maps.
 /// </summary>
 public class Map2D : MonoBehaviour
 {
-    public bool isometric;
-    public int tileSizeX;
-    public int xSize, ySize;
-    public GameObject prefab;
-    public List<Tile> tiles = new List<Tile>();
+    public bool Isometric;
+    public int TileSizeX;
+    public int XSize, YSize;
+    public GameObject Prefab;
+    public List<Tile> Tiles;
+    public List<Building> Buildings;
+
+    private void Awake()
+    {
+        // Variable initialisation
+        Tiles = new List<Tile>();
+        Buildings = new List<Building>();
+    }
+
+    /// <summary>
+    /// Changes the position of the camera to the centre of the map.
+    /// </summary>
+    /// <param name="currentCamera">The camera to be positioned.</param>
+    public void centreCameraView(Camera currentCamera)
+    {
+        Vector3 mapCentre = Tiles[(Tiles.Count - 1) / 2].transform.position;
+        mapCentre.z = -10f;
+        currentCamera.transform.position = mapCentre;
+    }
 
     /// <summary>
     /// Generates and returns a list of tiles.
     /// </summary>
-    public List<Tile> Generate()
+    public void Generate()
     {
         // Get pixels per unit
-        float ppu = prefab.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-        float tileSizeInUnits = tileSizeX / ppu;
+        float ppu = Prefab.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        float tileSizeInUnits = TileSizeX / ppu;
 
         // Create and place each tile
-        for (int y = 0; y < ySize; y++)
-            for (int x = 0; x < xSize; x++)
+        for (int y = 0; y < YSize; y++)
+            for (int x = 0; x < XSize; x++)
             {
                 // Calculate position
                 Vector3 position;
 
-                if (isometric)
-                    position = transform.position + (Vector3)Isometric.CartToIso((transform.right * (x * tileSizeInUnits / 2)) + (transform.up * (y * tileSizeInUnits / 2)));
+                if (Isometric)
+                    position = transform.position + (Vector3)global::Isometric.CartToIso((transform.right * (x * tileSizeInUnits / 2)) + (transform.up * (y * tileSizeInUnits / 2)));
                 else
                     position = transform.position + (transform.right * (x * tileSizeInUnits)) + (transform.up * (y * tileSizeInUnits));
 
                 // Create tile
                 Tile tile = CreateTile(TileType.Grass, position);
-
                 // Make GameObject a child object
                 tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
 
                 // Add tile to list
-                tiles.Add(tile);
+                Tiles.Add(tile);
             }
-
-        // Return tiles
-        return tiles;
     }
 
     /// <summary>
@@ -61,21 +77,21 @@ public class Map2D : MonoBehaviour
     /// </summary>
     /// <param name="path">The XML file path which contains the world data.</param>
     /// <returns></returns>
-    public static List<Tile> Load(string path)
+    public void Load(string path)
     {
-        // Create new List
-        List<Tile> tiles = new List<Tile>();
+        // Clear existing tiles
+        Tiles.Clear();
 
         // Check if the file exists
         if (!File.Exists(path))
-            return null;
+            return;
 
         // Deserialize data
         TileDataContainer tileDataContainer = XMLSerializer.Deserialize<TileDataContainer>(path);
 
         // Clear parent GameObject
-        GameObject parentGO = GameObject.Find("Tiles/Ground");
-        foreach (Transform child in parentGO.transform)
+        GameObject parentObj = GameObject.Find("Tiles/Ground");
+        foreach (Transform child in parentObj.transform)
             Destroy(child.gameObject);
 
         // Create tile
@@ -84,12 +100,10 @@ public class Map2D : MonoBehaviour
             // Create tile
             Tile tile = CreateTile(tileData);
             // Make tile a child object
-            tile.gameObject.transform.parent = parentGO.transform;
+            tile.gameObject.transform.parent = parentObj.transform;
             // Add tile to list
-            tiles.Add(tile);
+            Tiles.Add(tile);
         }
-
-        return tiles;
     }
 
     /// <summary>
@@ -98,7 +112,7 @@ public class Map2D : MonoBehaviour
     /// <param name="tileType">The type of tile to be created.</param>
     /// <param name="position">The position of the newly created tile.</param>
     /// <returns></returns>
-    public static Tile CreateTile(TileType tileType, Vector3 position)
+    private static Tile CreateTile(TileType tileType, Vector3 position)
     {
         // Get prefab of tileType
         GameObject prefab = Resources.Load<GameObject>("Prefabs/" + tileType);
@@ -107,7 +121,7 @@ public class Map2D : MonoBehaviour
         GameObject go = Instantiate(prefab, position, Quaternion.identity);
         // Get tile script
         Tile tile = go.GetComponent<Tile>();
-        
+
         // Store tile data
         tile.StoreData();
 
@@ -120,9 +134,48 @@ public class Map2D : MonoBehaviour
     /// </summary>
     /// <param name="data">A reference to an existing TileData object, that is to be used for the created Tile object.</param>
     /// <returns></returns>
-    public static Tile CreateTile(TileData data)
+    private static Tile CreateTile(TileData data)
     {
         // Create tile
         return CreateTile(data.tileType, new Vector3(data.posX, data.posY, data.posZ));
+    }
+
+    public void SpawnBuilding()
+    {
+        // Pick a random tile
+        Tile randTile;
+
+        while (true)
+        {
+            // Get a random tile
+            randTile = Tiles[Random.Range(0, Tiles.Count)];
+
+            // Check if the tile is buildable
+            Vector3 randTilePosition = randTile.transform.position;
+
+            // Check if the tile is buildable, occupied and whether the map is full
+            if (!randTile.buildable &&
+                Buildings.Count != Tiles.Count &&
+                Buildings.Any(building => building.transform.position == randTilePosition)) continue;
+
+            break;
+        }
+
+        // Get tile position
+        Vector3 tilePosition = randTile.transform.position;
+
+        // Pick random building
+        string randBuildingType = ((BuildingType)Random.Range(0, 3)).ToString();
+        string randBuilding = randBuildingType + "_1_1";
+
+        // Place building
+        GameObject go = Resources.Load<GameObject>("Prefabs/" + randBuilding);
+        GameObject newBuilding = Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Game").transform);
+
+        // Make child of Buildings GameObject
+        newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
+
+        // Add to list
+        Buildings.Add(newBuilding.GetComponent<Building>());
     }
 }

@@ -1,7 +1,7 @@
 ﻿/*
  *       Class: TileType
  *      Author: Harish Bhagat
- *        Year: 2016
+ *        Year: 2017
  */
 
  /// <summary>

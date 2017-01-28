@@ -1,42 +1,46 @@
 ﻿/*
  *       Class: Game
  *      Author: Harish Bhagat
- *        Year: 2016
+ *        Year: 2017
  */
 
 using UnityEngine;
-using System.Collections.Generic;
 using System.IO;
 
 public class Game : MonoBehaviour
 {
-    private static Game instance;
+    private static Game _instance;
+    private GameState _gameState;
 
-    List<GameObject> buildings = new List<GameObject>();
-    List<Tile> mapTiles = new List<Tile>();
-    Vector3 mapCentre;
+    private Map2D _map;
 
-    Camera mainCamera;
+    Camera _mainCamera;
 
     private bool _paused;
     private string _baseFilePath, _worldName;
 
-    public static Game Instance { get { return instance; } }
+    public static Game Instance { get { return _instance; } }
 
     // Initialisation
     void Awake()
     {
         // Check for existing instance
-        if (instance == null)
-            instance = this;
-        else if (instance != this)
+        if (_instance == null)
+            _instance = this;
+        else if (_instance != this)
             Destroy(gameObject);
+
+        // Initialise map
+        _map = gameObject.GetComponent<Map2D>();
+
+        // Set gameState
+        _gameState = GameState.Active;
 
         // Don't destroy instance when loading a new scene
         DontDestroyOnLoad(gameObject);
 
         // Grab camera reference
-        mainCamera = Camera.main;
+        _mainCamera = Camera.main;
 
         // File paths
         _baseFilePath = Application.persistentDataPath;
@@ -52,9 +56,7 @@ public class Game : MonoBehaviour
         Load();
 
         // Centre the camera
-        mapCentre = mapTiles[(mapTiles.Count - 1) / 2].transform.position;
-        mapCentre.z = -10f;
-        mainCamera.transform.position = mapCentre;
+        _map.centreCameraView(_mainCamera);
 
         // Autosave every 30 seconds
         //InvokeRepeating("Save", 30f, 30f);
@@ -77,7 +79,7 @@ public class Game : MonoBehaviour
         // Save the world map
         TileDataContainer tileDataContainer = new TileDataContainer();
 
-        foreach (Tile tile in mapTiles)
+        foreach (Tile tile in _map.Tiles)
             tileDataContainer.tileDataList.Add(tile.data);
 
         // Serialize data
@@ -96,51 +98,10 @@ public class Game : MonoBehaviour
 
     public void LoadWorld(string worldName)
     {
-        // World map
-        mapTiles = Map2D.Load(Path.Combine(_baseFilePath, worldName + ".xml"));
-
-        // Check if mapTiles is null, if so try again
-        if (mapTiles != null) return;
-
+        // Restore world files in case of update
         RestoreWorldFiles();
-        LoadWorld(worldName);
-    }
-
-    public void SpawnBuidling()
-    {
-        // Pick a random tile
-        Tile randTile;
-
-        while (true)
-        {
-            int randTileIndex = Random.Range(0, mapTiles.Count);
-            randTile = mapTiles[randTileIndex];
-
-            // Check if the tile is buildable
-            if (randTile.buildable)
-            {
-                // Add to occupied tiles
-                // Exit loop
-                break;
-            }
-        }
-
-        // Get tile position
-        Vector3 tilePosition = randTile.transform.position;
-
-        // Pick random building
-        string randBuildingType = ((BuildingType)Random.Range(0, 3)).ToString();
-        string randBuilding = randBuildingType + "_1_1";
-
-        // Place building
-        GameObject go = Resources.Load<GameObject>("Prefabs/" + randBuilding);
-        GameObject newBuilding = Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Game").transform);
-
-        // Make child of Buildings GameObject
-        newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
-
-        // Add to list
-        buildings.Add(newBuilding);
+        // World map
+        _map.Load(Path.Combine(_baseFilePath, worldName + ".xml"));
     }
 
     public void TogglePause()

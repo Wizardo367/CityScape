@@ -1,7 +1,7 @@
 ﻿/*
  *       Class: Isometric
  *      Author: Harish Bhagat
- *        Year: 2016
+ *        Year: 2017
  */
 
 // Website used: https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511

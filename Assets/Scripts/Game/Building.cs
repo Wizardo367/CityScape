@@ -1,7 +1,7 @@
 ﻿/*
  *       Class: Building
  *      Author: Harish Bhagat
- *        Year: 2016
+ *        Year: 2017
  */
 
 using UnityEngine;
@@ -9,30 +9,27 @@ using UnityEngine;
 /// <summary>
 /// Used to define a building class.
 /// </summary>
-public abstract class Building : MonoBehaviour
+public class Building : MonoBehaviour
 {
     // RTTI Type of building
-    public BuildingType buildingType;
+    public BuildingType type;
 
     // Variables
-    public Vector2 taxMinMax;
-    public Vector2 occupantMinMax;
-    public Vector2 levelMinMax;
-    public Vector2 happinessMinMax;
+    public BuildingDirection Direction;
+
+    public Vector2 taxMinMax = new Vector2(0, 20);
+    public Vector2 occupantMinMax = new Vector2(0, 100);
+    public Vector2 levelMinMax = new Vector2(1, 3);
+    public Vector2 happinessMinMax = new Vector2(0, 100);
 
     private int taxPercentage;
     private int occupantCount;
     private int level;
     private int happiness;
 
-    void Awake()
+    private void Awake()
     {
-        // Set variables
-        taxMinMax = new Vector2(0, 20);
-        levelMinMax = new Vector2(1, 3);
-        happinessMinMax = new Vector2(0, 100);
-
-        switch(buildingType)
+        switch(type)
         {
             case BuildingType.Residential:
                 occupantMinMax = new Vector2(0, 100);
