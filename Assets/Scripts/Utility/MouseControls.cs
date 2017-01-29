@@ -44,9 +44,9 @@ public class MouseControls : MonoBehaviour
         Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         Vector3 difference = transform.position - mousePos;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
             origin = mousePos;
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(1))
         {
             // Calculate new position
             Vector3 newPosition = new Vector3(origin.x + difference.x, origin.y + difference.y, -10);
