@@ -56,17 +56,17 @@ public class Map2D : MonoBehaviour
             {
                 // Calculate position
                 Vector3 position;
+                float halfUnitTileSize = tileSizeInUnits * 0.5f;
 
                 if (Isometric)
-                    position = transform.position + (Vector3)global::Isometric.CartToIso((transform.right * (x * tileSizeInUnits / 2)) + (transform.up * (y * tileSizeInUnits / 2)));
+                    position = transform.position + (Vector3)global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) + transform.up * (y * halfUnitTileSize));
                 else
-                    position = transform.position + (transform.right * (x * tileSizeInUnits)) + (transform.up * (y * tileSizeInUnits));
+                    position = transform.position + transform.right * (x * tileSizeInUnits) + transform.up * (y * tileSizeInUnits);
 
                 // Create tile
                 Tile tile = CreateTile(TileType.Grass, position);
                 // Make GameObject a child object
                 tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
-
                 // Add tile to list
                 Tiles.Add(tile);
             }

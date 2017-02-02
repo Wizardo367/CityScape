@@ -92,7 +92,8 @@ public class Game : MonoBehaviour
         // Load the game
 
         // Load the world
-        LoadWorld(_worldName);
+        _map.Generate();
+        //LoadWorld(_worldName);
 
         return true;
     }

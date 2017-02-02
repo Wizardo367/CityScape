@@ -23,13 +23,7 @@ public static class Isometric
     public static Vector2 CartToIso(float x, float y)
     {
         // Convert the coordinates from cartesian to isometric
-        Vector2 newCoordinates = new Vector2
-        {
-            x = x - y,
-            y = (x + y) * 0.5f
-        };
-
-        return newCoordinates;
+        return new Vector2(x - y, (x + y) * 0.5f);
     }
 
     /// <summary>
@@ -74,6 +68,10 @@ public static class Isometric
         return IsoToCart(coordinates.x, coordinates.y);
     }
 
+    /// <summary>
+    /// Used to sort sprites for a pseudo-3D effect.
+    /// </summary>
+    /// <param name="go">GameObject to be sorted.</param>
     public static void DepthSort(GameObject go)
     {
         // Get all children
@@ -85,8 +83,6 @@ public static class Isometric
 
         // Depth sort
         for (int i = 0; i < noOfChildren; i++)
-        {
-            spriteRenderers[i].sortingOrder = -(int)(go.transform.position.y * isometricRangePerYUnit) + i;
-        }
+            spriteRenderers[i].sortingOrder = -(int) (go.transform.position.y * isometricRangePerYUnit) + i;
     }
 }
