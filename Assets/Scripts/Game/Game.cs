@@ -6,7 +6,6 @@
 
 using UnityEngine;
 using System.IO;
-using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -76,12 +75,11 @@ public class Game : MonoBehaviour
     {
         // Save the game
 
-        // TODO Only save buildings, seperate files?
         // Save the world map
         TileDataContainer tileDataContainer = new TileDataContainer();
 
         foreach (Tile tile in _map.Tiles)
-            tileDataContainer.tileDataList.Add(tile.data);
+            tileDataContainer.tileDataList.Add(tile.Data);
 
         // Serialize data
         XMLSerializer.Serialize(tileDataContainer, Path.Combine(_baseFilePath, _worldName + ".xml"));
@@ -111,5 +109,27 @@ public class Game : MonoBehaviour
         // Toggle timescale for pausing and playing
         Time.timeScale = !_paused ? 0 : 1;
         _paused = !_paused;
+    }
+
+    private void Update()
+    {
+        // Get the last tile clicked
+        Tile lastTileClicked = _map.GetLastTileClicked();
+
+        if (lastTileClicked != null)
+        {
+            // Get tile to be placed
+            TileType tileToBePlaced = _map.GetTileToBePlaced();
+            // Get position of tile
+            Vector3 tilePos = lastTileClicked.transform.position;
+            // Check if a tile needs to be placed
+            if (tileToBePlaced != TileType.None)
+            {
+                // Spawn tile
+                _map.SpawnTile(tileToBePlaced, tilePos);
+                // Reset highlighting
+                _map.SetHighlightColour("");
+            }
+        }
     }
 }

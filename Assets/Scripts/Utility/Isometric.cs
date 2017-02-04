@@ -7,6 +7,7 @@
 // Website used: https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511
 // Website used: https://breadcrumbsinteractive.com/two-unity-tricks-isometric-games/
 
+using System.Xml.Serialization;
 using UnityEngine;
 
 /// <summary>
@@ -84,5 +85,25 @@ public static class Isometric
         // Depth sort
         for (int i = 0; i < noOfChildren; i++)
             spriteRenderers[i].sortingOrder = -(int) (go.transform.position.y * isometricRangePerYUnit) + i;
+    }
+
+    /// <summary>
+    /// Corrects a position to fit with other isometric tiles.
+    /// </summary>
+    /// <param name="position"></param>
+    /// <returns></returns>
+    public static Vector3 CorrectPosition(Vector3 position, int tileSize)
+    {
+        float factor = tileSize * 0.01f;
+
+        float xRem = position.x % factor;
+        float yRem = position.y % factor;
+
+        float halfFactor = factor * 0.5f;
+
+        position.x -= xRem <= halfFactor ? xRem : -(factor - xRem);
+        position.y -= yRem <= halfFactor ? yRem : -(factor - yRem);
+
+        return position;
     }
 }

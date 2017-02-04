@@ -15,7 +15,7 @@ class GameInfo : MonoBehaviour
 {
     // Variables
     private static float money;
-    private static Dictionary<BuildingType, int> taxSettings;
+    private static Dictionary<TileType, int> taxSettings;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ class GameInfo : MonoBehaviour
         money = 0;
 
         // Set default tax amounts
-        foreach (BuildingType buildingType in Enum.GetValues(typeof(BuildingType)))
-            taxSettings.Add(buildingType, 7);
+        foreach (TileType TileType in Enum.GetValues(typeof(TileType)))
+            taxSettings.Add(TileType, 7);
     }
 }

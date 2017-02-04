@@ -12,7 +12,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     // RTTI Type of building
-    public BuildingType type;
+    public TileType type;
 
     // Variables
     public BuildingDirection Direction;
@@ -31,13 +31,13 @@ public class Building : MonoBehaviour
     {
         switch(type)
         {
-            case BuildingType.Residential:
+            case TileType.Residential:
                 occupantMinMax = new Vector2(0, 100);
                 break;
-            case BuildingType.Commercial:
+            case TileType.Commercial:
                 occupantMinMax = new Vector2(0, 225);
                 break;
-            case BuildingType.Office:
+            case TileType.Office:
                 occupantMinMax = new Vector2(0, 500);
                 break;
         }

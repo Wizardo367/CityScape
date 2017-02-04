@@ -9,15 +9,15 @@
 /// </summary>
 public class PurchasableTile : Tile
 {
-    public new PurchasableTileData data = new PurchasableTileData();
+    public new PurchasableTileData Data = new PurchasableTileData();
 
-    public float price;
+    public float Price;
 
     // Initialisation
-    void Awake()
+    private void Awake()
     {
         // Make objects desructable - inherited member
-        destructable = true;
+        Destructable = true;
     }
 
     /// <summary>
@@ -26,8 +26,8 @@ public class PurchasableTile : Tile
     public override void StoreData()
     {
         base.StoreData();
-        data = (PurchasableTileData)base.data;
-        data.price = price;
+        Data = (PurchasableTileData)base.Data;
+        Data.price = Price;
     }
 
     /// <summary>
@@ -36,10 +36,10 @@ public class PurchasableTile : Tile
     public override void LoadData()
     {
         // Load local data before base data to prevent overwriting
-        price = data.price;
+        Price = Data.price;
 
         base.LoadData();
-        data = (PurchasableTileData)base.data;
+        Data = (PurchasableTileData)base.Data;
 
         // TODO Check that local data doesn't need to be set again
     }

@@ -11,26 +11,62 @@ using UnityEngine;
 /// </summary>
 public class Tile : MonoBehaviour
 {
-    public TileData data = new TileData();
+    public TileData Data = new TileData();
 
-    public bool buildable;
-    public bool destructable;
-    public TileType tileType;
+    public bool Buildable;
+    public bool Destructable;
+    public TileType TileType; // RTTI
+
+    private bool _clicked;
+    private bool _onTile;
+
+    private bool _enableHighlighting;
+    private Color _highlightColour;
+    private Color _normalColour;
+
+    private SpriteRenderer _spriteRenderer;
+
+    private void Start()
+    {
+        // Initialise
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        _normalColour = _spriteRenderer.color;
+    }
+
+    private void Update()
+    {
+        // Check for left mouse click
+        if (_onTile && Input.GetMouseButtonDown(0))
+            _clicked = true;
+    }
+
+    private void OnMouseEnter()
+    {
+        if (_enableHighlighting)
+            _spriteRenderer.color = _highlightColour;
+        _onTile = true;
+    }
+
+    private void OnMouseExit()
+    {
+        _spriteRenderer.color = _normalColour;
+        _onTile = false;
+    }
 
     /// <summary>
     /// Stores data to a TileData object.
     /// </summary>
     public virtual void StoreData()
     {
-        data.buildable = buildable;
-        data.destructable = destructable;
-        data.tileType = tileType;
+        Data.buildable = Buildable;
+        Data.destructable = Destructable;
+        Data.tileType = TileType;
 
         // Store position
         Vector3 position = gameObject.transform.position;
-        data.posX = position.x;
-        data.posY = position.y;
-        data.posZ = position.z;
+        Data.posX = position.x;
+        Data.posY = position.y;
+        Data.posZ = position.z;
     }
 
     /// <summary>
@@ -39,9 +75,35 @@ public class Tile : MonoBehaviour
     public virtual void LoadData()
     {
         // Load data
-        buildable = data.buildable;
-        destructable = data.destructable;
-        tileType = data.tileType;
-        transform.position = new Vector3(data.posX, data.posY, data.posZ);
+        Buildable = Data.buildable;
+        Destructable = Data.destructable;
+        TileType = Data.tileType;
+        transform.position = new Vector3(Data.posX, Data.posY, Data.posZ);
+    }
+
+    /// <summary>
+    /// Returns true if the tile was clicked, the value is reset after the check.
+    /// </summary>
+    /// <returns>Whether or not the tile was clicked.</returns>
+    public bool WasClicked()
+    {
+        // Store value
+        bool clicked = _clicked;
+        // Reset click
+        _clicked = false;
+        // Return original value
+        return clicked;
+    }
+
+    public void SetHighlighting(bool enabled, Color highlightColour)
+    {
+        _enableHighlighting = enabled;
+        _highlightColour = highlightColour;
+        _highlightColour.a = 1f;
+    }
+
+    public Color GetHighlightColour()
+    {
+        return _highlightColour;
     }
 }

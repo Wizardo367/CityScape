@@ -10,6 +10,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEditor;
 
 /// <summary>
 /// A class to be used for generating and loading 2D cartesian and isometric maps.
@@ -23,11 +24,19 @@ public class Map2D : MonoBehaviour
     public List<Tile> Tiles;
     public List<Building> Buildings;
 
+    public bool EnableTileHighlighting;
+    public Color TileHighlightColour;
+    private Color _normalTileColour;
+
+    private Tile _lastTileClicked;
+    private TileType _tileToBePlaced;
+
     private void Awake()
     {
         // Variable initialisation
         Tiles = new List<Tile>();
         Buildings = new List<Building>();
+        _normalTileColour = new Color(1f, 1f, 1f, 1f);
     }
 
     /// <summary>
@@ -140,7 +149,24 @@ public class Map2D : MonoBehaviour
         return CreateTile(data.tileType, new Vector3(data.posX, data.posY, data.posZ));
     }
 
-    public void SpawnBuilding()
+    private void Update()
+    {
+        foreach (Tile tile in Tiles)
+        {
+            // Set highlight colour
+            if (EnableTileHighlighting && tile.GetHighlightColour() != TileHighlightColour)
+                tile.SetHighlighting(true, TileHighlightColour);
+            else
+                // Remove highlight
+                tile.SetHighlighting(false, _normalTileColour);
+
+            // Check for clicks
+            if (tile.WasClicked())
+                _lastTileClicked = tile;
+        }
+    }
+
+    public void SpawnRandomBuilding()
     {
         // Pick a random tile
         Tile randTile;
@@ -154,7 +180,7 @@ public class Map2D : MonoBehaviour
             Vector3 randTilePosition = randTile.transform.position;
 
             // Check if the tile is buildable, occupied and whether the map is full
-            if (!randTile.buildable ||
+            if (!randTile.Buildable ||
                 Buildings.Count != Tiles.Count &&
                 Buildings.Any(building => building.transform.position == randTilePosition)) continue;
 
@@ -165,17 +191,70 @@ public class Map2D : MonoBehaviour
         Vector3 tilePosition = randTile.transform.position;
 
         // Pick random building
-        string randBuildingType = ((BuildingType)Random.Range(0, 3)).ToString();
-        string randBuilding = randBuildingType + "_1_1";
+        TileType randTileType = (TileType)Random.Range(0, 3);
+        int variation = 1;
+        int level = 1;
 
+        // Spawn building
+        SpawnBuilding(randTileType, variation, level, tilePosition);
+    }
+
+    public void SpawnBuilding(TileType type, int variation, int level, Vector3 position)
+    {
         // Place building
-        GameObject go = Resources.Load<GameObject>("Prefabs/" + randBuilding);
-        GameObject newBuilding = Instantiate(go, tilePosition, Quaternion.identity, GameObject.Find("Game").transform);
+        GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString() + "_" + variation + "_" + level);
+        GameObject newBuilding = Instantiate(go, position, Quaternion.identity, GameObject.Find("Game").transform);
 
         // Make child of Buildings GameObject
         newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
 
         // Add to list
         Buildings.Add(newBuilding.GetComponent<Building>());
+    }
+
+    public void SpawnTile(TileType type, Vector3 position)
+    {
+        GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString());
+        GameObject tile = Instantiate(go, position, Quaternion.identity, GameObject.Find("Game").transform);
+    }
+
+    public Tile GetLastTileClicked()
+    {
+        // Return tile and reset variable
+        Tile lastTile = _lastTileClicked;
+        _lastTileClicked = null;
+        return lastTile;
+    }
+
+    public TileType GetTileToBePlaced()
+    {
+        // Return tile type and reset variable
+        TileType tileType = _tileToBePlaced;
+        _tileToBePlaced = TileType.None;
+        return tileType;
+    }
+
+    public void SetHighlightColour(string colour)
+    {
+        switch (colour)
+        {
+            case "cyan":
+                TileHighlightColour = Color.cyan;
+                break;
+            case "green":
+                TileHighlightColour = Color.green;
+                break;
+            case "orange":
+                TileHighlightColour = new Color(1f, 0.5f, 0f, 1f);
+                break;
+            default:
+                TileHighlightColour = Color.white;
+                break;
+        }
+    }
+
+    public void SetTileTemplate(string tileType)
+    {
+        _tileToBePlaced = (TileType)System.Enum.Parse(typeof(TileType), tileType);
     }
 }
