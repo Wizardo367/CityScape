@@ -113,16 +113,28 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
+        // TODO Reduce repeated code
+
         // Get the last tile clicked
         Tile lastTileClicked = _map.GetLastTileClicked();
 
+        // Check if escape has been pressed, if so clear tile placement
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            _map.GetTileToBePlaced(); // Value reset to null once original value has been returned
+            // Reset highlighting
+            _map.SetHighlightColour("");
+        }
+
+        // Process tile placement
         if (lastTileClicked != null)
         {
             // Get tile to be placed
             TileType tileToBePlaced = _map.GetTileToBePlaced();
             // Get position of tile
             Vector3 tilePos = lastTileClicked.transform.position;
-            // Check if a tile needs to be placed
+
+            // Check if a tile needs to be placed, cancel if escape has been pressed
             if (tileToBePlaced != TileType.None)
             {
                 // Spawn tile
