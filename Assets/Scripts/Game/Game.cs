@@ -90,8 +90,7 @@ public class Game : MonoBehaviour
         // Load the game
 
         // Load the world
-        _map.Generate();
-        //LoadWorld(_worldName);
+        LoadWorld(_worldName);
 
         return true;
     }
@@ -126,19 +125,15 @@ public class Game : MonoBehaviour
             _map.SetHighlightColour("");
         }
 
-        // Process tile placement
+        // Process tile placement highlighting
         if (lastTileClicked != null)
         {
             // Get tile to be placed
             TileType tileToBePlaced = _map.GetTileToBePlaced();
-            // Get position of tile
-            Vector3 tilePos = lastTileClicked.transform.position;
 
             // Check if a tile needs to be placed, cancel if escape has been pressed
             if (tileToBePlaced != TileType.None)
             {
-                // Spawn tile
-                _map.SpawnTile(tileToBePlaced, tilePos);
                 // Reset highlighting
                 _map.SetHighlightColour("");
             }

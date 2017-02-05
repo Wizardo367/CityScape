@@ -25,12 +25,14 @@ public class Tile : MonoBehaviour
     private Color _normalColour;
 
     private SpriteRenderer _spriteRenderer;
+    private Map2D _map;
 
     private void Start()
     {
         // Initialise
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         _normalColour = _spriteRenderer.color;
+        _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 
     private void Update()
@@ -45,6 +47,9 @@ public class Tile : MonoBehaviour
         if (_enableHighlighting)
             _spriteRenderer.color = _highlightColour;
         _onTile = true;
+
+        // Set current tile
+        _map.SetCurrentTile(this);
     }
 
     private void OnMouseExit()

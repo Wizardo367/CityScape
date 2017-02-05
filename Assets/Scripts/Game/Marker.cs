@@ -10,6 +10,8 @@ public class Marker : MonoBehaviour
     private Time _startTime;
     private float _timeRemaining;
 
+    private Quaternion _finalRotation;
+
     private void Start()
     {
         _timeRemaining = Delay;
@@ -30,10 +32,15 @@ public class Marker : MonoBehaviour
             TileType buildingType = (TileType)System.Enum.Parse(typeof(TileType), typeString.Substring(0, typeString.Length - 6));
 
             // Spawn building
-            map.SpawnBuilding(buildingType, 1, 1, gameObject.transform.position);
+            map.SpawnBuilding(buildingType, 1, 1, gameObject.transform.position, _finalRotation);
 
             // Remove marker
             Destroy(gameObject);
         }
+    }
+
+    public void SetFinalRotation(Quaternion rotation)
+    {
+        _finalRotation = rotation;
     }
 }

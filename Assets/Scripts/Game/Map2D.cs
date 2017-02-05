@@ -10,7 +10,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
 
 /// <summary>
 /// A class to be used for generating and loading 2D cartesian and isometric maps.
@@ -28,6 +27,7 @@ public class Map2D : MonoBehaviour
     public Color TileHighlightColour;
     private Color _normalTileColour;
 
+    private Tile _currentTile;
     private Tile _lastTileClicked;
     private TileType _tileToBePlaced;
 
@@ -61,24 +61,28 @@ public class Map2D : MonoBehaviour
 
         // Create and place each tile
         for (int y = 0; y < YSize; y++)
-            for (int x = 0; x < XSize; x++)
-            {
-                // Calculate position
-                Vector3 position;
-                float halfUnitTileSize = tileSizeInUnits * 0.5f;
+        for (int x = 0; x < XSize; x++)
+        {
+            // Calculate position
+            Vector3 position;
+            float halfUnitTileSize = tileSizeInUnits * 0.5f;
 
-                if (Isometric)
-                    position = transform.position + (Vector3)global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) + transform.up * (y * halfUnitTileSize));
-                else
-                    position = transform.position + transform.right * (x * tileSizeInUnits) + transform.up * (y * tileSizeInUnits);
+            if (Isometric)
+                position = transform.position +
+                           (Vector3)
+                           global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) +
+                                                       transform.up * (y * halfUnitTileSize));
+            else
+                position = transform.position + transform.right * (x * tileSizeInUnits) +
+                           transform.up * (y * tileSizeInUnits);
 
-                // Create tile
-                Tile tile = CreateTile(TileType.Grass, position);
-                // Make GameObject a child object
-                tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
-                // Add tile to list
-                Tiles.Add(tile);
-            }
+            // Create tile
+            Tile tile = CreateTile(TileType.Grass, position);
+            // Make GameObject a child object
+            tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
+            // Add tile to list
+            Tiles.Add(tile);
+        }
     }
 
     /// <summary>
@@ -191,19 +195,19 @@ public class Map2D : MonoBehaviour
         Vector3 tilePosition = randTile.transform.position;
 
         // Pick random building
-        TileType randTileType = (TileType)Random.Range(0, 3);
+        TileType randTileType = (TileType) Random.Range(0, 3);
         int variation = 1;
         int level = 1;
 
         // Spawn building
-        SpawnBuilding(randTileType, variation, level, tilePosition);
+        SpawnBuilding(randTileType, variation, level, tilePosition, Quaternion.identity);
     }
 
-    public void SpawnBuilding(TileType type, int variation, int level, Vector3 position)
+    public void SpawnBuilding(TileType type, int variation, int level, Vector3 position, Quaternion rotation)
     {
         // Place building
         GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString() + "_" + variation + "_" + level);
-        GameObject newBuilding = Instantiate(go, position, Quaternion.identity, GameObject.Find("Game").transform);
+        GameObject newBuilding = Instantiate(go, position, rotation, GameObject.Find("Game").transform);
 
         // Make child of Buildings GameObject
         newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
@@ -212,10 +216,10 @@ public class Map2D : MonoBehaviour
         Buildings.Add(newBuilding.GetComponent<Building>());
     }
 
-    public void SpawnTile(TileType type, Vector3 position)
+    public void SpawnTile(TileType type, Vector3 position, Quaternion rotation)
     {
         GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString());
-        GameObject tile = Instantiate(go, position, Quaternion.identity, GameObject.Find("Game").transform);
+        GameObject tile = Instantiate(go, position, rotation, GameObject.Find("Game").transform);
     }
 
     public Tile GetLastTileClicked()
@@ -255,6 +259,16 @@ public class Map2D : MonoBehaviour
 
     public void SetTileTemplate(string tileType)
     {
-        _tileToBePlaced = (TileType)System.Enum.Parse(typeof(TileType), tileType);
+        _tileToBePlaced = (TileType) System.Enum.Parse(typeof(TileType), tileType);
+    }
+
+    public void SetCurrentTile(Tile tile)
+    {
+        _currentTile = tile;
+    }
+
+    public Tile GetCurrentTile()
+    {
+        return _currentTile;
     }
 }
