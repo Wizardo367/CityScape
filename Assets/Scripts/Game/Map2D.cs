@@ -196,8 +196,8 @@ public class Map2D : MonoBehaviour
 
         // Pick random building
         TileType randTileType = (TileType) Random.Range(0, 3);
-        int variation = 1;
-        int level = 1;
+        const int variation = 1;
+        const int level = 1;
 
         // Spawn building
         SpawnBuilding(randTileType, variation, level, tilePosition, Quaternion.identity);

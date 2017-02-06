@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlaceableObject : MonoBehaviour
+public class PlaceableObjectSpawner : MonoBehaviour
 {
     [Range(0.0f, 1.0f), Tooltip("The alpha value of the object before it's placed.")] public float HoverAlpha = 0.5f;
     public GameObject target;
@@ -34,7 +34,8 @@ public class PlaceableObject : MonoBehaviour
         if (_go == null) return;
 
         // Follow mouse/current tile till placed
-        Vector3 tilePos = _map.GetCurrentTile().transform.position;
+        Tile currentTile = _map.GetCurrentTile();
+        Vector3 tilePos = currentTile.transform.position;
         _go.transform.position = tilePos;
 
         // Check for keyboard input
@@ -43,6 +44,11 @@ public class PlaceableObject : MonoBehaviour
             // Rotate
             currentRotation.y = currentRotation.y >= 0 ? -180f : 0f;
             _go.transform.rotation = currentRotation;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Cancel placement
+            Destroy(_go);
         }
 
         // Check for clicks
@@ -67,6 +73,10 @@ public class PlaceableObject : MonoBehaviour
                 // Rotation
                 _go.transform.rotation = currentRotation;
             }
+
+            // Disable builadable property of the tile
+            // TODO Re-enable on object destruction
+            currentTile.Buildable = false;
 
             // Set go to null
             _go = null;

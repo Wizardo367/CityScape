@@ -114,29 +114,29 @@ public class Game : MonoBehaviour
     {
         // TODO Reduce repeated code
 
-        // Get the last tile clicked
-        Tile lastTileClicked = _map.GetLastTileClicked();
+        //// Get the last tile clicked
+        //Tile lastTileClicked = _map.GetLastTileClicked();
 
-        // Check if escape has been pressed, if so clear tile placement
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            _map.GetTileToBePlaced(); // Value reset to null once original value has been returned
-            // Reset highlighting
-            _map.SetHighlightColour("");
-        }
+        //// Check if escape has been pressed, if so clear tile placement
+        //if (Input.GetKeyUp(KeyCode.Escape))
+        //{
+        //    _map.GetTileToBePlaced(); // Value reset to null once original value has been returned
+        //    // Reset highlighting
+        //    _map.SetHighlightColour("");
+        //}
 
-        // Process tile placement highlighting
-        if (lastTileClicked != null)
-        {
-            // Get tile to be placed
-            TileType tileToBePlaced = _map.GetTileToBePlaced();
+        //// Process tile placement highlighting
+        //if (lastTileClicked != null)
+        //{
+        //    // Get tile to be placed
+        //    TileType tileToBePlaced = _map.GetTileToBePlaced();
 
-            // Check if a tile needs to be placed, cancel if escape has been pressed
-            if (tileToBePlaced != TileType.None)
-            {
-                // Reset highlighting
-                _map.SetHighlightColour("");
-            }
-        }
+        //    // Check if a tile needs to be placed, cancel if escape has been pressed
+        //    if (tileToBePlaced != TileType.None)
+        //    {
+        //        // Reset highlighting
+        //        _map.SetHighlightColour("");
+        //    }
+        //}
     }
 }

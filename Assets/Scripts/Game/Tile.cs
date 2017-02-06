@@ -18,7 +18,7 @@ public class Tile : MonoBehaviour
     public TileType TileType; // RTTI
 
     private bool _clicked;
-    private bool _onTile;
+    private bool _mouseOnTile;
 
     private bool _enableHighlighting;
     private Color _highlightColour;
@@ -38,7 +38,7 @@ public class Tile : MonoBehaviour
     private void Update()
     {
         // Check for left mouse click
-        if (_onTile && Input.GetMouseButtonDown(0))
+        if (_mouseOnTile && Input.GetMouseButtonDown(0))
             _clicked = true;
     }
 
@@ -46,7 +46,7 @@ public class Tile : MonoBehaviour
     {
         if (_enableHighlighting)
             _spriteRenderer.color = _highlightColour;
-        _onTile = true;
+        _mouseOnTile = true;
 
         // Set current tile
         _map.SetCurrentTile(this);
@@ -55,7 +55,7 @@ public class Tile : MonoBehaviour
     private void OnMouseExit()
     {
         _spriteRenderer.color = _normalColour;
-        _onTile = false;
+        _mouseOnTile = false;
     }
 
     /// <summary>
