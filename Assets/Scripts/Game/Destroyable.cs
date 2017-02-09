@@ -20,13 +20,16 @@ public class Destroyable : MonoBehaviour
         // TODO Optimise this
 
         // Check destroy and hover state
-        if (!(_map.GetCurrentTile().transform.position == _tilePos) || !_map.GetDestroyState()) return;
+        Tile currentTile = _map.GetCurrentTile();
+        if (!(currentTile.transform.position == _tilePos) || !_map.GetDestroyState()) return;
 
         // Check for clicks
         if (Input.GetMouseButtonUp(0))
         {
             // Destroy object
             Destroy(gameObject);
+            // Set current tile buildable property
+            currentTile.Buildable = true;
             // Toggle mode
             _map.ToggleDestroyMode();
         }

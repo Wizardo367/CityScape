@@ -56,6 +56,9 @@ public class PlaceableObjectSpawner : MonoBehaviour
         {
             // Object placed
 
+            // Check if the tile is buildable
+            if (!currentTile.Buildable) return;
+
             // Set alpha
             ToggleAlpha();
 
@@ -75,7 +78,6 @@ public class PlaceableObjectSpawner : MonoBehaviour
             }
 
             // Disable builadable property of the tile
-            // TODO Re-enable on object destruction
             currentTile.Buildable = false;
 
             // Set go to null
