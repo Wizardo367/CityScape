@@ -27,6 +27,7 @@ public class Map2D : MonoBehaviour
     public Color TileHighlightColour;
     private Color _normalTileColour;
 
+    private bool _destroyMode;
     private Tile _currentTile;
     private Tile _lastTileClicked;
     private TileType _tileToBePlaced;
@@ -155,6 +156,14 @@ public class Map2D : MonoBehaviour
 
     private void Update()
     {
+        // Check for keyboard input
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Disable destroy action
+            if (_destroyMode)
+                ToggleDestroyMode();
+        }
+
         foreach (Tile tile in Tiles)
         {
             // Set highlight colour
@@ -224,7 +233,7 @@ public class Map2D : MonoBehaviour
 
     public Tile GetLastTileClicked()
     {
-        // Return tile and reset variable
+        // Return tile
         Tile lastTile = _lastTileClicked;
         _lastTileClicked = null;
         return lastTile;
@@ -236,6 +245,11 @@ public class Map2D : MonoBehaviour
         TileType tileType = _tileToBePlaced;
         _tileToBePlaced = TileType.None;
         return tileType;
+    }
+
+    public void SetHighlightColour(float r, float g, float b, float a)
+    {
+        TileHighlightColour = new Color(r, g, b, a);
     }
 
     public void SetHighlightColour(string colour)
@@ -250,6 +264,9 @@ public class Map2D : MonoBehaviour
                 break;
             case "orange":
                 TileHighlightColour = new Color(1f, 0.5f, 0f, 1f);
+                break;
+            case "red":
+                TileHighlightColour = Color.red;
                 break;
             default:
                 TileHighlightColour = Color.white;
@@ -270,5 +287,27 @@ public class Map2D : MonoBehaviour
     public Tile GetCurrentTile()
     {
         return _currentTile;
+    }
+
+    public void ToggleDestroyMode()
+    {
+        _destroyMode = !_destroyMode;
+
+        // Set highlight colour
+        if (_destroyMode)
+        {
+            EnableTileHighlighting = true;
+            SetHighlightColour("red");
+        }
+        else
+        {
+            EnableTileHighlighting = false;
+            SetHighlightColour("");
+        }
+    }
+
+    public bool GetDestroyState()
+    {
+        return _destroyMode;
     }
 }
