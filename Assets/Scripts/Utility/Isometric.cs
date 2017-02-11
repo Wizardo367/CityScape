@@ -7,7 +7,6 @@
 // Website used: https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511
 // Website used: https://breadcrumbsinteractive.com/two-unity-tricks-isometric-games/
 
-using System.Xml.Serialization;
 using UnityEngine;
 
 /// <summary>

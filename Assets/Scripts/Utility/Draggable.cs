@@ -3,13 +3,10 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour
 {
-    private Vector3 _origin;
     private bool onObject;
 
     private void Start()
     {
-        // Variable initialisation
-        _origin = transform.position;
         // Add collider
         if (!gameObject.GetComponent<Collider2D>())
             gameObject.AddComponent<BoxCollider2D>();
@@ -38,10 +35,8 @@ public class Draggable : MonoBehaviour
         {
             // Check if mouse is over object
             if (onObject)
-            {
                 // Set position
                 gameObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
-            }
         }
     }
 }

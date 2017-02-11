@@ -3,11 +3,11 @@
 public class PlaceableObjectSpawner : MonoBehaviour
 {
     [Range(0.0f, 1.0f), Tooltip("The alpha value of the object before it's placed.")] public float HoverAlpha = 0.5f;
-    public GameObject target;
+    public GameObject Target;
 
     private GameObject _go;
     private SpriteRenderer[] _spriteRenderers;
-    private Quaternion currentRotation;
+    private Quaternion _currentRotation;
     private Color _defaultColour;
     private Map2D _map;
 
@@ -15,7 +15,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
     public void Init()
     {
         // Initialise object
-        _go = Instantiate(target);
+        _go = Instantiate(Target);
         _defaultColour = Color.white;
         // Set alpha
         _spriteRenderers = _go.GetComponentsInChildren<SpriteRenderer>();
@@ -42,8 +42,14 @@ public class PlaceableObjectSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             // Rotate
-            currentRotation.y = currentRotation.y >= 0 ? -180f : 0f;
-            _go.transform.rotation = currentRotation;
+            Rotatable2D rotatable2D = _go.GetComponent<Rotatable2D>();
+            rotatable2D.Rotate();
+
+            if (rotatable2D != null)
+            {
+                _currentRotation = rotatable2D.gameObject.transform.rotation;
+                _go.transform.rotation = _currentRotation;
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -69,12 +75,12 @@ public class PlaceableObjectSpawner : MonoBehaviour
                 // Enable script
                 markerScript.enabled = true;
                 // Rotation
-                ((Marker)markerScript).SetFinalRotation(currentRotation);
+                ((Marker)markerScript).SetFinalRotation(_currentRotation);
             }
             else
             {
                 // Rotation
-                _go.transform.rotation = currentRotation;
+                _go.transform.rotation = _currentRotation;
             }
 
             // Disable builadable property of the tile

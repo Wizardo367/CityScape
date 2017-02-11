@@ -7,7 +7,6 @@ public class Marker : MonoBehaviour
     [Tooltip("Delay till the target is shown, in seconds.")]
     public float Delay = 5;
 
-    private Time _startTime;
     private float _timeRemaining;
 
     private Quaternion _finalRotation;
@@ -32,7 +31,8 @@ public class Marker : MonoBehaviour
             TileType buildingType = (TileType)System.Enum.Parse(typeof(TileType), typeString.Substring(0, typeString.Length - 6));
 
             // Spawn building
-            map.SpawnBuilding(buildingType, 1, 1, gameObject.transform.position, _finalRotation);
+            int variant = Random.Range(1, 1); // Last number is exclusive
+            map.SpawnBuilding(buildingType, variant, 1, gameObject.transform.position, _finalRotation);
 
             // Remove marker
             Destroy(gameObject);

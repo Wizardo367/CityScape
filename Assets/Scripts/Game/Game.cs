@@ -22,7 +22,7 @@ public class Game : MonoBehaviour
     public static Game Instance { get { return _instance; } }
 
     // Initialisation
-    void Awake()
+    private void Awake()
     {
         // Check for existing instance
         if (_instance == null)
@@ -50,7 +50,7 @@ public class Game : MonoBehaviour
         InitGame();
     }
 
-    void InitGame()
+    private void InitGame()
     {
         // Load the game
         Load();
@@ -62,7 +62,7 @@ public class Game : MonoBehaviour
         //InvokeRepeating("Save", 30f, 30f);
     }
 
-    void RestoreWorldFiles()
+    private void RestoreWorldFiles()
     {
         // Copy world files to persistantDataPath
         TextAsset[] worlds = Resources.LoadAll<TextAsset>("Worlds/");
@@ -112,31 +112,6 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        // TODO Reduce repeated code
 
-        //// Get the last tile clicked
-        //Tile lastTileClicked = _map.GetLastTileClicked();
-
-        //// Check if escape has been pressed, if so clear tile placement
-        //if (Input.GetKeyUp(KeyCode.Escape))
-        //{
-        //    _map.GetTileToBePlaced(); // Value reset to null once original value has been returned
-        //    // Reset highlighting
-        //    _map.SetHighlightColour("");
-        //}
-
-        //// Process tile placement highlighting
-        //if (lastTileClicked != null)
-        //{
-        //    // Get tile to be placed
-        //    TileType tileToBePlaced = _map.GetTileToBePlaced();
-
-        //    // Check if a tile needs to be placed, cancel if escape has been pressed
-        //    if (tileToBePlaced != TileType.None)
-        //    {
-        //        // Reset highlighting
-        //        _map.SetHighlightColour("");
-        //    }
-        //}
     }
 }

@@ -100,9 +100,9 @@ public class Tile : MonoBehaviour
         return clicked;
     }
 
-    public void SetHighlighting(bool enabled, Color highlightColour)
+    public void SetHighlighting(bool enable, Color highlightColour)
     {
-        _enableHighlighting = enabled;
+        _enableHighlighting = enable;
         _highlightColour = highlightColour;
         _highlightColour.a = 1f;
     }
