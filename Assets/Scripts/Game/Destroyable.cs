@@ -17,7 +17,8 @@ public class Destroyable : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // TODO Optimise this
+        // Update tile position (Prevents Error) // TODO Fix this
+        _tilePos = _tile.transform.position;
 
         // Check destroy and hover state
         Tile currentTile = _map.GetCurrentTile();

@@ -11,12 +11,16 @@ public class PlaceableObjectSpawner : MonoBehaviour
     private Color _defaultColour;
     private Map2D _map;
 
-
     public void Init()
     {
+        // Reset map destroy state
+        if (_map.GetDestroyState())
+            _map.ToggleDestroyMode();
+
         // Initialise object
         _go = Instantiate(Target);
         _defaultColour = Color.white;
+
         // Set alpha
         _spriteRenderers = _go.GetComponentsInChildren<SpriteRenderer>();
         ToggleAlpha();
@@ -65,13 +69,12 @@ public class PlaceableObjectSpawner : MonoBehaviour
             // Check if the tile is buildable
             if (!currentTile.Buildable) return;
 
-            // Set alpha
-            ToggleAlpha();
-
             // Activate marker script if found
             MonoBehaviour markerScript = _go.GetComponent<Marker>();
             if (markerScript != null)
             {
+                // TODO Check if the marker is next to a road
+
                 // Enable script
                 markerScript.enabled = true;
                 // Rotation
@@ -82,6 +85,10 @@ public class PlaceableObjectSpawner : MonoBehaviour
                 // Rotation
                 _go.transform.rotation = _currentRotation;
             }
+
+
+            // Set alpha
+            ToggleAlpha();
 
             // Disable builadable property of the tile
             currentTile.Buildable = false;
