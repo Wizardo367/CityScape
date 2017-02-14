@@ -20,7 +20,7 @@ public class Map2D : MonoBehaviour
     public int TileSizeX;
     public int XSize, YSize;
     public GameObject Prefab;
-    public List<Tile> Tiles;
+    public Tile[,] Tiles;
     public List<Building> Buildings;
 
     public bool EnableTileHighlighting;
@@ -35,7 +35,7 @@ public class Map2D : MonoBehaviour
     private void Awake()
     {
         // Variable initialisation
-        Tiles = new List<Tile>();
+        Tiles = new Tile[XSize, YSize];
         Buildings = new List<Building>();
         _normalTileColour = new Color(1f, 1f, 1f, 1f);
     }
@@ -46,7 +46,7 @@ public class Map2D : MonoBehaviour
     /// <param name="currentCamera">The camera to be positioned.</param>
     public void centreCameraView(Camera currentCamera)
     {
-        Vector3 mapCentre = Tiles[(Tiles.Count - 1) / 2].transform.position;
+        Vector3 mapCentre = Tiles[Tiles.GetLength(0) / 2, Tiles.GetLength(1) / 2].transform.position;
         mapCentre.z = -10f;
         currentCamera.transform.position = mapCentre;
     }
@@ -82,7 +82,7 @@ public class Map2D : MonoBehaviour
             // Make GameObject a child object
             tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
             // Add tile to list
-            Tiles.Add(tile);
+            Tiles[x, y] = tile;
         }
     }
 
@@ -94,7 +94,7 @@ public class Map2D : MonoBehaviour
     public void Load(string path)
     {
         // Clear existing tiles
-        Tiles.Clear();
+        Tiles = new Tile[XSize, YSize];
 
         // Check if the file exists
         if (!File.Exists(path))
@@ -109,14 +109,20 @@ public class Map2D : MonoBehaviour
             Destroy(child.gameObject);
 
         // Create tile
-        foreach (TileData tileData in tileDataContainer.tileDataList)
+        List<TileData> tileDataList = tileDataContainer.tileDataList;
+        int arrayCounter = 0; 
+
+        for (int y = 0; y < YSize; y++)
+        for (int x = 0; x < XSize; x++)
         {
             // Create tile
-            Tile tile = CreateTile(tileData);
+            Tile tile = CreateTile(tileDataList[arrayCounter]);
             // Make tile a child object
             tile.gameObject.transform.parent = parentObj.transform;
-            // Add tile to list
-            Tiles.Add(tile);
+            // Add tile to array
+            Tiles[x, y] = tile;
+            // Update array counter
+            arrayCounter++;
         }
     }
 
@@ -187,14 +193,14 @@ public class Map2D : MonoBehaviour
         while (true)
         {
             // Get a random tile
-            randTile = Tiles[Random.Range(0, Tiles.Count)];
+            randTile = Tiles[Random.Range(0, Tiles.GetLength(0)), Random.Range(0, Tiles.GetLength(1))];
 
             // Check if the tile is buildable
             Vector3 randTilePosition = randTile.transform.position;
 
             // Check if the tile is buildable, occupied and whether the map is full
             if (!randTile.Buildable ||
-                Buildings.Count != Tiles.Count &&
+                Buildings.Count != Tiles.Length &&
                 Buildings.Any(building => building.transform.position == randTilePosition)) continue;
 
             break;

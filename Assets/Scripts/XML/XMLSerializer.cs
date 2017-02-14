@@ -1,5 +1,5 @@
 ﻿/*
- *       Class: Game
+ *       Class: XMLSerializer
  *      Author: Harish Bhagat
  *        Year: 2017
  */
