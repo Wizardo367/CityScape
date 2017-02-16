@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Marker : MonoBehaviour
 {
@@ -27,8 +29,22 @@ public class Marker : MonoBehaviour
             Map2D map = GameObject.Find("Game").GetComponent<Map2D>();
 
             // Get building type (Assumes Type is set correctly)
-            string typeString = Type.ToString();
-            TileType buildingType = (TileType)System.Enum.Parse(typeof(TileType), typeString.Substring(0, typeString.Length - 6));
+            TileType buildingType;
+
+            switch (Type)
+            {
+                case TileType.CommercialMarker:
+                    buildingType = TileType.Commercial;
+                    break;
+                case TileType.OfficeMarker:
+                    buildingType = TileType.Office;
+                    break;
+                case TileType.ResidentialMarker:
+                    buildingType = TileType.Residential;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
 
             // Spawn building
             int variant = Random.Range(1, 1); // Last number is exclusive

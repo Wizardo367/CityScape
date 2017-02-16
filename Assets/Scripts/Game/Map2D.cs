@@ -44,7 +44,7 @@ public class Map2D : MonoBehaviour
     /// Changes the position of the camera to the centre of the map.
     /// </summary>
     /// <param name="currentCamera">The camera to be positioned.</param>
-    public void centreCameraView(Camera currentCamera)
+    public void CentreCameraView(Camera currentCamera)
     {
         Vector3 mapCentre = Tiles[Tiles.GetLength(0) / 2, Tiles.GetLength(1) / 2].transform.position;
         mapCentre.z = -10f;
@@ -222,10 +222,7 @@ public class Map2D : MonoBehaviour
     {
         // Place building
         GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString() + "_" + variation + "_" + level);
-        GameObject newBuilding = Instantiate(go, position, rotation, GameObject.Find("Game").transform);
-
-        // Make child of Buildings GameObject
-        newBuilding.transform.parent = GameObject.Find("Game/Buildings").transform;
+        GameObject newBuilding = Instantiate(go, position, rotation, GetTileParent(go).transform);
 
         // Add to list
         Buildings.Add(newBuilding.GetComponent<Building>());
@@ -234,7 +231,7 @@ public class Map2D : MonoBehaviour
     public void SpawnTile(TileType type, Vector3 position, Quaternion rotation)
     {
         GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString());
-        GameObject tile = Instantiate(go, position, rotation, GameObject.Find("Game").transform);
+        GameObject tile = Instantiate(go, position, rotation, GetTileParent(go).transform);
     }
 
     public Tile GetLastTileClicked()
@@ -260,6 +257,9 @@ public class Map2D : MonoBehaviour
 
     public void SetHighlightColour(string colour)
     {
+        // Prevents case sensitivity
+        colour = colour.ToLower();
+
         switch (colour)
         {
             case "cyan":
@@ -298,22 +298,45 @@ public class Map2D : MonoBehaviour
     public void ToggleDestroyMode()
     {
         _destroyMode = !_destroyMode;
-
         // Set highlight colour
-        if (_destroyMode)
-        {
-            EnableTileHighlighting = true;
-            SetHighlightColour("red");
-        }
-        else
-        {
-            EnableTileHighlighting = false;
-            SetHighlightColour("");
-        }
+        EnableTileHighlighting = _destroyMode;
+        SetHighlightColour(_destroyMode ? "red" : "");
     }
 
     public bool GetDestroyState()
     {
         return _destroyMode;
+    }
+
+    public GameObject GetTileParent(GameObject go)
+    {
+        // Get the tiles parent and return it, this is done so that gameobjects are organised
+        Tile tile = go.GetComponent<Tile>();
+        TileType type = tile.TileType;
+
+        switch (type)
+        {
+            case TileType.None:
+                break;
+            case TileType.Commercial:
+            case TileType.CommercialMarker:
+            case TileType.Office:
+            case TileType.OfficeMarker:
+            case TileType.Residential:
+            case TileType.ResidentialMarker:
+                return GameObject.Find("Game/Tiles/Buildings");
+            case TileType.CrossRoad:
+            case TileType.StraightRoad:
+            case TileType.StraightTurnRoadX:
+            case TileType.StraightTurnRoadY:
+                return GameObject.Find("Game/Tiles/Roads");
+            case TileType.Grass:
+            case TileType.Sand:
+            case TileType.SandWater:
+            case TileType.Water:
+                return GameObject.Find("Game/Tiles/Ground");
+        }
+
+        return GameObject.Find("Game/Tiles");
     }
 }

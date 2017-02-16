@@ -56,7 +56,7 @@ public class Game : MonoBehaviour
         Load();
 
         // Centre the camera
-        _map.centreCameraView(_mainCamera);
+        _map.CentreCameraView(_mainCamera);
 
         // Autosave every 30 seconds
         //InvokeRepeating("Save", 30f, 30f);

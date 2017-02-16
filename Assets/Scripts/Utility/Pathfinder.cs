@@ -86,6 +86,8 @@ public class Pathfinder : MonoBehaviour
 
     private int GetDistance(Node startNode, Node targetNode)
     {
+        // 14 is for tiles diagonal of the current tile and 10 is for tiles straight of the current tile
+
         int distX = Mathf.Abs(startNode.GridX - targetNode.GridX);
         int distY = Mathf.Abs(startNode.GridY - targetNode.GridY);
 

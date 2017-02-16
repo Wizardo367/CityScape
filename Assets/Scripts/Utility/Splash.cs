@@ -6,17 +6,22 @@ using UnityEngine.SceneManagement;
 public class Splash : MonoBehaviour
 {
     private float _timer;
+
+    public string NextScene;
     public float Duration = 3f;
 
-    void Start()
+
+    private void Start()
     {
         _timer = 0;
     }
 
-    void Update()
+    private void Update()
     {
         _timer += Time.deltaTime;
+
+        // Load scene after splash timer has ended
         if (_timer >= Duration)
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(NextScene);
     }
 }

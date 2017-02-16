@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlaceableObjectSpawner : MonoBehaviour
 {
@@ -18,8 +19,9 @@ public class PlaceableObjectSpawner : MonoBehaviour
             _map.ToggleDestroyMode();
 
         // Initialise object
-        _go = Instantiate(Target);
+        _go = Instantiate(Target, _map.GetTileParent(Target).transform);
         _defaultColour = Color.white;
+        _currentRotation = Quaternion.identity;
 
         // Set alpha
         _spriteRenderers = _go.GetComponentsInChildren<SpriteRenderer>();
@@ -47,10 +49,10 @@ public class PlaceableObjectSpawner : MonoBehaviour
         {
             // Rotate
             Rotatable2D rotatable2D = _go.GetComponent<Rotatable2D>();
-            rotatable2D.Rotate();
 
             if (rotatable2D != null)
             {
+                rotatable2D.Rotate();
                 _currentRotation = rotatable2D.gameObject.transform.rotation;
                 _go.transform.rotation = _currentRotation;
             }
@@ -85,7 +87,6 @@ public class PlaceableObjectSpawner : MonoBehaviour
                 // Rotation
                 _go.transform.rotation = _currentRotation;
             }
-
 
             // Set alpha
             ToggleAlpha();
