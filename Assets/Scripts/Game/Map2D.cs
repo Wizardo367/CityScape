@@ -62,28 +62,28 @@ public class Map2D : MonoBehaviour
 
         // Create and place each tile
         for (int y = 0; y < YSize; y++)
-        for (int x = 0; x < XSize; x++)
-        {
-            // Calculate position
-            Vector3 position;
-            float halfUnitTileSize = tileSizeInUnits * 0.5f;
+            for (int x = 0; x < XSize; x++)
+            {
+                // Calculate position
+                Vector3 position;
+                float halfUnitTileSize = tileSizeInUnits * 0.5f;
 
-            if (Isometric)
-                position = transform.position +
-                           (Vector3)
-                           global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) +
-                                                       transform.up * (y * halfUnitTileSize));
-            else
-                position = transform.position + transform.right * (x * tileSizeInUnits) +
-                           transform.up * (y * tileSizeInUnits);
+                if (Isometric)
+                    position = transform.position +
+                               (Vector3)
+                               global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) +
+                                                           transform.up * (y * halfUnitTileSize));
+                else
+                    position = transform.position + transform.right * (x * tileSizeInUnits) +
+                               transform.up * (y * tileSizeInUnits);
 
-            // Create tile
-            Tile tile = CreateTile(TileType.Grass, position);
-            // Make GameObject a child object
-            tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
-            // Add tile to list
-            Tiles[x, y] = tile;
-        }
+                // Create tile
+                Tile tile = CreateTile(TileType.Grass, position);
+                // Make GameObject a child object
+                tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
+                // Add tile to list
+                Tiles[x, y] = tile;
+            }
     }
 
     /// <summary>
@@ -110,20 +110,24 @@ public class Map2D : MonoBehaviour
 
         // Create tile
         List<TileData> tileDataList = tileDataContainer.tileDataList;
-        int arrayCounter = 0; 
+        int arrayCounter = 0;
 
         for (int y = 0; y < YSize; y++)
-        for (int x = 0; x < XSize; x++)
-        {
-            // Create tile
-            Tile tile = CreateTile(tileDataList[arrayCounter]);
-            // Make tile a child object
+            for (int x = 0; x < XSize; x++)
+            {
+                // Create tile
+                TileData tileData = tileDataList[arrayCounter];
+                Tile tile = CreateTile(tileData);
+                // Set properties
+                tile.Buildable = tileData.buildable;
+                tile.Destructable = tileData.destructable;
+                // Make tile a child object
             tile.gameObject.transform.parent = parentObj.transform;
-            // Add tile to array
-            Tiles[x, y] = tile;
-            // Update array counter
-            arrayCounter++;
-        }
+                // Add tile to array
+                Tiles[x, y] = tile;
+                // Update array counter
+                arrayCounter++;
+            }
     }
 
     /// <summary>
@@ -210,7 +214,7 @@ public class Map2D : MonoBehaviour
         Vector3 tilePosition = randTile.transform.position;
 
         // Pick random building
-        TileType randTileType = (TileType) Random.Range(0, 3);
+        TileType randTileType = (TileType)Random.Range(0, 3);
         const int variation = 1;
         const int level = 1;
 
@@ -282,7 +286,7 @@ public class Map2D : MonoBehaviour
 
     public void SetTileTemplate(string tileType)
     {
-        _tileToBePlaced = (TileType) System.Enum.Parse(typeof(TileType), tileType);
+        _tileToBePlaced = (TileType)System.Enum.Parse(typeof(TileType), tileType);
     }
 
     public void SetCurrentTile(Tile tile)

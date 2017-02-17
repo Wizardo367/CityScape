@@ -41,6 +41,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
 
         // Follow mouse/current tile till placed
         Tile currentTile = _map.GetCurrentTile();
+        Debug.Log(_map.GetCurrentTile().transform.position);
         Vector3 tilePos = currentTile.transform.position;
         _go.transform.position = tilePos;
 
