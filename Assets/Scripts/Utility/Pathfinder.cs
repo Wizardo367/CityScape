@@ -1,99 +1,144 @@
-﻿// Video used: https://www.youtube.com/watch?v=mZfyt03LDH4&t=806s
-
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pathfinder : MonoBehaviour
+// Video used: https://www.youtube.com/playlist?list=PLhPNOL0P0EY1ksFFhhoN5SsNYHaw8U2AP
+// Video used: https://www.youtube.com/watch?v=mZfyt03LDH4
+
+public class Pathfinder
 {
-    private Grid _grid;
+    public Grid Grid;
+    public List<Node> OpenSet;
+    public List<Node> ClosedSet;
+    public List<Node> Path;
+    public Node GoalNode;
+    public int Iterations;
+    public bool PathFound;
 
-    // Use this for initialization
-    void Start()
+    public Pathfinder(Grid grid)
     {
-        _grid = GetComponent<Grid>(); // must be on same GameObject
+        Grid = grid;
     }
 
-    private void FindPath(Node startNode, Node targetNode)
+    public void Start(Node start, Node goal)
     {
-        List<Node> openSet = new List<Node>();
-        HashSet<Node> closedSet = new HashSet<Node>();
+        // Add start to open set
+        OpenSet = new List<Node>();
+        OpenSet.Add(start);
 
-        // Add start node to open
-        openSet.Add(startNode);
+        // Add goal node
+        GoalNode = goal;
 
-        // Loop nodes
-        while (openSet.Count > 0)
+        // Initialise variables
+        ClosedSet = new List<Node>();
+        Path = new List<Node>();
+        Iterations = 0;
+
+        // Clear previous nodes to prevent error
+        foreach (Node node in Grid.Nodes)
+            node.Clear();
+    }
+
+    public void Step()
+    {
+        // Search next node and neighbours
+
+        // Check if path has been found
+        if (Path.Count > 0)
+            return;
+
+        if (OpenSet.Count == 0)
         {
-            Node currentNode = openSet[0];
+            PathFound = true;
+            return;
+        }
 
-            for (int i = 1; i < openSet.Count; i++)
-                // Check for lowest fCost, if they're both the same compare hCost
-                if (openSet[i].FCost < currentNode.FCost || openSet[i].FCost == currentNode.FCost && openSet[i].HCost < currentNode.HCost)
-                    currentNode = openSet[i];
+        // Keeping track helps prevent system from stalling
+        Iterations++;
 
-            // Remove current node from open set
-            openSet.Remove(currentNode);
-            // Add current node to closed set
-            closedSet.Add(currentNode);
+        // Get next node
+        Node node = ChooseNode();
 
-            // Check if path has been found
-            if (currentNode == targetNode)
+        // Remove node from open set and add to closed set
+        OpenSet.Remove(node);
+        ClosedSet.Add(node);
+
+        // Check if goal has been reached
+        if (node == GoalNode)
+        {
+            while (node != null)
             {
-                RetracePath(startNode, targetNode);
-                return;
+                // Reverse path
+                Path.Insert(0, node);
+                node = node.Previous;
             }
 
-            // Loop through neighbours
-            foreach (Node neighbour in _grid.GetNeighbours(currentNode))
-            {
-                // Check if neighbour is not traversable or closed
-                if (!neighbour.Traversable || closedSet.Contains(neighbour)) continue;
+            PathFound = true;
+            return;
+        }
 
-                // Check if new path to neighbour is shorter or neighbour is not in open
-                int newMoveCost = currentNode.GCost + GetDistance(currentNode, neighbour);
+        // Iterate through neighbours
+        foreach (Node neighbour in node.Neighbours)
+            AddNeighbour(node, neighbour);
+    }
 
-                if (newMoveCost < neighbour.GCost || !openSet.Contains(neighbour))
-                {
-                    // Set fCost by setting gCost and hCost
-                    neighbour.GCost = newMoveCost;
-                    neighbour.HCost = GetDistance(neighbour, targetNode);
-                    // Set parent
-                    neighbour.parent = currentNode;
+    public void AddNeighbour(Node node, Node neighbour)
+    {
+        if (ClosedSet.Contains(neighbour)) return;
+        
+        int moveCost = node.GCost + GetDistance(node, neighbour);
 
-                    // Add neighbour to open set
-                    if (!openSet.Contains(neighbour))
-                        openSet.Add(neighbour);
-               }
-            }
+        // New path found
+        if (moveCost < node.GCost || !OpenSet.Contains(neighbour))
+        {
+            neighbour.GCost = moveCost;
+            neighbour.HCost = GetDistance(neighbour, GoalNode);
+            neighbour.Previous = node;
+
+            if (!OpenSet.Contains(neighbour))
+                OpenSet.Add(neighbour);
         }
     }
 
-    // Used to constantly retrace the path as it updates
-    private void RetracePath(Node startNode, Node targetNode)
+    public Vector2 GetGridPosition(Node node)
     {
-        List<Node> path = new List<Node>();
-        Node currentNode = targetNode;
+        int nodeSize = node.Size;
 
-        // Work backwards
-        while (currentNode != startNode)
-        {
-            path.Add(currentNode);
-            currentNode = currentNode.parent;
-        }
+        Vector2 worldPosition = node.gameObject.transform.position;
 
-        path.Reverse();
+        int gridX = (int)Math.Round(worldPosition.x / nodeSize + 0.5f);
+        int gridY = (int)Math.Round(worldPosition.y / nodeSize + 0.5f);
+
+        return new Vector2(gridX, gridY);
     }
 
-    private int GetDistance(Node startNode, Node targetNode)
+    public int GetNodeIndex(Node node, List<Node> nodes)
     {
-        // 14 is for tiles diagonal of the current tile and 10 is for tiles straight of the current tile
+        for (int i = 0; i < nodes.Count; i++)
+            if (node == nodes[i])
+                return i;
 
-        int distX = Mathf.Abs(startNode.GridX - targetNode.GridX);
-        int distY = Mathf.Abs(startNode.GridY - targetNode.GridY);
+        return -1;
+    }
 
-        if (distX > distY)
-            return 14 * distY + 10 * (distX - distY);
+    public int GetDistance(Node nodeA, Node nodeB)
+    {
+        // Gets the distance between two nodes
+        int distX = Mathf.Abs(nodeA.GridX - nodeB.GridX);
+        int distY = Mathf.Abs(nodeA.GridY - nodeB.GridY);
 
-        return 14 * distX + 10 * (distY - distX);
+        return distX + distY;
+    }
+
+    public Node ChooseNode()
+    {
+        // Return current node
+        Node node = OpenSet[0];
+
+        foreach (Node selectedNode in OpenSet)
+            if (selectedNode.FCost < node.FCost || selectedNode.FCost == node.FCost && selectedNode.HCost < node.HCost)
+                node = selectedNode;
+
+        return node;
     }
 }

@@ -32,12 +32,21 @@ public class Map2D : MonoBehaviour
     private Tile _lastTileClicked;
     private TileType _tileToBePlaced;
 
+    // Pathfinding variables
+    private int[,] _layout;
+    private Grid _grid;
+    private Pathfinder _pathfinder;
+
     private void Awake()
     {
         // Variable initialisation
         Tiles = new Tile[XSize, YSize];
         Buildings = new List<Building>();
         _normalTileColour = new Color(1f, 1f, 1f, 1f);
+
+        _layout = new int[XSize, YSize];
+        // Identify non-walkable blocks within layout
+
     }
 
     /// <summary>
@@ -343,4 +352,6 @@ public class Map2D : MonoBehaviour
 
         return GameObject.Find("Game/Tiles");
     }
+
+
 }

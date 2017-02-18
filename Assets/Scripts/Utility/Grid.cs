@@ -1,75 +1,52 @@
-﻿// Video used: https://www.youtube.com/watch?v=nhiFx28e7JY&t=530s
+﻿// Video used: https://www.youtube.com/playlist?list=PLhPNOL0P0EY1ksFFhhoN5SsNYHaw8U2AP
 
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Grid : MonoBehaviour
+public class Grid
 {
-    [Tooltip("The size of the grid in nodes; (e.g. 100x100)")]
-    public Vector2 GridWorldSize;
-    public int NodeSize;
+    public int Rows;
+    public int Columns;
+    public Node[] Nodes;
 
-    private Node[,] grid;
-
-    private void Start()
+    public Grid(int[,] layout)
     {
-        // Initialise variables 
-        // TODO Make this better
-        grid = new Node[int.Parse(GridWorldSize.x.ToString()), int.Parse(GridWorldSize.y.ToString())];
+        // Set size of grid
+        Rows = layout.GetLength(0);
+        Columns = layout.GetLength(1);
 
-        // Populate grid array
-        Transform[] childrenTransforms = gameObject.GetComponentsInChildren<Transform>();
-        int counter = 0;
+        // Create array
+        Nodes = new Node[layout.Length];
 
-        for (int y = 0; y < GridWorldSize.y; y++)
-            for (int x = 0; x < GridWorldSize.x; x++)
+        // Populate node array
+        for (int i = 0; i < Nodes.Length; i++)
+            Nodes[i] = new Node { Label = i.ToString() };
+
+        // Index the nodes
+        for (int r = 0; r < Rows; r++)
+            for (int c = 0; c < Columns; c++)
             {
-                // Get node
-                Node node = childrenTransforms[counter].gameObject.GetComponent<Node>();
-                // Check if node is null
-                if (node == null) continue;
-                // Add node
-                node.GridX = x;
-                node.GridY = y;
-                grid[x, y] = node;
-                // Update counter
-                counter++;
+                Node node = Nodes[Columns * r + c];
+                node.GridX = r;
+                node.GridY = c;
+
+                // Check for unwalkable nodes
+                if (layout[r, c] == 1) continue;
+
+                // Get neighbours
+
+                // Up
+                if (r > 0)
+                    node.Neighbours.Add(Nodes[Columns * (r - 1) + c]);
+
+                // Right
+                if (c < Columns - 1)
+                    node.Neighbours.Add(Nodes[Columns * r + c + 1]);
+
+                // Down
+                if (r < Rows - 1)
+                    node.Neighbours.Add(Nodes[Columns * (r + 1) + c]);
+
+                // Left
+                if (c > 0)
+                    node.Neighbours.Add(Nodes[Columns * r + c - 1]);
             }
-    }
-
-    public List<Node> GetNeighbours(Node node)
-    {
-        List<Node> neighbours = new List<Node>();
-
-        // Check in a 3x3 pattern (-1 start helps identify the starting node)
-        for (int x = -1; x <= -1; x++)
-            for (int y = -1; y <= -1; y++)
-            {
-                // Check if node is the node being checked
-                if (x == 0 && y == 0) continue;
-
-                int checkX = node.GridX + x;
-                int checkY = node.GridY + y;
-
-                if (checkX >= 0 && checkX < GridWorldSize.x && checkY >= 0 && checkY < GridWorldSize.y)
-                    neighbours.Add(grid[checkX, checkY]);
-            }
-
-        return neighbours;
-    }
-
-    public Node GetNode(Vector3 worldPosition)
-    {
-        for (int y = 0; y < GridWorldSize.y; y++)
-            for (int x = 0; x < GridWorldSize.x; x++)
-            {
-                // Get node
-                Node node = grid[x, y];
-                // Compare positions
-                if (node.transform.position == worldPosition)
-                    return node;
-            }
-
-        return null;
     }
 }

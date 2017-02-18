@@ -1,22 +1,24 @@
-﻿// Video used: https://www.youtube.com/watch?v=nhiFx28e7JY&t=530s
-
+﻿using System.Collections.Generic;
 using UnityEngine;
+
+// Video used: https://www.youtube.com/playlist?list=PLhPNOL0P0EY1ksFFhhoN5SsNYHaw8U2AP
 
 public class Node : MonoBehaviour
 {
+    public List<Node> Neighbours = new List<Node>();
+    public Node Previous;
+    public string Label = "";
     public bool Traversable;
+
     public int GridX, GridY;
+    public int Size;
 
     public int GCost;
     public int HCost;
 
-    public Node parent;
-
-    public Node(bool traversable, int gridX, int gridY)
+    public void Clear()
     {
-        Traversable = traversable;
-        GridX = gridX;
-        GridY = gridY;
+        Previous = null;
     }
 
     public int FCost
