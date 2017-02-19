@@ -41,9 +41,11 @@ public class PlaceableObjectSpawner : MonoBehaviour
 
         // Follow mouse/current tile till placed
         Tile currentTile = _map.GetCurrentTile();
-        Debug.Log(_map.GetCurrentTile().transform.position);
-        Vector3 tilePos = currentTile.transform.position;
-        _go.transform.position = tilePos;
+        if (currentTile != null)
+        {
+            Vector3 tilePos = currentTile.transform.position;
+            _go.transform.position = tilePos;
+        }
 
         // Check for keyboard input
         if (Input.GetKeyDown(KeyCode.R))
@@ -72,22 +74,9 @@ public class PlaceableObjectSpawner : MonoBehaviour
             // Check if the tile is buildable
             if (!currentTile.Buildable) return;
 
-            // Activate marker script if found
-            MonoBehaviour markerScript = _go.GetComponent<Marker>();
-            if (markerScript != null)
-            {
-                // TODO Check if the marker is next to a road
-
-                // Enable script
-                markerScript.enabled = true;
-                // Rotation
-                ((Marker)markerScript).SetFinalRotation(_currentRotation);
-            }
-            else
-            {
-                // Rotation
-                _go.transform.rotation = _currentRotation;
-            }
+            // Process tile types
+            processNode(currentTile);
+            ProcessMarker();
 
             // Set alpha
             ToggleAlpha();
@@ -109,5 +98,35 @@ public class PlaceableObjectSpawner : MonoBehaviour
             newColour.a = currentColor.a == HoverAlpha ? 1f : HoverAlpha;
             spriteRenderer.color = newColour;
         }
+    }
+
+    private void ProcessMarker()
+    {
+        // Activate marker script if found
+        MonoBehaviour markerScript = _go.GetComponent<Marker>();
+        if (markerScript != null)
+        {
+            // TODO Check if the marker is next to a road
+
+            // Enable script
+            markerScript.enabled = true;
+            // Rotation
+            ((Marker)markerScript).SetFinalRotation(_currentRotation);
+        }
+        else
+        {
+            // Rotation
+            _go.transform.rotation = _currentRotation;
+        }
+    }
+
+    private void processNode(Tile currentTile)
+    {
+        Node node = currentTile.gameObject.GetComponent<Node>();
+        if (node == null) return;
+
+        // Find the map tile Node underneath the current Node and set it as traversable
+        currentTile.gameObject.GetComponent<Node>().Traversable = true;
+        GameObject.Find("Game").GetComponent<RoadPathFinder>().UpdateMap();
     }
 }

@@ -10,6 +10,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 
 /// <summary>
 /// A class to be used for generating and loading 2D cartesian and isometric maps.
@@ -33,9 +34,8 @@ public class Map2D : MonoBehaviour
     private TileType _tileToBePlaced;
 
     // Pathfinding variables
-    private int[,] _layout;
-    private Grid _grid;
-    private Pathfinder _pathfinder;
+    private RoadPathFinder _roadPathFinder;
+    private CountdownTimer _timer;
 
     private void Awake()
     {
@@ -44,9 +44,9 @@ public class Map2D : MonoBehaviour
         Buildings = new List<Building>();
         _normalTileColour = new Color(1f, 1f, 1f, 1f);
 
-        _layout = new int[XSize, YSize];
-        // Identify non-walkable blocks within layout
-
+        _roadPathFinder = gameObject.GetComponent<RoadPathFinder>();
+        _timer = gameObject.GetComponent<CountdownTimer>();
+        _timer.Begin();
     }
 
     /// <summary>
@@ -131,7 +131,7 @@ public class Map2D : MonoBehaviour
                 tile.Buildable = tileData.buildable;
                 tile.Destructable = tileData.destructable;
                 // Make tile a child object
-            tile.gameObject.transform.parent = parentObj.transform;
+                tile.gameObject.transform.parent = parentObj.transform;
                 // Add tile to array
                 Tiles[x, y] = tile;
                 // Update array counter
@@ -195,6 +195,16 @@ public class Map2D : MonoBehaviour
             // Check for clicks
             if (tile.WasClicked())
                 _lastTileClicked = tile;
+        }
+
+        // Spawn traffic
+        if (_timer.IsDone())
+        {
+            SpawnTraffic();
+
+            // Reset timer
+            _timer.ResetClock();
+            _timer.Begin();
         }
     }
 
@@ -353,5 +363,41 @@ public class Map2D : MonoBehaviour
         return GameObject.Find("Game/Tiles");
     }
 
+    public void SpawnTraffic()
+    {
+        // Check the number of tiles available
+        Node[] roadNodes = GameObject.Find("Game/Tiles/Roads").GetComponentsInChildren<Node>();
+        int noOfNodes = roadNodes.Length;
+        if (noOfNodes < 3) return;
 
+        int firstIndex;
+        int secondIndex;
+
+        while (true)
+        {
+            // Find a random path
+            firstIndex = Random.Range(0, noOfNodes);
+            secondIndex = Random.Range(0, noOfNodes);
+
+            // Check the indices aren't the same and that there is a sufficent amount of space to travel
+            if (firstIndex != secondIndex && Mathf.Abs(firstIndex - secondIndex) >= 1) break;
+        }
+
+        // Get the nodes underneath the road nodes
+        Node[] groundNodes = GameObject.Find("Game/Tiles/Ground").GetComponentsInChildren<Node>();
+        Node firstNode = roadNodes[firstIndex];
+        Node secondNode = roadNodes[secondIndex];
+
+        foreach (Node node in groundNodes)
+        {
+            Vector3 nodePos = node.gameObject.transform.position;
+
+            if (nodePos == firstNode.gameObject.transform.position)
+                firstNode = node;
+            else if (nodePos == secondNode.gameObject.transform.position)
+                secondNode = node;
+        }
+
+        _roadPathFinder.FindPath(firstNode, secondNode);
+    }
 }

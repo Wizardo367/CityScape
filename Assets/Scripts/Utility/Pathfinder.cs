@@ -23,8 +23,7 @@ public class Pathfinder
     public void Start(Node start, Node goal)
     {
         // Add start to open set
-        OpenSet = new List<Node>();
-        OpenSet.Add(start);
+        OpenSet = new List<Node> {start};
 
         // Add goal node
         GoalNode = goal;
@@ -56,8 +55,30 @@ public class Pathfinder
         // Keeping track helps prevent system from stalling
         Iterations++;
 
-        // Get next node
-        Node node = ChooseNode();
+        Node node;
+
+        while (true)
+        {
+            // Get next node
+            node = ChooseNode();
+
+            // Check if node is null
+            if (node == null)
+            {
+                PathFound = true;
+                continue;
+            }
+
+            // Check if the node is traversable
+            if (!node.Traversable)
+            {
+                OpenSet.Remove(node);
+                ClosedSet.Add(node);
+                continue;
+            }
+
+            break;
+        }
 
         // Remove node from open set and add to closed set
         OpenSet.Remove(node);
@@ -103,9 +124,13 @@ public class Pathfinder
     public Vector2 GetGridPosition(Node node)
     {
         int nodeSize = node.Size;
-
         Vector2 worldPosition = node.gameObject.transform.position;
 
+        return GetGridPosition(worldPosition, nodeSize);
+    }
+
+    public Vector2 GetGridPosition(Vector2 worldPosition, int nodeSize)
+    {
         int gridX = (int)Math.Round(worldPosition.x / nodeSize + 0.5f);
         int gridY = (int)Math.Round(worldPosition.y / nodeSize + 0.5f);
 
@@ -132,8 +157,14 @@ public class Pathfinder
 
     public Node ChooseNode()
     {
-        // Return current node
-        Node node = OpenSet[0];
+        // Get current node
+        Node node;
+
+        // Check if any nodes are left to explore
+        if (OpenSet.Count > 0)
+            node = OpenSet[0];
+        else
+            return null;
 
         foreach (Node selectedNode in OpenSet)
             if (selectedNode.FCost < node.FCost || selectedNode.FCost == node.FCost && selectedNode.HCost < node.HCost)

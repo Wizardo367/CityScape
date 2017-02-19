@@ -12,6 +12,9 @@ public class Game : MonoBehaviour
     private static Game _instance;
     private GameState _gameState;
 
+    // Game properties
+    private int _happiness = 0;
+
     private Map2D _map;
 
     Camera _mainCamera;

@@ -1,23 +1,27 @@
 ﻿// Video used: https://www.youtube.com/playlist?list=PLhPNOL0P0EY1ksFFhhoN5SsNYHaw8U2AP
 
-public class Grid
+using UnityEngine;
+
+public class Grid : MonoBehaviour
 {
     public int Rows;
     public int Columns;
     public Node[] Nodes;
+    public GameObject Map;
+    public int[,] Layout;
 
-    public Grid(int[,] layout)
+    private void Start()
     {
-        // Set size of grid
-        Rows = layout.GetLength(0);
-        Columns = layout.GetLength(1);
+        // Initialise layout
+        if (Layout == null)
+            Layout = new int[Rows, Columns];
 
         // Create array
-        Nodes = new Node[layout.Length];
+        Nodes = Map.GetComponentsInChildren<Node>();
 
         // Populate node array
         for (int i = 0; i < Nodes.Length; i++)
-            Nodes[i] = new Node { Label = i.ToString() };
+            Nodes[i].Label = i.ToString();
 
         // Index the nodes
         for (int r = 0; r < Rows; r++)
@@ -28,7 +32,7 @@ public class Grid
                 node.GridY = c;
 
                 // Check for unwalkable nodes
-                if (layout[r, c] == 1) continue;
+                if (Layout[r, c] == 1) continue;
 
                 // Get neighbours
 

@@ -22,7 +22,7 @@ public class Destroyable : MonoBehaviour
 
         // Check destroy and hover state
         Tile currentTile = _map.GetCurrentTile();
-        if (!(currentTile.transform.position == _tilePos) || !_map.GetDestroyState()) return;
+        if (currentTile == null || !(currentTile.transform.position == _tilePos) || !_map.GetDestroyState()) return;
 
         // Check for clicks
         if (Input.GetMouseButtonUp(0))

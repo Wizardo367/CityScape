@@ -3,11 +3,14 @@
 public class RoadPathFinder : MonoBehaviour
 {
     public int MapSizeX, MapSizeY;
-    public GameObject MapGroup;
+    public GameObject NodeGroup;
+    public bool ShowPath;
 
     private int[,] _map;
     private Grid _grid;
     private Pathfinder _pathfinder;
+
+    private int noOfTiles;
 
     // Use this for initialization
     private void Start()
@@ -18,25 +21,33 @@ public class RoadPathFinder : MonoBehaviour
     private Tile GetTile(string label)
     {
         int id = int.Parse(label);
-        GameObject go = MapGroup.transform.GetChild(id).gameObject;
+        GameObject go = NodeGroup.transform.GetChild(id).gameObject;
 
         return go.GetComponent<Tile>();
     }
 
     public void FindPath(Node start, Node goal)
     {
-        // Loop through nodes
-        Node[] searchTiles = MapGroup.GetComponentsInChildren<Node>();
+        // Check if the map needs updating
+        Node[] nodes = NodeGroup.GetComponentsInChildren<Node>();
+        int childCount = nodes.Length;
 
-        // Mark occupied grid positions
-        for (int x = 0; x < MapSizeX; x++)
-            for (int y = 0; y < MapSizeY; y++)
+        if (childCount != noOfTiles)
+        {
+            UpdateMap();
+            noOfTiles = childCount;
+        }
+
+        // Clear previous colour path
+        if (ShowPath)
+            foreach (Node node in nodes)
             {
-                Node node = searchTiles[x * MapSizeY + y];
-                _map[x, y] = (x == node.GridX && y == node.GridY) ? 0 : 1;
+                SpriteRenderer sp = node.gameObject.GetComponent<SpriteRenderer>();
+                sp.color = Color.white;
             }
 
-        _grid = new Grid(_map);
+        _grid = gameObject.GetComponent<Grid>();
+        _grid.Layout = _map;
         _pathfinder = new Pathfinder(_grid);
         _pathfinder.Start(start, goal);
 
@@ -46,10 +57,26 @@ public class RoadPathFinder : MonoBehaviour
         Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
 
         // Show path
-        foreach (Node node in _pathfinder.Path)
-        {
-            SpriteRenderer sp = GetTile(node.Label).gameObject.GetComponent<SpriteRenderer>();
-            sp.color = Color.red;
-        }
+        if (ShowPath)
+            foreach (Node node in _pathfinder.Path)
+            {
+                SpriteRenderer sp = GetTile(node.Label).gameObject.GetComponent<SpriteRenderer>();
+                sp.color = Color.red;
+            }
+    }
+
+    public void UpdateMap()
+    {
+        // Loop through nodes
+        Node[] searchTiles = NodeGroup.GetComponentsInChildren<Node>();
+
+        // Mark all tiles as occupied
+        for (int x = 0; x < MapSizeX; x++)
+            for (int y = 0; y < MapSizeY; y++)
+                _map[x, y] = 1;
+
+        // Mark road tiles as traversable
+        foreach (Node node in searchTiles)
+            _map[node.GridX, node.GridY] = node.Traversable ? 0 : 1;
     }
 }
