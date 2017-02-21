@@ -15,7 +15,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
     public void Init()
     {
         // Reset map destroy state
-        if (_map.GetDestroyState())
+        if (_map.DestroyMode)
             _map.ToggleDestroyMode();
 
         // Initialise object
@@ -40,7 +40,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
         if (_go == null) return;
 
         // Follow mouse/current tile till placed
-        Tile currentTile = _map.GetCurrentTile();
+        Tile currentTile = _map.CurrentTile;
         if (currentTile != null)
         {
             Vector3 tilePos = currentTile.transform.position;

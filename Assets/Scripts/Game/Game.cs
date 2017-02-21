@@ -17,10 +17,11 @@ public class Game : MonoBehaviour
 
     private Map2D _map;
 
-    Camera _mainCamera;
-
     private bool _paused;
     private string _baseFilePath, _worldName;
+
+    public float MusicVolume = 1f;
+    public float SFXVolume = 1f;
 
     public static Game Instance { get { return _instance; } }
 
@@ -42,9 +43,6 @@ public class Game : MonoBehaviour
         // Don't destroy instance when loading a new scene
         DontDestroyOnLoad(gameObject);
 
-        // Grab camera reference
-        _mainCamera = Camera.main;
-
         // File paths
         _baseFilePath = Application.persistentDataPath;
         _worldName = "world_beach";
@@ -59,7 +57,7 @@ public class Game : MonoBehaviour
         Load();
 
         // Centre the camera
-        _map.CentreCameraView(_mainCamera);
+        _map.CentreCameraView(Camera.main);
 
         // Autosave every 30 seconds
         //InvokeRepeating("Save", 30f, 30f);
@@ -111,6 +109,18 @@ public class Game : MonoBehaviour
         // Toggle timescale for pausing and playing
         Time.timeScale = !_paused ? 0 : 1;
         _paused = !_paused;
+    }
+
+    public void MuteMusic()
+    {
+        // Set using music volume for simplicity
+        MusicVolume = 0f;
+    }
+
+    public void MuteSFX()
+    {
+        // Set using sfx volume for simplicity
+        SFXVolume = 0f;
     }
 
     private void Update()

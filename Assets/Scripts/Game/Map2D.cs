@@ -28,10 +28,12 @@ public class Map2D : MonoBehaviour
     public Color TileHighlightColour;
     private Color _normalTileColour;
 
-    private bool _destroyMode;
-    private Tile _currentTile;
-    private Tile _lastTileClicked;
     private TileType _tileToBePlaced;
+
+    // Properties
+    public bool DestroyMode { get; private set; }
+    public Tile CurrentTile { get; set; }
+    public Tile LastTileClicked { get; private set; }
 
     // Pathfinding variables
     private RoadPathFinder _roadPathFinder;
@@ -179,7 +181,7 @@ public class Map2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             // Disable destroy action
-            if (_destroyMode)
+            if (DestroyMode)
                 ToggleDestroyMode();
         }
 
@@ -194,7 +196,7 @@ public class Map2D : MonoBehaviour
 
             // Check for clicks
             if (tile.WasClicked())
-                _lastTileClicked = tile;
+                LastTileClicked = tile;
         }
 
         // Spawn traffic
@@ -257,14 +259,6 @@ public class Map2D : MonoBehaviour
         GameObject tile = Instantiate(go, position, rotation, GetTileParent(go).transform);
     }
 
-    public Tile GetLastTileClicked()
-    {
-        // Return tile
-        Tile lastTile = _lastTileClicked;
-        _lastTileClicked = null;
-        return lastTile;
-    }
-
     public TileType GetTileToBePlaced()
     {
         // Return tile type and reset variable
@@ -308,27 +302,12 @@ public class Map2D : MonoBehaviour
         _tileToBePlaced = (TileType)System.Enum.Parse(typeof(TileType), tileType);
     }
 
-    public void SetCurrentTile(Tile tile)
-    {
-        _currentTile = tile;
-    }
-
-    public Tile GetCurrentTile()
-    {
-        return _currentTile;
-    }
-
     public void ToggleDestroyMode()
     {
-        _destroyMode = !_destroyMode;
+        DestroyMode = !DestroyMode;
         // Set highlight colour
-        EnableTileHighlighting = _destroyMode;
-        SetHighlightColour(_destroyMode ? "red" : "");
-    }
-
-    public bool GetDestroyState()
-    {
-        return _destroyMode;
+        EnableTileHighlighting = DestroyMode;
+        SetHighlightColour(DestroyMode ? "red" : "");
     }
 
     public GameObject GetTileParent(GameObject go)
@@ -365,6 +344,8 @@ public class Map2D : MonoBehaviour
 
     public void SpawnTraffic()
     {
+        // Find a path
+
         // Check the number of tiles available
         Node[] roadNodes = GameObject.Find("Game/Tiles/Roads").GetComponentsInChildren<Node>();
         int noOfNodes = roadNodes.Length;

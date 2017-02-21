@@ -49,7 +49,7 @@ public class Tile : MonoBehaviour
         _mouseOnTile = true;
 
         // Set current tile
-        _map.SetCurrentTile(this);
+        _map.CurrentTile = this;
     }
 
     private void OnMouseExit()
