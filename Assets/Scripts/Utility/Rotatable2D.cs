@@ -3,7 +3,6 @@
 public class Rotatable2D : MonoBehaviour
 {
     public bool RotateX, RotateY;
-    public bool UseXAsPrimarySprite;
 
     private int _counter;
     private int _maxCounter;
@@ -28,9 +27,9 @@ public class Rotatable2D : MonoBehaviour
         if (RotateX && RotateY)
         {
             if (_counter == 0 || _counter == 2)
-                gameObject.transform.Rotate(0f, 180f, 0f);
+                gameObject.transform.Rotate(0f, 180f, 0f); // X
             else if (_counter == 1 || _counter == 3)
-                gameObject.transform.Rotate(180f, 0f, 0f);
+                gameObject.transform.Rotate(180f, 0f, 0f); // Y
         }
         else if (RotateX)
         {
