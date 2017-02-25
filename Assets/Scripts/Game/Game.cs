@@ -13,8 +13,9 @@ public class Game : MonoBehaviour
     private GameState _gameState;
 
     // Game properties
-    public float _residentialTax = 5f, _commercialTax = 5f, _officeTax = 5f;
-    public int _happiness = 0;
+    public float ResidentialTax = 5f, CommercialTax = 5f, OfficeTax = 5f;
+    public int Happiness;
+    public int Population;
 
     private Map2D _map;
 

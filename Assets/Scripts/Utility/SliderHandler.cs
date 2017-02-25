@@ -16,10 +16,10 @@ public class SliderHandler : MonoBehaviour
         Game game = GameObject.Find("Game").GetComponent<Game>();
 
         if (taxType == "residential")
-            game._residentialTax = _slider.value;
+            game.ResidentialTax = _slider.value;
         else if (taxType == "commercial")
-            game._commercialTax = _slider.value;
+            game.CommercialTax = _slider.value;
         else if (taxType == "office")
-            game._officeTax = _slider.value;
+            game.OfficeTax = _slider.value;
     }
 }

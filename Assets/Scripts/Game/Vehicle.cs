@@ -4,16 +4,14 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     public List<Node> Path;
-    public float Speed = 0.01f;
+    public float Speed = 1f;
     public bool Stationary = true;
 
-    private List<Node> _traversedNodes;
     private Vector3 _targetPos;
 
     private void Start()
     {
         // Initialise variables
-        _traversedNodes = new List<Node>();
         _targetPos = gameObject.transform.position;
     }
 
@@ -21,7 +19,7 @@ public class Vehicle : MonoBehaviour
     private void Update()
     {
         // Check for a path or if stationary or if the last move is done
-        if (Path.Count == 0 || Stationary || !MoveDone(_targetPos)) return;
+        if (!MoveDone() || Path.Count == 0 || Stationary) return;
 
         // Get the next node
         Node node = Path[0];
@@ -29,18 +27,23 @@ public class Vehicle : MonoBehaviour
         Vector3 nodePos = node.gameObject.transform.position;
         // Set targetPos
         _targetPos = nodePos;
-        // Get current position
-        Vector3 currentPos = gameObject.transform.position;
-        // Travel from your current position to the node
-        gameObject.transform.position = Vector3.MoveTowards(currentPos, _targetPos, Speed * Time.deltaTime);
 
-        // Remove the node from the list and add it to traversedNodes
+        // Remove the node from the list
         Path.RemoveAt(0);
-        _traversedNodes.Add(node);
     }
 
-    private bool MoveDone(Vector3 targetPos)
+    private bool MoveDone()
     {
-        return gameObject.transform.position == targetPos;
+        // Get current position
+        Vector3 currentPos = gameObject.transform.position;
+
+        // Check if the move to the target is done
+        if (currentPos == _targetPos)
+            return true;
+
+        // Travel from your current position to the node
+        gameObject.transform.position = Vector2.MoveTowards(currentPos, _targetPos, Time.deltaTime * (Speed * 0.1f));
+
+        return false;
     }
 }
