@@ -342,7 +342,7 @@ public class Map2D : MonoBehaviour
         return GameObject.Find("Game/Tiles");
     }
 
-    public void SpawnTraffic()
+    public void GenerateRandomPath()
     {
         // Find a path
 
@@ -379,6 +379,43 @@ public class Map2D : MonoBehaviour
                 secondNode = node;
         }
 
+        // Find path
         _roadPathFinder.FindPath(firstNode, secondNode);
+    }
+
+    public void SpawnTraffic()
+    {
+        // Get random path
+        GenerateRandomPath();
+        List<Node> path = _roadPathFinder.GetPath();
+
+        // Get random car
+        int randomInt = Random.Range(0, 4);
+        string carString = "";
+
+        switch (randomInt)
+        {
+            case 0:
+                carString = "Car_Red";
+                break;
+            case 1:
+                carString = "Car_Blue";
+                break;
+            case 2:
+                carString = "Car_Green";
+                break;
+            case 3:
+                carString = "Car_Black";
+                break;
+        }
+
+        GameObject car = Resources.Load<GameObject>("Prefabs/Vehicle/" + carString);
+
+        // Set car's path
+        Vehicle vehicle = car.GetComponent<Vehicle>();
+        vehicle.Path = path;
+        // Spawn car
+        Instantiate(car, path[0].transform.position, Quaternion.identity);
+        vehicle.Stationary = false;
     }
 }

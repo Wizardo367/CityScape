@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class RoadPathFinder : MonoBehaviour
 {
@@ -78,5 +79,15 @@ public class RoadPathFinder : MonoBehaviour
         // Mark road tiles as traversable
         foreach (Node node in searchTiles)
             _map[node.GridX, node.GridY] = node.Traversable ? 0 : 1;
+    }
+
+    public bool PathFound()
+    {
+        return _pathfinder.PathFound;
+    }
+
+    public List<Node> GetPath()
+    {
+        return _pathfinder.Path;
     }
 }
