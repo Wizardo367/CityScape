@@ -4,8 +4,10 @@
  *        Year: 2017
  */
 
+using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 
 public class Game : MonoBehaviour
 {
@@ -14,8 +16,26 @@ public class Game : MonoBehaviour
 
     // Game properties
     public float ResidentialTax = 5f, CommercialTax = 5f, OfficeTax = 5f;
-    public int Happiness;
-    public int Population;
+    public int Money = 1000;
+
+    public int Happiness
+    {
+        get
+        {
+            // Calculate happiness
+            List<Building> buildings = _map.Buildings;
+            return buildings.Sum(building => building.Happiness) / (buildings.Count == 0 ? 1 : buildings.Count); // Check for division by 0
+        }
+    }
+
+    public int Population
+    {
+        get
+        {
+            // Get a sum of each building's population
+            return _map.Buildings.Sum(building => building.OccupantCount);
+        }
+    }
 
     private Map2D _map;
 

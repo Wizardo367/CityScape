@@ -29,7 +29,7 @@ public class Building : MonoBehaviour
 
     private void Awake()
     {
-        switch(type)
+        switch (type)
         {
             case TileType.Residential:
                 occupantMinMax = new Vector2(0, 100);
@@ -46,70 +46,26 @@ public class Building : MonoBehaviour
     // Properties
     public int TaxPercentage
     {
-        get
-        {
-            return taxPercentage;
-        }
-        set
-        {
-            if (value < taxMinMax.x)
-                taxPercentage = (int) taxMinMax.x;
-            else if (value > taxMinMax.y)
-                taxPercentage = (int) taxMinMax.y;
-            else
-                taxPercentage = value;
-        }
+        get { return taxPercentage; }
+        set { taxPercentage = (int)Mathf.Clamp(value, taxMinMax.x, taxMinMax.y); }
     }
 
     public int OccupantCount
     {
-        get
-        {
-            return occupantCount;
-        }
-        set
-        {
-            if (value < occupantMinMax.x)
-                occupantCount = (int) occupantMinMax.x;
-            else if (value > occupantMinMax.y)
-                occupantCount = (int) occupantMinMax.y;
-            else
-                occupantCount = value;
-        }
+        get { return occupantCount; }
+        set { occupantCount = (int)Mathf.Clamp(value, occupantMinMax.x, occupantMinMax.y); }
     }
 
     public int Level
     {
-        get
-        {
-            return level;
-        }
-        set
-        {
-            if (value < levelMinMax.x)
-                level = (int) levelMinMax.x;
-            else if (value > levelMinMax.y)
-                level = (int) levelMinMax.y;
-            else
-                level = value;
-        }
+        get { return level; }
+        set { level = (int)Mathf.Clamp(value, levelMinMax.x, levelMinMax.y); }
     }
 
     public int Happiness
     {
-        get
-        {
-            return happiness;
-        }
-        set
-        {
-            if (value < happinessMinMax.x)
-                happiness = (int) happinessMinMax.x;
-            else if (value > happinessMinMax.y)
-                happiness = (int) happinessMinMax.y;
-            else
-                happiness = value;
-        }
+        get { return happiness; }
+        set { happiness = (int)Mathf.Clamp(value, happinessMinMax.x, happinessMinMax.y); }
     }
 
     /// <summary>
