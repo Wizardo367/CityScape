@@ -26,7 +26,11 @@ public class UIUpdater : MonoBehaviour
         if (_gameObjectName == "Money_Display")
         {
             // Update the field to show the current amount of money the player has
-            Field.text = _game.Money.ToString();
+            int money = _game.Money;
+            Field.text = money.ToString();
+
+            Text text = gameObject.transform.FindChild("Text").GetComponent<Text>();
+            text.color = money < 0 ? Color.red : new Color(0f, 0.44f, 0.13f);
         }
         else if (_gameObjectName == "Population_Display")
         {

@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
 
     // Game properties
     public float ResidentialTax = 5f, CommercialTax = 5f, OfficeTax = 5f;
-    public int Money = 1000;
+    public int Money;
 
     public int Happiness
     {
