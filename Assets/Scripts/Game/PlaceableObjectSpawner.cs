@@ -75,7 +75,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
             if (!currentTile.Buildable) return;
 
             // Process tile types
-            processNode(currentTile);
+            ProcessNode(currentTile);
             ProcessMarker();
 
             // Set alpha
@@ -95,7 +95,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
         {
             Color currentColor = spriteRenderer.color;
             Color newColour = _defaultColour;
-            newColour.a = currentColor.a == HoverAlpha ? 1f : HoverAlpha;
+            newColour.a = Mathf.Approximately(currentColor.a, HoverAlpha) ? 1f : HoverAlpha;
             spriteRenderer.color = newColour;
         }
     }
@@ -120,7 +120,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
         }
     }
 
-    private void processNode(Tile currentTile)
+    private void ProcessNode(Tile currentTile)
     {
         Node node = currentTile.gameObject.GetComponent<Node>();
         if (node == null) return;

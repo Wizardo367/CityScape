@@ -54,7 +54,8 @@ public class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
-        _spriteRenderer.color = _normalColour;
+        if (_enableHighlighting)
+            _spriteRenderer.color = _normalColour;
         _mouseOnTile = false;
     }
 

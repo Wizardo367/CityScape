@@ -7,4 +7,4 @@
  /// <summary>
  /// Used to define a tile's type.
  /// </summary>
-public enum TileType { None, Commercial, CommercialMarker, CrossRoad, Grass, Office, OfficeMarker, Residential, ResidentialMarker, Sand, SandWater, StraightRoad, StraightTurnRoadX, StraightTurnRoadY, Water };
+public enum TileType { None, Commercial, CommercialMarker, CrossRoad, Grass, Office, OfficeMarker, Pavement, Residential, ResidentialMarker, Sand, SandWater, StraightRoad, StraightTurnRoadX, StraightTurnRoadY, Tree, Water }

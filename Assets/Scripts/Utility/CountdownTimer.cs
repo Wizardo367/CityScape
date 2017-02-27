@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CountdownTimer : MonoBehaviour
+public class CountdownTimer
 {
     public bool Paused = true;
     public float Seconds;
@@ -24,7 +24,7 @@ public class CountdownTimer : MonoBehaviour
         Paused = true;
     }
 
-    private void Update()
+    public void Update()
     {
         if (!Paused || IsDone())
             Seconds -= Time.deltaTime;

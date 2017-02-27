@@ -33,7 +33,7 @@ public class Game : MonoBehaviour
         get
         {
             // Get a sum of each building's population
-            return _map.Buildings.Sum(building => building.OccupantCount);
+            return _map.Buildings.Sum(building => building.Occupants);
         }
     }
 
@@ -44,6 +44,10 @@ public class Game : MonoBehaviour
 
     public float MusicVolume = 1f;
     public float SFXVolume = 1f;
+
+    private AudioSource _musicSource, _sfxSource;
+
+    private CountdownTimer _taxTimer;
 
     public static Game Instance { get { return _instance; } }
 
@@ -56,11 +60,19 @@ public class Game : MonoBehaviour
         else if (_instance != this)
             Destroy(gameObject);
 
+        // Initialise tax timer
+        _taxTimer = new CountdownTimer {Seconds = 10f};
+        _taxTimer.Begin();
+
         // Initialise map
         _map = gameObject.GetComponent<Map2D>();
 
         // Set gameState
         _gameState = GameState.Active;
+
+        // Get audio sources
+        _musicSource = transform.FindChild("Music").GetComponent<AudioSource>();
+        _sfxSource = transform.FindChild("SFX").GetComponent<AudioSource>();
 
         // Don't destroy instance when loading a new scene
         DontDestroyOnLoad(gameObject);
@@ -133,20 +145,29 @@ public class Game : MonoBehaviour
         _paused = !_paused;
     }
 
-    public void MuteMusic()
+    public void ToggleMusic()
     {
-        // Set using music volume for simplicity
-        MusicVolume = 0f;
+        // Mute or unmute music
+        _musicSource.mute = !_musicSource.mute;
     }
 
-    public void MuteSFX()
+    public void ToggleSFX()
     {
-        // Set using sfx volume for simplicity
-        SFXVolume = 0f;
+        // Mute or unmute sfx
+        _sfxSource.mute = !_sfxSource.mute;
     }
 
     private void Update()
     {
+        // Collect taxes
+        if (_taxTimer.IsDone())
+        {
+            Money += Mathf.RoundToInt(_map.Buildings.Sum(building => building.CollectTax()));
 
+            _taxTimer.ResetClock();
+            _taxTimer.Begin();
+        }
+        else
+            _taxTimer.Update();
     }
 }

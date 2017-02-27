@@ -47,7 +47,7 @@ public class Map2D : MonoBehaviour
         _normalTileColour = new Color(1f, 1f, 1f, 1f);
 
         _roadPathFinder = gameObject.GetComponent<RoadPathFinder>();
-        _timer = gameObject.GetComponent<CountdownTimer>();
+        _timer = new CountdownTimer {Seconds = 15f};
         _timer.Begin();
     }
 
@@ -150,7 +150,7 @@ public class Map2D : MonoBehaviour
     private static Tile CreateTile(TileType tileType, Vector3 position)
     {
         // Get prefab of tileType
-        GameObject prefab = Resources.Load<GameObject>("Prefabs/" + tileType);
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/World/" + tileType);
 
         // Instantiate
         GameObject go = Instantiate(prefab, position, Quaternion.identity);
@@ -246,7 +246,7 @@ public class Map2D : MonoBehaviour
     public void SpawnBuilding(TileType type, int variation, int level, Vector3 position, Quaternion rotation)
     {
         // Place building
-        GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString() + "_" + variation + "_" + level);
+        GameObject go = Resources.Load<GameObject>("Prefabs/Buildings/" + type.ToString() + "_" + variation + "_" + level);
         GameObject newBuilding = Instantiate(go, position, rotation, GetTileParent(go).transform);
 
         // Add to list
@@ -342,14 +342,14 @@ public class Map2D : MonoBehaviour
         return GameObject.Find("Game/Tiles");
     }
 
-    public void GenerateRandomPath()
+    public bool GenerateRandomPath()
     {
         // Find a path
 
         // Check the number of tiles available
         Node[] roadNodes = GameObject.Find("Game/Tiles/Roads").GetComponentsInChildren<Node>();
         int noOfNodes = roadNodes.Length;
-        if (noOfNodes < 3) return;
+        if (noOfNodes < 3) return false;
 
         int firstIndex;
         int secondIndex;
@@ -381,12 +381,14 @@ public class Map2D : MonoBehaviour
 
         // Find path
         _roadPathFinder.FindPath(firstNode, secondNode);
+
+        return true;
     }
 
     public void SpawnTraffic()
     {
-        // Get random path
-        GenerateRandomPath();
+        // Get random path, check for errors
+        if (!GenerateRandomPath()) return;
         List<Node> path = _roadPathFinder.GetPath();
 
         // Get random car
@@ -409,11 +411,12 @@ public class Map2D : MonoBehaviour
                 break;
         }
 
-        GameObject car = Resources.Load<GameObject>("Prefabs/Vehicle/" + carString);
+        GameObject car = Resources.Load<GameObject>("Prefabs/Vehicles/" + carString);
 
         // Set car's path
         Vehicle vehicle = car.GetComponent<Vehicle>();
         vehicle.Path = path;
+
         // Spawn car
         Instantiate(car, path[0].transform.position, Quaternion.identity);
         vehicle.Stationary = false;
