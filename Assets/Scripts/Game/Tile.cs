@@ -14,7 +14,6 @@ public class Tile : MonoBehaviour
     public TileData Data = new TileData();
 
     public bool Buildable;
-    public bool Destructable;
     public TileType TileType; // RTTI
 
     private bool _clicked;
@@ -49,7 +48,10 @@ public class Tile : MonoBehaviour
         _mouseOnTile = true;
 
         // Set current tile
-        _map.CurrentTile = this;
+        TileType type = TileType;
+
+        if (type == TileType.Grass || type == TileType.Sand || type == TileType.SandWater || type == TileType.Water)
+            _map.CurrentTile = this;
     }
 
     private void OnMouseExit()
@@ -64,15 +66,13 @@ public class Tile : MonoBehaviour
     /// </summary>
     public virtual void StoreData()
     {
-        Data.buildable = Buildable;
-        Data.destructable = Destructable;
-        Data.tileType = TileType;
+        Data.Buildable = Buildable;
+        Data.TileType = TileType;
 
         // Store position
         Vector3 position = gameObject.transform.position;
-        Data.posX = position.x;
-        Data.posY = position.y;
-        Data.posZ = position.z;
+        Data.PosX = position.x;
+        Data.PosY = position.y;
     }
 
     /// <summary>
@@ -81,10 +81,9 @@ public class Tile : MonoBehaviour
     public virtual void LoadData()
     {
         // Load data
-        Buildable = Data.buildable;
-        Destructable = Data.destructable;
-        TileType = Data.tileType;
-        transform.position = new Vector3(Data.posX, Data.posY, Data.posZ);
+        Buildable = Data.Buildable;
+        TileType = Data.TileType;
+        transform.position = new Vector2(Data.PosX, Data.PosY);
     }
 
     /// <summary>

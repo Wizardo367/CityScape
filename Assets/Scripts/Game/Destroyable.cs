@@ -27,6 +27,13 @@ public class Destroyable : MonoBehaviour
         // Check for clicks
         if (Input.GetMouseButtonUp(0))
         {
+            // Remove object from lists
+            Tile tile = gameObject.GetComponent<Tile>();
+
+            _map.Buildings.Remove(gameObject.GetComponent<Building>());
+            _map.Decorations.Remove(tile);
+            _map.Roads.Remove(tile);
+
             // Destroy object
             Destroy(gameObject);
             // Set current tile buildable property

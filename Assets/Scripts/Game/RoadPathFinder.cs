@@ -55,7 +55,7 @@ public class RoadPathFinder : MonoBehaviour
         while (!_pathfinder.PathFound)
             _pathfinder.Step();
 
-        Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
+        // Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
 
         // Show path
         if (ShowPath)

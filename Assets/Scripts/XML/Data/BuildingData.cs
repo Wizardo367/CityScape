@@ -11,13 +11,13 @@ using System.Xml.Serialization;
 /// <summary>
 /// Class used to hold Tile data for serialisation.
 /// </summary>
-public class TileData
+public class BuildingData
 {
-    [XmlAttribute("Buildable")]
-    public bool Buildable;
-
     [XmlElement("TileType")]
     public TileType TileType;
+
+    [XmlAttribute("Level")]
+    public int Level;
 
     [XmlElement("PosX")]
     public float PosX;

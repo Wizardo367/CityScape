@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PlaceableObjectSpawner : MonoBehaviour
 {
-    [Range(0.0f, 1.0f), Tooltip("The alpha value of the object before it's placed.")] public float HoverAlpha = 0.5f;
+    [Range(0.0f, 1.0f), Tooltip("The alpha value of the object before it's placed.")]
+    public float HoverAlpha = 0.5f;
     public GameObject Target;
 
     private GameObject _go;
@@ -77,6 +78,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
             // Process tile types
             ProcessNode(currentTile);
             ProcessMarker();
+            ProcessTile(_go);
 
             // Set alpha
             ToggleAlpha();
@@ -128,5 +130,30 @@ public class PlaceableObjectSpawner : MonoBehaviour
         // Find the map tile Node underneath the current Node and set it as traversable
         currentTile.gameObject.GetComponent<Node>().Traversable = true;
         GameObject.Find("Game").GetComponent<RoadPathFinder>().UpdateMap();
+    }
+
+    private void ProcessTile(GameObject gameObj)
+    {
+        // Buildings are handled seperately in the SpawnBuilding() method in the Map2D class. (Because of marker spawning)
+
+        Tile tile = gameObj.GetComponent<Tile>();
+        if (tile == null) return;
+
+        Debug.Log(tile.TileType);
+
+        // Adds the tile to the correct list in game
+        switch (tile.TileType)
+        {
+            case TileType.CrossRoad:
+            case TileType.StraightRoad:
+            case TileType.StraightTurnRoadX:
+            case TileType.StraightTurnRoadY:
+                _map.Roads.Add(tile);
+                break;
+            case TileType.Tree:
+            case TileType.Pavement:
+                _map.Decorations.Add(tile);
+                break;
+        }
     }
 }

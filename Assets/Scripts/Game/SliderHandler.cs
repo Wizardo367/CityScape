@@ -11,7 +11,7 @@ public class SliderHandler : MonoBehaviour
     private void Start()
     {
         _slider = gameObject.GetComponent<Slider>();
-        _game = Game.Instance;
+        _game = GameObject.Find("Game").GetComponent<Game>();
 
         // Set default display value
         string displayTextName = DisplayText.name;

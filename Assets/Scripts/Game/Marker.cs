@@ -47,8 +47,7 @@ public class Marker : MonoBehaviour
             }
 
             // Spawn building
-            int variant = Random.Range(1, 1); // Last number is exclusive
-            map.SpawnBuilding(buildingType, variant, 1, gameObject.transform.position, _finalRotation);
+            map.SpawnBuilding(buildingType, 1, gameObject.transform.position, _finalRotation);
 
             // Remove marker
             Destroy(gameObject);

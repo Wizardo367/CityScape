@@ -6,11 +6,13 @@
 
 // Website used: https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-a-primer-for-game-developers--gamedev-6511
 
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// A class to be used for generating and loading 2D cartesian and isometric maps.
@@ -21,13 +23,15 @@ public class Map2D : MonoBehaviour
     public int TileSizeX;
     public int XSize, YSize;
     public GameObject Prefab;
-    public Tile[,] Tiles;
+    public Tile[,] GroundTiles;
     public List<Building> Buildings;
+    public List<Tile> Roads, Decorations;
 
     public bool EnableTileHighlighting;
     public Color TileHighlightColour;
     private Color _normalTileColour;
 
+    private Game _game;
     private TileType _tileToBePlaced;
 
     // Properties
@@ -42,13 +46,17 @@ public class Map2D : MonoBehaviour
     private void Awake()
     {
         // Variable initialisation
-        Tiles = new Tile[XSize, YSize];
+        GroundTiles = new Tile[XSize, YSize];
         Buildings = new List<Building>();
+        Roads = new List<Tile>();
+        Decorations = new List<Tile>();
         _normalTileColour = new Color(1f, 1f, 1f, 1f);
 
         _roadPathFinder = gameObject.GetComponent<RoadPathFinder>();
         _timer = new CountdownTimer {Seconds = 15f};
         _timer.Begin();
+
+        _game = GameObject.Find("Game").GetComponent<Game>();
     }
 
     /// <summary>
@@ -57,19 +65,19 @@ public class Map2D : MonoBehaviour
     /// <param name="currentCamera">The camera to be positioned.</param>
     public void CentreCameraView(Camera currentCamera)
     {
-        Vector3 mapCentre = Tiles[Tiles.GetLength(0) / 2, Tiles.GetLength(1) / 2].transform.position;
+        Vector3 mapCentre = GroundTiles[GroundTiles.GetLength(0) / 2, GroundTiles.GetLength(1) / 2].transform.position;
         mapCentre.z = -10f;
         currentCamera.transform.position = mapCentre;
     }
 
     /// <summary>
-    /// Generates and returns a list of tiles.
+    /// Generates and returns a list of GroundTiles.
     /// </summary>
     public void Generate()
     {
         // Get pixels per unit
         float ppu = Prefab.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-        float tileSizeInUnits = TileSizeX / ppu;
+        float TileSizeInUnits = TileSizeX / ppu;
 
         // Create and place each tile
         for (int y = 0; y < YSize; y++)
@@ -77,7 +85,7 @@ public class Map2D : MonoBehaviour
             {
                 // Calculate position
                 Vector3 position;
-                float halfUnitTileSize = tileSizeInUnits * 0.5f;
+                float halfUnitTileSize = TileSizeInUnits * 0.5f;
 
                 if (Isometric)
                     position = transform.position +
@@ -85,15 +93,15 @@ public class Map2D : MonoBehaviour
                                global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) +
                                                            transform.up * (y * halfUnitTileSize));
                 else
-                    position = transform.position + transform.right * (x * tileSizeInUnits) +
-                               transform.up * (y * tileSizeInUnits);
+                    position = transform.position + transform.right * (x * TileSizeInUnits) +
+                               transform.up * (y * TileSizeInUnits);
 
                 // Create tile
                 Tile tile = CreateTile(TileType.Grass, position);
                 // Make GameObject a child object
                 tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
                 // Add tile to list
-                Tiles[x, y] = tile;
+                GroundTiles[x, y] = tile;
             }
     }
 
@@ -104,15 +112,15 @@ public class Map2D : MonoBehaviour
     /// <returns></returns>
     public void Load(string path)
     {
-        // Clear existing tiles
-        Tiles = new Tile[XSize, YSize];
+        // Clear existing GroundTiles
+        GroundTiles = new Tile[XSize, YSize];
 
         // Check if the file exists
         if (!File.Exists(path))
             return;
 
         // Deserialize data
-        TileDataContainer tileDataContainer = XMLSerializer.Deserialize<TileDataContainer>(path);
+        GameDataContainer tileDataContainer = XMLSerializer.Deserialize<GameDataContainer>(path);
 
         // Clear parent GameObject
         GameObject parentObj = GameObject.Find("Tiles/Ground");
@@ -120,25 +128,43 @@ public class Map2D : MonoBehaviour
             Destroy(child.gameObject);
 
         // Create tile
-        List<TileData> tileDataList = tileDataContainer.tileDataList;
+        List<TileData> groundDataList = tileDataContainer.GroundDataList;
         int arrayCounter = 0;
 
+        // Process ground tiles
         for (int y = 0; y < YSize; y++)
             for (int x = 0; x < XSize; x++)
             {
                 // Create tile
-                TileData tileData = tileDataList[arrayCounter];
+                TileData tileData = groundDataList[arrayCounter];
                 Tile tile = CreateTile(tileData);
                 // Set properties
-                tile.Buildable = tileData.buildable;
-                tile.Destructable = tileData.destructable;
+                tile.Buildable = tileData.Buildable;
                 // Make tile a child object
                 tile.gameObject.transform.parent = parentObj.transform;
                 // Add tile to array
-                Tiles[x, y] = tile;
+                GroundTiles[x, y] = tile;
                 // Update array counter
                 arrayCounter++;
             }
+
+        // Process buildings
+        List<BuildingData> buildingDataList = tileDataContainer.BuildingDataList;
+
+        foreach (BuildingData buildingData in buildingDataList)
+            SpawnBuilding(buildingData);
+
+        // Process roads
+        List<TileData> roadDataList = tileDataContainer.RoadDataList;
+
+        foreach (TileData data in roadDataList)
+            CreateTile(data);
+
+        // Process decorations
+        List<TileData> decorationDataList = tileDataContainer.DecorationDataList;
+
+        foreach (TileData data in decorationDataList)
+            CreateTile(data);
     }
 
     /// <summary>
@@ -147,18 +173,15 @@ public class Map2D : MonoBehaviour
     /// <param name="tileType">The type of tile to be created.</param>
     /// <param name="position">The position of the newly created tile.</param>
     /// <returns></returns>
-    private static Tile CreateTile(TileType tileType, Vector3 position)
+    private Tile CreateTile(TileType tileType, Vector2 position)
     {
         // Get prefab of tileType
-        GameObject prefab = Resources.Load<GameObject>("Prefabs/World/" + tileType);
+        GameObject prefab = Resources.Load<GameObject>(GetTilePrefabPath(tileType) + tileType);
 
         // Instantiate
         GameObject go = Instantiate(prefab, position, Quaternion.identity);
         // Get tile script
         Tile tile = go.GetComponent<Tile>();
-
-        // Store tile data
-        tile.StoreData();
 
         // Return tile
         return tile;
@@ -169,14 +192,17 @@ public class Map2D : MonoBehaviour
     /// </summary>
     /// <param name="data">A reference to an existing TileData object, that is to be used for the created Tile object.</param>
     /// <returns></returns>
-    private static Tile CreateTile(TileData data)
+    private Tile CreateTile(TileData data)
     {
         // Create tile
-        return CreateTile(data.tileType, new Vector3(data.posX, data.posY, data.posZ));
+        return CreateTile(data.TileType, new Vector2(data.PosX, data.PosY));
     }
 
     private void Update()
     {
+        // Check gamestate
+        if (_game.GameState == GameState.Paused) return;
+
         // Check for keyboard input
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -185,14 +211,11 @@ public class Map2D : MonoBehaviour
                 ToggleDestroyMode();
         }
 
-        foreach (Tile tile in Tiles)
+        foreach (Tile tile in GroundTiles)
         {
-            // Set highlight colour
-            if (EnableTileHighlighting && tile.GetHighlightColour() != TileHighlightColour)
-                tile.SetHighlighting(true, TileHighlightColour);
-            else
-                // Remove highlight
-                tile.SetHighlighting(false, _normalTileColour);
+            // Tile highlighting
+            // Bug: Tile highlighting for destroy mode
+            tile.SetHighlighting(tile.Buildable, EnableTileHighlighting && tile == CurrentTile ? TileHighlightColour : _normalTileColour);
 
             // Check for clicks
             if (tile.WasClicked())
@@ -208,6 +231,8 @@ public class Map2D : MonoBehaviour
             _timer.ResetClock();
             _timer.Begin();
         }
+        else
+            _timer.Update();
     }
 
     public void SpawnRandomBuilding()
@@ -218,14 +243,14 @@ public class Map2D : MonoBehaviour
         while (true)
         {
             // Get a random tile
-            randTile = Tiles[Random.Range(0, Tiles.GetLength(0)), Random.Range(0, Tiles.GetLength(1))];
+            randTile = GroundTiles[Random.Range(0, GroundTiles.GetLength(0)), Random.Range(0, GroundTiles.GetLength(1))];
 
             // Check if the tile is buildable
             Vector3 randTilePosition = randTile.transform.position;
 
             // Check if the tile is buildable, occupied and whether the map is full
             if (!randTile.Buildable ||
-                Buildings.Count != Tiles.Length &&
+                Buildings.Count != GroundTiles.Length &&
                 Buildings.Any(building => building.transform.position == randTilePosition)) continue;
 
             break;
@@ -236,21 +261,29 @@ public class Map2D : MonoBehaviour
 
         // Pick random building
         TileType randTileType = (TileType)Random.Range(0, 3);
-        const int variation = 1;
         const int level = 1;
 
         // Spawn building
-        SpawnBuilding(randTileType, variation, level, tilePosition, Quaternion.identity);
+        SpawnBuilding(randTileType, level, tilePosition, Quaternion.identity);
     }
 
-    public void SpawnBuilding(TileType type, int variation, int level, Vector3 position, Quaternion rotation)
+    public void SpawnBuilding(TileType type, int level, Vector2 position, Quaternion rotation)
     {
         // Place building
-        GameObject go = Resources.Load<GameObject>("Prefabs/Buildings/" + type.ToString() + "_" + variation + "_" + level);
+        GameObject go = Resources.Load<GameObject>("Prefabs/Buildings/" + type.ToString() + "_" + level);
         GameObject newBuilding = Instantiate(go, position, rotation, GetTileParent(go).transform);
 
+        Building building = newBuilding.GetComponent<Building>();
+        building.Level = level;
+        building.TileType = type;
+
         // Add to list
-        Buildings.Add(newBuilding.GetComponent<Building>());
+        Buildings.Add(building);
+    }
+
+    public void SpawnBuilding(BuildingData data)
+    {
+        SpawnBuilding(data.TileType, data.Level, new Vector2(data.PosX, data.PosY), Quaternion.identity);
     }
 
     public void SpawnTile(TileType type, Vector3 position, Quaternion rotation)
@@ -312,7 +345,7 @@ public class Map2D : MonoBehaviour
 
     public GameObject GetTileParent(GameObject go)
     {
-        // Get the tiles parent and return it, this is done so that gameobjects are organised
+        // Get the GroundTiles parent and return it, this is done so that gameobjects are organised
         Tile tile = go.GetComponent<Tile>();
         TileType type = tile.TileType;
 
@@ -337,9 +370,47 @@ public class Map2D : MonoBehaviour
             case TileType.SandWater:
             case TileType.Water:
                 return GameObject.Find("Game/Tiles/Ground");
+            case TileType.Pavement:
+            case TileType.Tree:
+                return GameObject.Find("Game/Tiles/Decoration");
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         return GameObject.Find("Game/Tiles");
+    }
+
+    public string GetTilePrefabPath(TileType type)
+    {
+        switch (type)
+        {
+            case TileType.None:
+                break;
+            case TileType.Commercial:
+            case TileType.CommercialMarker:
+            case TileType.Office:
+            case TileType.OfficeMarker:
+            case TileType.Residential:
+            case TileType.ResidentialMarker:
+                return "Prefabs/Buildings/";
+            case TileType.CrossRoad:
+            case TileType.StraightRoad:
+            case TileType.StraightTurnRoadX:
+            case TileType.StraightTurnRoadY:
+                return "Prefabs/Roads/";
+            case TileType.Grass:
+            case TileType.Sand:
+            case TileType.SandWater:
+            case TileType.Water:
+                return "Prefabs/World/";
+            case TileType.Pavement:
+            case TileType.Tree:
+                return "Prefabs/Decorative/";
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        return "Prefabs/";
     }
 
     public bool GenerateRandomPath()

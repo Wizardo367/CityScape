@@ -12,7 +12,7 @@ public class UIUpdater : MonoBehaviour
     private void Start()
     {
         // Get game instance
-        _game = Game.Instance;
+        _game = GameObject.Find("Game").GetComponent<Game>();
         // Get component
         Field = gameObject.GetComponent<InputField>();
         // Get the type of field

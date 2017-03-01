@@ -4,7 +4,6 @@
  *        Year: 2017
  */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,10 +11,10 @@ using UnityEngine;
 /// <summary>
 /// Used to define a building class.
 /// </summary>
-public class Building : MonoBehaviour
+public class Building : Tile
 {
     // RTTI Type of building
-    public TileType Type;
+    public new BuildingData Data;
 
     // Variables
     public BuildingDirection Direction;
@@ -36,10 +35,12 @@ public class Building : MonoBehaviour
     private void Awake()
     {
         // Intialise variables
-        _game = Game.Instance;
+        _game = GameObject.Find("Game").GetComponent<Game>();
         _boosters = new HashSet<HappinessBooster>();
 
-        switch (Type)
+        Data = new BuildingData();
+
+        switch (TileType)
         {
             case TileType.Residential:
                 OccupantMinMax = new Vector2(0, 100);
@@ -58,7 +59,7 @@ public class Building : MonoBehaviour
     {
         get
         {
-            switch (Type)
+            switch (TileType)
             {
                 case TileType.Residential:
                     return _game.ResidentialTax;
@@ -114,7 +115,7 @@ public class Building : MonoBehaviour
         return Mathf.Approximately(tax, 1f) ? 0f : tax; // If tax is 1 collect nothing
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Add booster to HashSet
         HappinessBooster booster = other.gameObject.GetComponent<HappinessBooster>();
@@ -122,11 +123,38 @@ public class Building : MonoBehaviour
         _boosters.Add(booster);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         // Remove booster from HashSet
         HappinessBooster booster = other.gameObject.GetComponent<HappinessBooster>();
         if (booster == null) return;
         _boosters.Remove(booster);
+    }
+
+    public override void StoreData()
+    {
+        base.StoreData();
+
+        // Store data
+        TileData tileData = base.Data;
+
+        Data.TileType = tileData.TileType;
+        Data.PosX = tileData.PosX;
+        Data.PosY = tileData.PosY;
+
+        // Store level
+        Data.Level = Level;
+    }
+
+    public override void LoadData()
+    {
+        base.LoadData();
+
+        // Load data
+        TileData tileData = base.Data;
+        TileType = tileData.TileType;
+
+        // Load level
+        Level = Data.Level;
     }
 }

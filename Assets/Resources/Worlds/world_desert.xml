@@ -1,3751 +1,3751 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <TileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Tiles>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>0.382389724</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502011</PosX>
       <PosY>0.7023897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502</PosX>
       <PosY>1.02238965</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>1.3423897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>1.66238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>1.98238969</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>2.62238979</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502052</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.99502</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.2750206</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.91502</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>12.55502</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.19502</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.83502</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>14.47502</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>15.11502</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>15.75502</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979918</PosX>
       <PosY>0.7023897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>1.02238965</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502011</PosX>
       <PosY>1.3423897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502</PosX>
       <PosY>1.66238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>1.98238969</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>2.62238979</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>3.90238953</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79502</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>5.18238974</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.99502</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>6.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.27502</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.91502</PosX>
       <PosY>6.78238964</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>12.5550194</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.19502</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.83502</PosX>
       <PosY>7.74238968</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>14.4750195</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>15.11502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849799</PosX>
       <PosY>1.02238965</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979918</PosX>
       <PosY>1.3423897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>1.66238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502011</PosX>
       <PosY>1.98238969</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31501985</PosX>
       <PosY>2.62238955</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59502</PosX>
       <PosY>3.26239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>4.222389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15502</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.075021</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502052</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.995021</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.2750206</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.91502</PosX>
       <PosY>7.422389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>12.55502</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.1950207</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.83502</PosX>
       <PosY>8.382389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>14.47502</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497983</PosX>
       <PosY>1.3423897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849799</PosX>
       <PosY>1.66238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979918</PosX>
       <PosY>1.98238969</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502011</PosX>
       <PosY>2.62238979</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>3.58238983</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23501968</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502052</PosX>
       <PosY>6.78238964</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.99502</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.27502</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.91502</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>12.55502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.19502</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.83502</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>1.66238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497983</PosX>
       <PosY>1.98238969</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849799</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979918</PosX>
       <PosY>2.62238979</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03501987</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23501968</PosX>
       <PosY>4.862389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>5.18238974</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79502</PosX>
       <PosY>6.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43501949</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>7.10239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.995021</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.27502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.9150209</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>12.55502</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>13.19502</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>1.98238969</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497983</PosX>
       <PosY>2.62238955</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849798</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.2449798</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502011</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502022</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>4.862389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15502</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.075021</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502052</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.99502</PosX>
       <PosY>8.382389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.2750206</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.91502</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>12.55502</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498</PosX>
       <PosY>2.30238962</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>2.62238979</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497983</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849799</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980037</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502011</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31501985</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95501971</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59502</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>6.78238964</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501928</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>7.74238968</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.99502</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.27502</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.91502</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>2.62238979</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.80498</PosX>
       <PosY>3.26239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>3.58238983</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884980142</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980037</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03501987</PosX>
       <PosY>5.18238974</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31501961</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>6.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23501968</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>7.10239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51501942</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79502</PosX>
       <PosY>8.06239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43501949</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.995021</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>11.27502</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>2.94238973</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849799</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.2449798</PosX>
       <PosY>5.18238974</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03501987</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502052</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.99502</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>10.63502</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>3.26238966</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497967</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>4.862389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497983</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.2449798</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03501987</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502022</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59502029</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23501968</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502037</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79502</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43501949</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.995021</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>3.58238959</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>3.90238953</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>4.222389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497967</PosX>
       <PosY>4.862389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.1649797</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497959</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.2449798</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502022</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502043</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>8.382389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.8750205</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15502</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.075021</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>9.35502052</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>3.90238976</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00498</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36498</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>5.18238974</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.80498</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>6.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884980142</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03501987</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95501947</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501928</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.71502</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28498</PosX>
       <PosY>4.2223897</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884980142</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.2449798</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03501987</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502022</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31501961</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59502029</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23501968</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87502</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51501942</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501976</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79502</PosX>
       <PosY>11.26239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43501949</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>8.07502</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>4.54238939</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28498</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497967</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.2449798</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502043</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15502</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>7.43502</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.56498</PosX>
       <PosY>4.86238956</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>5.18238974</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.2849803</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00498</PosX>
       <PosY>6.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36498</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>6.78238964</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>7.10239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.80498028</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498041</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884980142</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.0350194</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95501947</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.235019</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>11.9023905</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15501928</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.79501963</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.204979</PosX>
       <PosY>5.18238926</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.564979</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>5.822389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28497934</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64497948</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497927</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.7249794</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497967</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>8.382389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16497946</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497959</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979322</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502069</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502043</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>11.5823889</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.8750205</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>6.15502</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>5.50238943</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.204979</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.56498</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28498</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95501947</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>5.51502</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.48498</PosX>
       <PosY>5.8223896</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>6.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.20498</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.56498</PosX>
       <PosY>6.78238964</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>7.10239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.2849803</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>7.74238968</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00498</PosX>
       <PosY>8.06239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36498</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498035</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498049</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.80498028</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498041</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849806</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>11.26239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.0350194</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>11.9023905</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31501913</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95501947</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.235019</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.87501955</PosX>
       <PosY>13.50239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.124979</PosX>
       <PosY>6.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.4849787</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.204979</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.564979</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28497934</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64497948</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497967</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16497946</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979322</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502043</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>13.502389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>4.23502</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.7649794</PosX>
       <PosY>6.46238947</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.124979</PosX>
       <PosY>6.78238964</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.48498</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.20498</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.56498</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28498</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00498</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36498</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498041</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>11.9023905</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.0350194</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>13.50239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95501947</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>3.59501982</PosX>
       <PosY>14.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-12.4049788</PosX>
       <PosY>6.782389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.7649784</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.124979</PosX>
       <PosY>7.422389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.4849787</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.204979</PosX>
       <PosY>8.382389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.564979</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28497934</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64497948</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497927</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.7249794</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497919</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>11.5823889</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16497946</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52497911</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979322</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>13.502389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67502069</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>14.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.95502043</PosX>
       <PosY>14.46239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.0449791</PosX>
       <PosY>7.10238934</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-12.4049788</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.7649794</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.124979</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.4849787</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.204979</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.564979</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28498</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497974</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16497946</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>13.502389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>14.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>14.46239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>2.31502</PosX>
       <PosY>14.78239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.6849794</PosX>
       <PosY>7.42238951</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.0449791</PosX>
       <PosY>7.74238968</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-12.40498</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.7649794</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.12498</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.48498</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.20498</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.56498</PosX>
       <PosY>9.98239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.2849803</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00498</PosX>
       <PosY>11.26239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36498</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>11.9023905</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08498049</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498041</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>13.50239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.8849806</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>14.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>14.46239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.0350194</PosX>
       <PosY>14.78239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.67501974</PosX>
       <PosY>15.1023893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-14.3249788</PosX>
       <PosY>7.742389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.6849785</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.0449791</PosX>
       <PosY>8.382389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-12.4049788</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.7649794</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.124979</PosX>
       <PosY>9.342389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.4849787</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.204979</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.564979</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28497934</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64497948</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36497927</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44497919</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>13.502389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16497946</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>14.1423893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>14.46239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244979322</PosX>
       <PosY>14.78239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>15.1023893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>1.03502035</PosX>
       <PosY>15.422389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-14.9649792</PosX>
       <PosY>8.062389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-14.3249788</PosX>
       <PosY>8.38239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.6849794</PosX>
       <PosY>8.70239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-13.0449791</PosX>
       <PosY>9.022389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-12.4049788</PosX>
       <PosY>9.34239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.7649794</PosX>
       <PosY>9.66239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-11.124979</PosX>
       <PosY>9.982389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-10.4849787</PosX>
       <PosY>10.30239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.844979</PosX>
       <PosY>10.62239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-9.20498</PosX>
       <PosY>10.9423895</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-8.56498</PosX>
       <PosY>11.2623892</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.92497969</PosX>
       <PosY>11.58239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-7.28498</PosX>
       <PosY>11.90239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.64498</PosX>
       <PosY>12.22239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-6.00497961</PosX>
       <PosY>12.54239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-5.36498</PosX>
       <PosY>12.86239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.72498</PosX>
       <PosY>13.1823893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-4.08497953</PosX>
       <PosY>13.50239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-3.44498014</PosX>
       <PosY>13.82239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.8049798</PosX>
       <PosY>14.14239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-2.16498041</PosX>
       <PosY>14.46239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-1.52498007</PosX>
       <PosY>14.78239</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.884979665</PosX>
       <PosY>15.1023893</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>-0.244980276</PosX>
       <PosY>15.422389</PosY>
       <PosZ>0</PosZ>
     </Tile>
-    <Tile Buildable="true" Destructable="false">
+    <Tile Buildable="true">
       <TileType>Sand</TileType>
       <PosX>0.395020068</PosX>
       <PosY>15.74239</PosY>

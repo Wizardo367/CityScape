@@ -11,8 +11,7 @@ using System.Linq;
 
 public class Game : MonoBehaviour
 {
-    private static Game _instance;
-    private GameState _gameState;
+    public GameState GameState;
 
     // Game properties
     public float ResidentialTax = 5f, CommercialTax = 5f, OfficeTax = 5f;
@@ -49,26 +48,15 @@ public class Game : MonoBehaviour
 
     private CountdownTimer _taxTimer;
 
-    public static Game Instance { get { return _instance; } }
-
     // Initialisation
     private void Awake()
     {
-        // Check for existing instance
-        if (_instance == null)
-            _instance = this;
-        else if (_instance != this)
-            Destroy(gameObject);
-
         // Initialise tax timer
         _taxTimer = new CountdownTimer {Seconds = 10f};
         _taxTimer.Begin();
 
         // Initialise map
         _map = gameObject.GetComponent<Map2D>();
-
-        // Set gameState
-        _gameState = GameState.Active;
 
         // Get audio sources
         _musicSource = transform.FindChild("Music").GetComponent<AudioSource>();
@@ -94,7 +82,7 @@ public class Game : MonoBehaviour
         _map.CentreCameraView(Camera.main);
 
         // Autosave every 30 seconds
-        //InvokeRepeating("Save", 30f, 30f);
+        InvokeRepeating("Save", 30f, 30f);
     }
 
     private void RestoreWorldFiles()
@@ -109,15 +97,41 @@ public class Game : MonoBehaviour
     public void Save()
     {
         // Save the game
+        Debug.Log("SAVE");
 
         // Save the world map
-        TileDataContainer tileDataContainer = new TileDataContainer();
+        GameDataContainer gameDataContainer = new GameDataContainer();
 
-        foreach (Tile tile in _map.Tiles)
-            tileDataContainer.tileDataList.Add(tile.Data);
+        // Ground tiles
+        foreach (Tile tile in _map.GroundTiles)
+        {
+            tile.StoreData();
+            gameDataContainer.GroundDataList.Add(tile.Data);
+        }
+
+        // Buildings
+        foreach (Building building in _map.Buildings)
+        {
+            building.StoreData();
+            gameDataContainer.BuildingDataList.Add(building.Data);
+        }
+
+        // Roads
+        foreach (Tile tile in _map.Roads)
+        {
+            tile.StoreData();
+            gameDataContainer.RoadDataList.Add(tile.Data);
+        }
+
+        // Decorations
+        foreach (Tile tile in _map.Decorations)
+        {
+            tile.StoreData();
+            gameDataContainer.DecorationDataList.Add(tile.Data);
+        }
 
         // Serialize data
-        XMLSerializer.Serialize(tileDataContainer, Path.Combine(_baseFilePath, _worldName + ".xml"));
+        XMLSerializer.Serialize(gameDataContainer, Path.Combine(_baseFilePath, "Save/" + _worldName + ".xml"));
     }
 
     public bool Load()
@@ -133,13 +147,23 @@ public class Game : MonoBehaviour
     public void LoadWorld(string worldName)
     {
         // Restore world files in case of update
-        RestoreWorldFiles();
+        //RestoreWorldFiles();
         // World map
         _map.Load(Path.Combine(_baseFilePath, worldName + ".xml"));
     }
 
+    public void SetPause(bool state)
+    {
+        // Set gamestate
+        GameState = state ? GameState.Paused : GameState.Active;
+        // Set timescale
+        Time.timeScale = state ? 0f : 1f;
+    }
+
     public void TogglePause()
     {
+        // Toggle Gamestate
+        GameState = GameState == GameState.Active ? GameState.Paused : GameState.Active;
         // Toggle timescale for pausing and playing
         Time.timeScale = !_paused ? 0 : 1;
         _paused = !_paused;
@@ -159,6 +183,9 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
+        // Check for pause
+        if (GameState == GameState.Paused) return;
+
         // Collect taxes
         if (_taxTimer.IsDone())
         {
