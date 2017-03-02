@@ -27,7 +27,7 @@ public class Building : Tile
     private int _occupants;
     private int _level = 1;
 
-    private HashSet<HappinessBooster> _boosters;
+    public HashSet<HappinessBooster> Boosters;
 
     // Game instance
     private Game _game;
@@ -36,7 +36,7 @@ public class Building : Tile
     {
         // Intialise variables
         _game = GameObject.Find("Game").GetComponent<Game>();
-        _boosters = new HashSet<HappinessBooster>();
+        Boosters = new HashSet<HappinessBooster>();
 
         Data = new BuildingData();
 
@@ -78,7 +78,7 @@ public class Building : Tile
         get
         {
             // Get clamped boosters sum
-            _happiness = Mathf.Clamp(_boosters.Sum(booster => booster.Boost), 0, 100);
+            _happiness = Mathf.Clamp(Boosters.Sum(booster => booster.Boost), 0, 100);
             // Return happiness
             return _happiness;
         }
@@ -115,22 +115,6 @@ public class Building : Tile
         return Mathf.Approximately(tax, 1f) ? 0f : tax; // If tax is 1 collect nothing
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Add booster to HashSet
-        HappinessBooster booster = other.gameObject.GetComponent<HappinessBooster>();
-        if (booster == null) return;
-        _boosters.Add(booster);
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        // Remove booster from HashSet
-        HappinessBooster booster = other.gameObject.GetComponent<HappinessBooster>();
-        if (booster == null) return;
-        _boosters.Remove(booster);
-    }
-
     public override void StoreData()
     {
         base.StoreData();
@@ -141,6 +125,9 @@ public class Building : Tile
         Data.TileType = tileData.TileType;
         Data.PosX = tileData.PosX;
         Data.PosY = tileData.PosY;
+
+        // Store rotation
+        Data.RotY = transform.eulerAngles.y;
 
         // Store level
         Data.Level = Level;
@@ -153,6 +140,8 @@ public class Building : Tile
         // Load data
         TileData tileData = base.Data;
         TileType = tileData.TileType;
+
+        transform.Rotate(Vector3.up, Data.RotY);
 
         // Load level
         Level = Data.Level;

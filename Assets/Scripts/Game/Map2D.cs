@@ -123,8 +123,8 @@ public class Map2D : MonoBehaviour
         GameDataContainer tileDataContainer = XMLSerializer.Deserialize<GameDataContainer>(path);
 
         // Clear parent GameObject
-        GameObject parentObj = GameObject.Find("Tiles/Ground");
-        foreach (Transform child in parentObj.transform)
+        GameObject groundParentObj = GameObject.Find("Tiles/Ground");
+        foreach (Transform child in groundParentObj.transform)
             Destroy(child.gameObject);
 
         // Create tile
@@ -138,10 +138,11 @@ public class Map2D : MonoBehaviour
                 // Create tile
                 TileData tileData = groundDataList[arrayCounter];
                 Tile tile = CreateTile(tileData);
-                // Set properties
-                tile.Buildable = tileData.Buildable;
-                // Make tile a child object
-                tile.gameObject.transform.parent = parentObj.transform;
+                // Load data
+                tile.Data = tileData;
+                tile.LoadData();
+                // Set parent
+                tile.gameObject.transform.parent = GameObject.Find("Tiles/Ground").transform;
                 // Add tile to array
                 GroundTiles[x, y] = tile;
                 // Update array counter
@@ -158,13 +159,25 @@ public class Map2D : MonoBehaviour
         List<TileData> roadDataList = tileDataContainer.RoadDataList;
 
         foreach (TileData data in roadDataList)
-            CreateTile(data);
+        {
+            Tile tile = CreateTile(data);
+            tile.Data = data;
+            tile.LoadData();
+            // Set parent
+            tile.gameObject.transform.parent = GameObject.Find("Tiles/Roads").transform;
+        }
 
         // Process decorations
         List<TileData> decorationDataList = tileDataContainer.DecorationDataList;
 
         foreach (TileData data in decorationDataList)
-            CreateTile(data);
+        {
+            Tile tile = CreateTile(data);
+            tile.Data = data;
+            tile.LoadData();
+            // Set parent
+            tile.gameObject.transform.parent = GameObject.Find("Tiles/Decoration").transform;
+        }
     }
 
     /// <summary>
@@ -214,8 +227,8 @@ public class Map2D : MonoBehaviour
         foreach (Tile tile in GroundTiles)
         {
             // Tile highlighting
-            // Bug: Tile highlighting for destroy mode
-            tile.SetHighlighting(tile.Buildable, EnableTileHighlighting && tile == CurrentTile ? TileHighlightColour : _normalTileColour);
+            if (EnableTileHighlighting)
+                tile.SetHighlighting(tile.Buildable, TileHighlightColour);
 
             // Check for clicks
             if (tile.WasClicked())
@@ -283,7 +296,7 @@ public class Map2D : MonoBehaviour
 
     public void SpawnBuilding(BuildingData data)
     {
-        SpawnBuilding(data.TileType, data.Level, new Vector2(data.PosX, data.PosY), Quaternion.identity);
+        SpawnBuilding(data.TileType, data.Level, new Vector2(data.PosX, data.PosY), Quaternion.Euler(0, data.RotY, 0));
     }
 
     public void SpawnTile(TileType type, Vector3 position, Quaternion rotation)

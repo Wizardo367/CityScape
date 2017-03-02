@@ -70,9 +70,12 @@ public class Tile : MonoBehaviour
         Data.TileType = TileType;
 
         // Store position
-        Vector3 position = gameObject.transform.position;
+        Vector3 position = transform.position;
         Data.PosX = position.x;
         Data.PosY = position.y;
+
+        // Store rotation
+        Data.RotY = transform.eulerAngles.y;
     }
 
     /// <summary>
@@ -84,6 +87,8 @@ public class Tile : MonoBehaviour
         Buildable = Data.Buildable;
         TileType = Data.TileType;
         transform.position = new Vector2(Data.PosX, Data.PosY);
+
+        transform.Rotate(0f, Data.RotY, 0f);
     }
 
     /// <summary>

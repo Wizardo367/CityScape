@@ -24,4 +24,7 @@ public class TileData
 
     [XmlElement("PosY")]
     public float PosY;
+
+    [XmlElement("RotateY")]
+    public float RotY;
 }

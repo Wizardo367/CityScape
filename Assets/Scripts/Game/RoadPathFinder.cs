@@ -52,8 +52,19 @@ public class RoadPathFinder : MonoBehaviour
         _pathfinder = new Pathfinder(_grid);
         _pathfinder.Start(start, goal);
 
+        // Prevent infinite loop
+        CountdownTimer timeoutTimer = new CountdownTimer {Seconds = 1f};
+        timeoutTimer.Begin();
+
         while (!_pathfinder.PathFound)
+        {
             _pathfinder.Step();
+
+            if (timeoutTimer.IsDone())
+                break;
+            
+            timeoutTimer.Update();
+        }
 
         // Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
 
@@ -77,8 +88,14 @@ public class RoadPathFinder : MonoBehaviour
                 _map[x, y] = 1;
 
         // Mark road tiles as traversable
-        foreach (Node node in searchTiles)
-            _map[node.GridX, node.GridY] = node.Traversable ? 0 : 1;
+        Node[] roadNodes = GameObject.Find("Game/Tiles/Roads").GetComponentsInChildren<Node>();
+
+        foreach (Node searchNode in searchTiles)
+            foreach (Node roadNode in roadNodes)
+            {
+                if (searchNode.gameObject.transform.position == roadNode.gameObject.transform.position)
+                    _map[searchNode.GridX, searchNode.GridY] = searchNode.Traversable ? 0 : 1;
+            }
     }
 
     public bool PathFound()

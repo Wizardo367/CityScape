@@ -139,8 +139,6 @@ public class PlaceableObjectSpawner : MonoBehaviour
         Tile tile = gameObj.GetComponent<Tile>();
         if (tile == null) return;
 
-        Debug.Log(tile.TileType);
-
         // Adds the tile to the correct list in game
         switch (tile.TileType)
         {

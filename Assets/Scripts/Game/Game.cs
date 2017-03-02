@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -61,9 +62,6 @@ public class Game : MonoBehaviour
         // Get audio sources
         _musicSource = transform.FindChild("Music").GetComponent<AudioSource>();
         _sfxSource = transform.FindChild("SFX").GetComponent<AudioSource>();
-
-        // Don't destroy instance when loading a new scene
-        DontDestroyOnLoad(gameObject);
 
         // File paths
         _baseFilePath = Application.persistentDataPath;
@@ -179,6 +177,12 @@ public class Game : MonoBehaviour
     {
         // Mute or unmute sfx
         _sfxSource.mute = !_sfxSource.mute;
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("Main Menu");
     }
 
     private void Update()
