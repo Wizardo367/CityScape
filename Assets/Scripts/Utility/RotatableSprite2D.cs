@@ -49,13 +49,9 @@ public class RotatableSprite2D : MonoBehaviour
                 _currentSprite = Up;
         }
         else if (RotateX)
-        {
-            _currentSprite = (_currentSprite == Left ? Right : Left);
-        }
+            _currentSprite = _currentSprite == Left ? Right : Left;
         else if (RotateY)
-        {
-            _currentSprite = (_currentSprite == Up ? Down : Up);
-        }
+            _currentSprite = _currentSprite == Up ? Down : Up;
 
         _spriteRenderer.sprite = _currentSprite;
     }
@@ -66,16 +62,16 @@ public class RotatableSprite2D : MonoBehaviour
         switch (direction)
         {
             case Direction2D.Up:
-                _currentSprite = Right;
+                _currentSprite = Up;
                 break;
             case Direction2D.Right:
-                _currentSprite = Down;
+                _currentSprite = Right;
                 break;
             case Direction2D.Down:
-                _currentSprite = Left;
+                _currentSprite = Down;
                 break;
             case Direction2D.Left:
-                _currentSprite = Up;
+                _currentSprite = Left;
                 break;
             default:
                 throw new ArgumentOutOfRangeException("direction", direction, null);

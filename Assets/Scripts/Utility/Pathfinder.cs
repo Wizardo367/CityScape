@@ -66,7 +66,7 @@ public class Pathfinder
             if (node == null)
             {
                 PathFound = true;
-                continue;
+                return;
             }
 
             // Check if the node is traversable

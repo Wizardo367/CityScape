@@ -30,7 +30,6 @@ public class HappinessBooster : MonoBehaviour
         {
             // Check distance
             float dist = Vector3.Distance(transform.position, building.transform.position);
-            Debug.Log(dist);
 
             // Apply effect
             if (dist <= MinDistance)

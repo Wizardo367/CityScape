@@ -1,5 +1,5 @@
 ﻿/*
- *       Class: Direction
+ *       Class: BuildingDirection
  *      Author: Harish Bhagat
  *        Year: 2017
  */

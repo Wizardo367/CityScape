@@ -61,7 +61,7 @@ public class RoadPathFinder : MonoBehaviour
             _pathfinder.Step();
 
             if (timeoutTimer.IsDone())
-                break;
+                return;
             
             timeoutTimer.Update();
         }

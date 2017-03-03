@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlaceableObjectSpawner : MonoBehaviour
 {
@@ -45,6 +44,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
         if (currentTile != null)
         {
             Vector3 tilePos = currentTile.transform.position;
+            tilePos.z = -1f; // Fixes rendering error
             _go.transform.position = tilePos;
         }
 

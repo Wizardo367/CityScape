@@ -59,6 +59,19 @@ public class Map2D : MonoBehaviour
         _game = GameObject.Find("Game").GetComponent<Game>();
     }
 
+    private void Start()
+    {
+        // Change depth of parent gameobjects to prvent rendering errors
+        Vector3 pos = new Vector3(0f, 0f, -1f);
+
+        GameObject roadsObj = GameObject.Find("Tiles/Roads");
+        GameObject decorationObj = GameObject.Find("Tiles/Decoration");
+
+        // Set new positions
+        roadsObj.transform.position = pos;
+        decorationObj.transform.position = pos;
+    }
+
     /// <summary>
     /// Changes the position of the camera to the centre of the map.
     /// </summary>
@@ -165,6 +178,8 @@ public class Map2D : MonoBehaviour
             tile.LoadData();
             // Set parent
             tile.gameObject.transform.parent = GameObject.Find("Tiles/Roads").transform;
+            // Add to list
+            Roads.Add(tile);
         }
 
         // Process decorations
@@ -177,6 +192,8 @@ public class Map2D : MonoBehaviour
             tile.LoadData();
             // Set parent
             tile.gameObject.transform.parent = GameObject.Find("Tiles/Decoration").transform;
+            // Add to list
+            Decorations.Add(tile);
         }
     }
 
@@ -297,12 +314,6 @@ public class Map2D : MonoBehaviour
     public void SpawnBuilding(BuildingData data)
     {
         SpawnBuilding(data.TileType, data.Level, new Vector2(data.PosX, data.PosY), Quaternion.Euler(0, data.RotY, 0));
-    }
-
-    public void SpawnTile(TileType type, Vector3 position, Quaternion rotation)
-    {
-        GameObject go = Resources.Load<GameObject>("Prefabs/" + type.ToString());
-        GameObject tile = Instantiate(go, position, rotation, GetTileParent(go).transform);
     }
 
     public TileType GetTileToBePlaced()
@@ -466,7 +477,7 @@ public class Map2D : MonoBehaviour
         // Find path
         _roadPathFinder.FindPath(firstNode, secondNode);
 
-        return true;
+        return _roadPathFinder.GetPath().Count > 0;
     }
 
     public void SpawnTraffic()
@@ -495,14 +506,13 @@ public class Map2D : MonoBehaviour
                 break;
         }
 
-        GameObject car = Resources.Load<GameObject>("Prefabs/Vehicles/" + carString);
+        GameObject res = Resources.Load<GameObject>("Prefabs/Vehicles/" + carString);
 
+        // Spawn car
+        GameObject car = Instantiate(res, path[0].transform.position, Quaternion.identity, GameObject.Find("Game/Tiles/Traffic").transform);
         // Set car's path
         Vehicle vehicle = car.GetComponent<Vehicle>();
         vehicle.Path = path;
-
-        // Spawn car
-        Instantiate(car, path[0].transform.position, Quaternion.identity);
         vehicle.Stationary = false;
     }
 }
