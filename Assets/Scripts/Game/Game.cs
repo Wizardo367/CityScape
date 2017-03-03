@@ -75,7 +75,7 @@ public class Game : MonoBehaviour
         _map.CentreCameraView(Camera.main);
 
         // Autosave every 30 seconds
-        InvokeRepeating("Save", 30f, 30f);
+        // InvokeRepeating("Save", 30f, 30f);
     }
 
     public void Save()
