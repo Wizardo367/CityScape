@@ -27,7 +27,6 @@ public class Game : MonoBehaviour
             return buildings.Sum(building => building.Happiness) / (buildings.Count == 0 ? 1 : buildings.Count); // Check for division by 0
         }
     }
-
     public int Population
     {
         get
@@ -37,10 +36,10 @@ public class Game : MonoBehaviour
         }
     }
 
-    private Map2D _map;
+    public static string Path;
 
+    private Map2D _map;
     private bool _paused;
-    private string _baseFilePath, _worldName;
 
     public float MusicVolume = 1f;
     public float SFXVolume = 1f;
@@ -63,10 +62,6 @@ public class Game : MonoBehaviour
         _musicSource = transform.FindChild("Music").GetComponent<AudioSource>();
         _sfxSource = transform.FindChild("SFX").GetComponent<AudioSource>();
 
-        // File paths
-        _baseFilePath = Application.persistentDataPath;
-        _worldName = "world_beach";
-
         // Initialise the game
         InitGame();
     }
@@ -81,15 +76,6 @@ public class Game : MonoBehaviour
 
         // Autosave every 30 seconds
         InvokeRepeating("Save", 30f, 30f);
-    }
-
-    private void RestoreWorldFiles()
-    {
-        // Copy world files to persistantDataPath
-        TextAsset[] worlds = Resources.LoadAll<TextAsset>("Worlds/");
-
-        foreach (TextAsset world in worlds)
-            File.WriteAllText(Path.Combine(_baseFilePath, world.name + ".xml"), world.text);
     }
 
     public void Save()
@@ -129,7 +115,7 @@ public class Game : MonoBehaviour
         }
 
         // Serialize data
-        XMLSerializer.Serialize(gameDataContainer, Path.Combine(_baseFilePath, "Save/" + _worldName + ".xml"));
+        XMLSerializer.Serialize(gameDataContainer, Path);
     }
 
     public bool Load()
@@ -137,17 +123,9 @@ public class Game : MonoBehaviour
         // Load the game
 
         // Load the world
-        LoadWorld(_worldName);
+        _map.Load(Path);
 
         return true;
-    }
-
-    public void LoadWorld(string worldName)
-    {
-        // Restore world files in case of update
-        //RestoreWorldFiles();
-        // World map
-        _map.Load(Path.Combine(_baseFilePath, worldName + ".xml"));
     }
 
     public void SetPause(bool state)

@@ -29,7 +29,6 @@ public class Map2D : MonoBehaviour
 
     public bool EnableTileHighlighting;
     public Color TileHighlightColour;
-    private Color _normalTileColour;
 
     private Game _game;
     private TileType _tileToBePlaced;
@@ -50,7 +49,6 @@ public class Map2D : MonoBehaviour
         Buildings = new List<Building>();
         Roads = new List<Tile>();
         Decorations = new List<Tile>();
-        _normalTileColour = new Color(1f, 1f, 1f, 1f);
 
         _roadPathFinder = gameObject.GetComponent<RoadPathFinder>();
         _timer = new CountdownTimer {Seconds = 15f};
