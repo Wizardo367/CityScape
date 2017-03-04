@@ -6,7 +6,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
@@ -44,16 +43,17 @@ public class Game : MonoBehaviour
     public float MusicVolume = 1f;
     public float SFXVolume = 1f;
 
-    private AudioSource _musicSource, _sfxSource;
+    public GameObject GameOverScreen;
 
-    private CountdownTimer _taxTimer;
+    private AudioSource _musicSource, _sfxSource;
+    private CountdownTimer _gameTimer;
 
     // Initialisation
     private void Awake()
     {
         // Initialise tax timer
-        _taxTimer = new CountdownTimer {Seconds = 10f};
-        _taxTimer.Begin();
+        _gameTimer = new CountdownTimer {Seconds = 10f};
+        _gameTimer.Begin();
 
         // Initialise map
         _map = gameObject.GetComponent<Map2D>();
@@ -128,6 +128,20 @@ public class Game : MonoBehaviour
         return true;
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void GameOver()
+    {
+        // Delete the save
+        System.IO.File.Delete(Path);
+        // Return to the main menu
+        LoadMainMenu();
+    }
+
     public void SetPause(bool state)
     {
         // Set gamestate
@@ -157,26 +171,36 @@ public class Game : MonoBehaviour
         _sfxSource.mute = !_sfxSource.mute;
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.UnloadSceneAsync("Game");
-        SceneManager.LoadScene("Main Menu");
-    }
-
     private void Update()
     {
         // Check for pause
         if (GameState == GameState.Paused) return;
 
         // Collect taxes
-        if (_taxTimer.IsDone())
+        if (_gameTimer.IsDone())
         {
             Money += Mathf.RoundToInt(_map.Buildings.Sum(building => building.CollectTax()));
 
-            _taxTimer.ResetClock();
-            _taxTimer.Begin();
+            // Calculate upkeep costs
+            float upkeep = _map.Decorations.Select(tile => tile.gameObject.GetComponent<PurchasableTile>()).Where(purchasable => purchasable != null).Sum(purchasable => purchasable.Upkeep);
+            upkeep += _map.Roads.Select(tile => tile.gameObject.GetComponent<PurchasableTile>()).Where(purchasable => purchasable != null).Sum(purchasable => purchasable.Upkeep);
+
+            // Subtract upkeep costs
+            Money -= Mathf.RoundToInt(upkeep);
+
+            _gameTimer.ResetClock();
+            _gameTimer.Begin();
         }
         else
-            _taxTimer.Update();
+            _gameTimer.Update();
+
+        // Check for gameover
+        if (Money < -1000)
+        {
+            // Pause game
+            SetPause(true);
+            // Display game over screen
+            GameOverScreen.SetActive(true);
+        }
     }
 }

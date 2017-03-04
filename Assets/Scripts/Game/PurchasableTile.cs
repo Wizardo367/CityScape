@@ -12,4 +12,5 @@ public class PurchasableTile : Tile
     public new TileData Data = new TileData();
 
     public float Price;
+    public float Upkeep;
 }

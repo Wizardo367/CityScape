@@ -29,14 +29,21 @@ public class Building : Tile
 
     public HashSet<HappinessBooster> Boosters;
 
+    private CountdownTimer _upgradeTimer;
+
     // Game instance
     private Game _game;
+    private Map2D _map;
 
     private void Awake()
     {
         // Intialise variables
         _game = GameObject.Find("Game").GetComponent<Game>();
+        _map = _game.GetComponent<Map2D>();
         Boosters = new HashSet<HappinessBooster>();
+
+        _upgradeTimer = new CountdownTimer {Seconds = 5f};
+        _upgradeTimer.Begin();
 
         Data = new BuildingData();
 
@@ -145,5 +152,28 @@ public class Building : Tile
 
         // Load level
         Level = Data.Level;
+    }
+
+    private void Update()
+    {
+        // Check timer and stats to see if this building needs upgrading, don't bother checking if the building is already at it's max level
+        if (_upgradeTimer.IsDone() && Level != (int)LevelMinMax.y)
+        {
+            // Check if building is eligible for upgrade
+            if (Level == 1 && Happiness >= 50 || Level == 2 && Happiness >= 80)
+            {
+                // Upgrade
+                _map.SpawnBuilding(TileType, Level + 1, transform.position, transform.rotation);
+                // Destroy current object
+                _map.Buildings.Remove(this);
+                Destroy(gameObject);
+            }
+
+            // Reset timer
+            _upgradeTimer.ResetClock();
+            _upgradeTimer.Begin();
+        }
+        else
+            _upgradeTimer.Update();
     }
 }

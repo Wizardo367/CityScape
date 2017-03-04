@@ -11,7 +11,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using Random = UnityEngine.Random;
 
 /// <summary>

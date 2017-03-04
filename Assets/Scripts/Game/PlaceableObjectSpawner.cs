@@ -11,6 +11,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
     private Quaternion _currentRotation;
     private Color _defaultColour;
     private Map2D _map;
+    private Game _game;
 
     public void Init()
     {
@@ -30,7 +31,8 @@ public class PlaceableObjectSpawner : MonoBehaviour
 
     private void Start()
     {
-        _map = GameObject.Find("Game").GetComponent<Map2D>();
+        _game = GameObject.Find("Game").GetComponent<Game>();
+        _map = _game.GetComponent<Map2D>();
     }
 
     // Update is called once per frame
@@ -80,6 +82,11 @@ public class PlaceableObjectSpawner : MonoBehaviour
             ProcessMarker();
             ProcessTile(_go);
 
+            // Check for purchase price
+            PurchasableTile purchasable = _go.GetComponent<PurchasableTile>();
+            if (purchasable != null)
+                _game.Money -= (int)purchasable.Price;
+
             // Set alpha
             ToggleAlpha();
 
@@ -108,8 +115,6 @@ public class PlaceableObjectSpawner : MonoBehaviour
         MonoBehaviour markerScript = _go.GetComponent<Marker>();
         if (markerScript != null)
         {
-            // TODO Check if the marker is next to a road
-
             // Enable script
             markerScript.enabled = true;
             // Rotation
