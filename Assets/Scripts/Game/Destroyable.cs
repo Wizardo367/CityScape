@@ -22,7 +22,6 @@ public class Destroyable : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             // Check position
-            Debug.Log(currentTile.transform.position);
             if (gameObject.transform.position != currentTile.transform.position) return;
 
                 // Remove object from lists

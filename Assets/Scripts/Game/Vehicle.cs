@@ -23,20 +23,21 @@ public class Vehicle : MonoBehaviour
     {
         // Check if the vehicle needs to despawn
         if (Path.Count == 0)
-            Destroy(gameObject);
+        {
+            Destroy(gameObject, 2f);
+            return;
+        }
 
         // Update current position
-        _currentPos = gameObject.transform.position;
+        _currentPos = transform.position;
 
         // Check for a path or if stationary or if the last move is done
         if (!MoveDone() || Stationary) return;
 
         // Get the next node
         Node node = Path[0];
-        // Get the position of the node
-        Vector3 nodePos = node.gameObject.transform.position;
         // Set targetPos
-        _targetPos = nodePos;
+        _targetPos = node.transform.position;
         // Check if the sprite needs to be changed/rotated
         ProcessRotation();
 
@@ -76,7 +77,6 @@ public class Vehicle : MonoBehaviour
             direction = Direction2D.Right;
 
         // Change the sprite
-        Debug.Log(direction);
         _rotatableSprite2D.SetRotation(direction);
     }
 }

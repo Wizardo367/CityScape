@@ -238,28 +238,30 @@ public class Map2D : MonoBehaviour
                 ToggleDestroyMode();
         }
 
-        foreach (Tile tile in GroundTiles)
-        {
-            // Tile highlighting
-            if (EnableTileHighlighting)
-                tile.SetHighlighting(tile.Buildable, TileHighlightColour);
+        if (GroundTiles != null)
+            foreach (Tile tile in GroundTiles)
+            {
+                // Tile highlighting
+                if (EnableTileHighlighting)
+                    tile.SetHighlighting(tile.Buildable, TileHighlightColour);
 
-            // Check for clicks
-            if (tile.WasClicked())
-                LastTileClicked = tile;
-        }
+                // Check for clicks
+                if (tile.WasClicked())
+                    LastTileClicked = tile;
+            }
 
         // Spawn traffic
-        if (_timer.IsDone())
-        {
-            SpawnTraffic();
+        if (_timer != null)
+            if (_timer.IsDone())
+            {
+                SpawnTraffic();
 
-            // Reset timer
-            _timer.ResetClock();
-            _timer.Begin();
-        }
-        else
-            _timer.Update();
+                // Reset timer
+                _timer.ResetClock();
+                _timer.Begin();
+            }
+            else
+                _timer.Update();
     }
 
     public void SpawnRandomBuilding()
@@ -463,11 +465,13 @@ public class Map2D : MonoBehaviour
 
         foreach (Node node in groundNodes)
         {
-            Vector3 nodePos = node.gameObject.transform.position;
+            // Make node's z position 0 to prevent error
+            Vector2 nodePos = node.transform.position;
+            node.transform.position = nodePos;
 
-            if (nodePos == firstNode.gameObject.transform.position)
+            if (nodePos == (Vector2) firstNode.gameObject.transform.position)
                 firstNode = node;
-            else if (nodePos == secondNode.gameObject.transform.position)
+            else if (nodePos == (Vector2) secondNode.gameObject.transform.position)
                 secondNode = node;
         }
 

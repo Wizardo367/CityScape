@@ -81,7 +81,6 @@ public class Game : MonoBehaviour
     public void Save()
     {
         // Save the game
-        Debug.Log("SAVE");
 
         // Save the world map
         GameDataContainer gameDataContainer = new GameDataContainer();
@@ -177,22 +176,31 @@ public class Game : MonoBehaviour
         if (GameState == GameState.Paused) return;
 
         // Collect taxes
-        if (_gameTimer.IsDone())
+        if (_gameTimer != null)
         {
-            Money += Mathf.RoundToInt(_map.Buildings.Sum(building => building.CollectTax()));
+            if (_gameTimer.IsDone())
+            {
+                Money += Mathf.RoundToInt(_map.Buildings.Sum(building => building.CollectTax()));
 
-            // Calculate upkeep costs
-            float upkeep = _map.Decorations.Select(tile => tile.gameObject.GetComponent<PurchasableTile>()).Where(purchasable => purchasable != null).Sum(purchasable => purchasable.Upkeep);
-            upkeep += _map.Roads.Select(tile => tile.gameObject.GetComponent<PurchasableTile>()).Where(purchasable => purchasable != null).Sum(purchasable => purchasable.Upkeep);
+                // Calculate upkeep costs
+                float upkeep =
+                    _map.Decorations.Select(tile => tile.gameObject.GetComponent<PurchasableTile>())
+                        .Where(purchasable => purchasable != null)
+                        .Sum(purchasable => purchasable.Upkeep);
+                upkeep +=
+                    _map.Roads.Select(tile => tile.gameObject.GetComponent<PurchasableTile>())
+                        .Where(purchasable => purchasable != null)
+                        .Sum(purchasable => purchasable.Upkeep);
 
-            // Subtract upkeep costs
-            Money -= Mathf.RoundToInt(upkeep);
+                // Subtract upkeep costs
+                Money -= Mathf.RoundToInt(upkeep);
 
-            _gameTimer.ResetClock();
-            _gameTimer.Begin();
+                _gameTimer.ResetClock();
+                _gameTimer.Begin();
+            }
+            else
+                _gameTimer.Update();
         }
-        else
-            _gameTimer.Update();
 
         // Check for gameover
         if (Money < -1000)

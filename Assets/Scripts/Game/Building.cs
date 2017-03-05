@@ -39,7 +39,7 @@ public class Building : Tile
     {
         // Intialise variables
         _game = GameObject.Find("Game").GetComponent<Game>();
-        _map = _game.GetComponent<Map2D>();
+        _map = _game.gameObject.GetComponent<Map2D>();
         Boosters = new HashSet<HappinessBooster>();
 
         _upgradeTimer = new CountdownTimer {Seconds = 5f};
