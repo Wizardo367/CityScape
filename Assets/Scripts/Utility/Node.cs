@@ -8,7 +8,13 @@ public class Node : MonoBehaviour
     public List<Node> Neighbours = new List<Node>();
     public Node Previous;
     public string Label = "";
-    public bool Traversable;
+
+    public bool Traversable
+    {
+        get { return TraversableUp || TraversableDown || TraversableLeft || TraversableRight; }
+    }
+
+    public bool TraversableUp, TraversableDown, TraversableLeft, TraversableRight;
 
     public int GridX, GridY;
     public int Size;

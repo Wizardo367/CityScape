@@ -9,30 +9,36 @@ public class Vehicle : MonoBehaviour
 
     private Vector3 _currentPos;
     private Vector3 _targetPos;
+    private Direction2D _direction;
     private RotatableSprite2D _rotatableSprite2D;
+    private List<Node> _path; // Original path, unedited
+
+    private Map2D _map;
 
     private void Start()
     {
         // Initialise variables
         _targetPos = gameObject.transform.position;
         _rotatableSprite2D = gameObject.GetComponent<RotatableSprite2D>();
+        _path = Path;
+        _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        // Check if the vehicle needs to despawn
-        if (Path.Count == 0)
-        {
-            Destroy(gameObject, 2f);
-            return;
-        }
-
         // Update current position
         _currentPos = transform.position;
 
         // Check for a path or if stationary or if the last move is done
         if (!MoveDone() || Stationary) return;
+
+        // Check if the vehicle needs to despawn
+        if (Path.Count == 0)
+        {
+            Despawn();
+            return;
+        }
 
         // Get the next node
         Node node = Path[0];
@@ -57,26 +63,29 @@ public class Vehicle : MonoBehaviour
         return false;
     }
 
+    private void Despawn()
+    {
+        Destroy(gameObject, 2f);
+    }
+
     private void ProcessRotation()
     {
         // Get the X and Y difference between the current position and the target position
 
         // Get the direction of travel
-        Direction2D direction;
-
         bool posX = _targetPos.x > _currentPos.x;
         bool posY = _targetPos.y > _currentPos.y;
 
         if (posX && posY)
-            direction = Direction2D.Up;
+            _direction = Direction2D.Up;
         else if (!posX && !posY)
-            direction = Direction2D.Down;
+            _direction = Direction2D.Down;
         else if (!posX && posY)
-            direction = Direction2D.Left;
+            _direction = Direction2D.Left;
         else
-            direction = Direction2D.Right;
+            _direction = Direction2D.Right;
 
         // Change the sprite
-        _rotatableSprite2D.SetRotation(direction);
+        _rotatableSprite2D.SetRotation(_direction);
     }
 }

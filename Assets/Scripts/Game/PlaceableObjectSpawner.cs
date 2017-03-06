@@ -32,7 +32,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
     private void Start()
     {
         _game = GameObject.Find("Game").GetComponent<Game>();
-        _map = _game.GetComponent<Map2D>();
+        _map = _game.gameObject.GetComponent<Map2D>();
     }
 
     // Update is called once per frame
@@ -62,6 +62,12 @@ public class PlaceableObjectSpawner : MonoBehaviour
                 _currentRotation = rotatable2D.gameObject.transform.rotation;
                 _go.transform.rotation = _currentRotation;
             }
+
+            // Check for roads
+            Road road = _go.GetComponent<Road>();
+
+            if (road != null)
+                road.RotateY();
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -75,7 +81,7 @@ public class PlaceableObjectSpawner : MonoBehaviour
             // Object placed
 
             // Check if the tile is buildable
-            if (!currentTile.Buildable) return;
+            if (currentTile != null && !currentTile.Buildable) return;
 
             // Process tile types
             ProcessNode(currentTile);
@@ -129,11 +135,18 @@ public class PlaceableObjectSpawner : MonoBehaviour
 
     private void ProcessNode(Tile currentTile)
     {
+        // Check if placed object is a road
         Node node = currentTile.gameObject.GetComponent<Node>();
-        if (node == null) return;
+        Road road = _go.GetComponent<Road>();
+        if (node == null || road == null) return;
 
-        // Find the map tile Node underneath the current Node and set it as traversable
-        currentTile.gameObject.GetComponent<Node>().Traversable = true;
+        // Find the map tile Node underneath the current Node and set it's traversability
+        node.TraversableUp = road.TraversableUp;
+        node.TraversableDown = road.TraversableDown;
+        node.TraversableLeft = road.TraversableLeft;
+        node.TraversableRight = road.TraversableRight;
+
+        // Update map
         GameObject.Find("Game").GetComponent<RoadPathFinder>().UpdateMap();
     }
 

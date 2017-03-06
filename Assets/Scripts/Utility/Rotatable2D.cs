@@ -27,17 +27,23 @@ public class Rotatable2D : MonoBehaviour
         if (RotateX && RotateY)
         {
             if (_counter == 0 || _counter == 2)
-                gameObject.transform.Rotate(0f, 180f, 0f); // X
+                RotateXAxis();
             else if (_counter == 1 || _counter == 3)
-                gameObject.transform.Rotate(180f, 0f, 0f); // Y
+                RotateYAxis();
         }
         else if (RotateX)
-        {
-            gameObject.transform.Rotate(0f, 180f, 0f);
-        }
+            RotateXAxis();
         else if (RotateY)
-        {
-            gameObject.transform.Rotate(180f, 0f, 0f);
-        }
+            RotateYAxis();
+    }
+
+    private void RotateXAxis()
+    {
+        gameObject.transform.Rotate(180f, 0f, 0f);
+    }
+
+    private void RotateYAxis()
+    {
+        gameObject.transform.Rotate(0f, 180f, 0f);
     }
 }

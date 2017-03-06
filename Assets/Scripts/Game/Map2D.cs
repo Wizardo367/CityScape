@@ -50,7 +50,7 @@ public class Map2D : MonoBehaviour
         Decorations = new List<Tile>();
 
         _roadPathFinder = gameObject.GetComponent<RoadPathFinder>();
-        _timer = new CountdownTimer {Seconds = 15f};
+        _timer = new CountdownTimer {Seconds = 5f};
         _timer.Begin();
 
         _game = GameObject.Find("Game").GetComponent<Game>();
@@ -484,7 +484,7 @@ public class Map2D : MonoBehaviour
     public void SpawnTraffic()
     {
         // Get random path, check for errors
-        if (!GenerateRandomPath()) return;
+        while (!GenerateRandomPath());
         List<Node> path = _roadPathFinder.GetPath();
 
         // Get random car

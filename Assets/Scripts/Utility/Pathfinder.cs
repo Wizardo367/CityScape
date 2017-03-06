@@ -112,6 +112,14 @@ public class Pathfinder
         // New path found
         if (moveCost < node.GCost || !OpenSet.Contains(neighbour))
         {
+            // Check for traversability
+            if (node.TraversableUp && !neighbour.TraversableDown ||
+                node.TraversableDown && !neighbour.TraversableUp ||
+                node.TraversableLeft && !neighbour.TraversableRight ||
+                node.TraversableRight && !neighbour.TraversableLeft)
+                return;
+
+            // Add neighbour
             neighbour.GCost = moveCost;
             neighbour.HCost = GetDistance(neighbour, GoalNode);
             neighbour.Previous = node;
