@@ -81,26 +81,27 @@ public class PlaceableObjectSpawner : MonoBehaviour
             // Object placed
 
             // Check if the tile is buildable
-            if (currentTile != null && !currentTile.Buildable) return;
+            if (currentTile != null && currentTile.Buildable)
+            {
+                // Process tile types
+                ProcessNode(currentTile);
+                ProcessMarker();
+                ProcessTile(_go);
 
-            // Process tile types
-            ProcessNode(currentTile);
-            ProcessMarker();
-            ProcessTile(_go);
+                // Check for purchase price
+                PurchasableTile purchasable = _go.GetComponent<PurchasableTile>();
+                if (purchasable != null)
+                    _game.Money -= (int) purchasable.Price;
 
-            // Check for purchase price
-            PurchasableTile purchasable = _go.GetComponent<PurchasableTile>();
-            if (purchasable != null)
-                _game.Money -= (int)purchasable.Price;
+                // Set alpha
+                ToggleAlpha();
 
-            // Set alpha
-            ToggleAlpha();
+                // Disable builadable property of the tile
+                currentTile.Buildable = false;
 
-            // Disable builadable property of the tile
-            currentTile.Buildable = false;
-
-            // Set go to null
-            _go = null;
+                // Set go to null
+                _go = null;
+            }
         }
     }
 

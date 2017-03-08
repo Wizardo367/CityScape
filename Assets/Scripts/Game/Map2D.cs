@@ -87,7 +87,7 @@ public class Map2D : MonoBehaviour
     {
         // Get pixels per unit
         float ppu = Prefab.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
-        float TileSizeInUnits = TileSizeX / ppu;
+        float tileSizeInUnits = TileSizeX / ppu;
 
         // Create and place each tile
         for (int y = 0; y < YSize; y++)
@@ -95,7 +95,7 @@ public class Map2D : MonoBehaviour
             {
                 // Calculate position
                 Vector3 position;
-                float halfUnitTileSize = TileSizeInUnits * 0.5f;
+                float halfUnitTileSize = tileSizeInUnits * 0.5f;
 
                 if (Isometric)
                     position = transform.position +
@@ -103,8 +103,8 @@ public class Map2D : MonoBehaviour
                                global::Isometric.CartToIso(transform.right * (x * halfUnitTileSize) +
                                                            transform.up * (y * halfUnitTileSize));
                 else
-                    position = transform.position + transform.right * (x * TileSizeInUnits) +
-                               transform.up * (y * TileSizeInUnits);
+                    position = transform.position + transform.right * (x * tileSizeInUnits) +
+                               transform.up * (y * tileSizeInUnits);
 
                 // Create tile
                 Tile tile = CreateTile(TileType.Grass, position);
@@ -241,10 +241,6 @@ public class Map2D : MonoBehaviour
         if (GroundTiles != null)
             foreach (Tile tile in GroundTiles)
             {
-                // Tile highlighting
-                if (EnableTileHighlighting)
-                    tile.SetHighlighting(tile.Buildable, TileHighlightColour);
-
                 // Check for clicks
                 if (tile.WasClicked())
                     LastTileClicked = tile;
@@ -355,12 +351,13 @@ public class Map2D : MonoBehaviour
 
     public void SetTileTemplate(string tileType)
     {
-        _tileToBePlaced = (TileType)System.Enum.Parse(typeof(TileType), tileType);
+        _tileToBePlaced = (TileType)Enum.Parse(typeof(TileType), tileType);
     }
 
     public void ToggleDestroyMode()
     {
         DestroyMode = !DestroyMode;
+        Debug.Log(DestroyMode);
         // Set highlight colour
         EnableTileHighlighting = DestroyMode;
         SetHighlightColour(DestroyMode ? "red" : "");
@@ -484,7 +481,7 @@ public class Map2D : MonoBehaviour
     public void SpawnTraffic()
     {
         // Get random path, check for errors
-        while (!GenerateRandomPath());
+        if (!GenerateRandomPath()) return;
         List<Node> path = _roadPathFinder.GetPath();
 
         // Get random car

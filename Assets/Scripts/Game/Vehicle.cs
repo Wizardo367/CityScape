@@ -11,7 +11,6 @@ public class Vehicle : MonoBehaviour
     private Vector3 _targetPos;
     private Direction2D _direction;
     private RotatableSprite2D _rotatableSprite2D;
-    private List<Node> _path; // Original path, unedited
 
     private Map2D _map;
 
@@ -20,7 +19,6 @@ public class Vehicle : MonoBehaviour
         // Initialise variables
         _targetPos = gameObject.transform.position;
         _rotatableSprite2D = gameObject.GetComponent<RotatableSprite2D>();
-        _path = Path;
         _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 

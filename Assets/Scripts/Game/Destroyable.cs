@@ -22,10 +22,10 @@ public class Destroyable : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             // Check position
-            if (gameObject.transform.position != currentTile.transform.position) return;
+            if ((Vector2)gameObject.transform.position != (Vector2)currentTile.transform.position) return;
 
-                // Remove object from lists
-                PurchasableTile tile = gameObject.GetComponent<PurchasableTile>();
+            // Remove object from lists
+            PurchasableTile tile = gameObject.GetComponent<PurchasableTile>();
 
             _map.Buildings.Remove(gameObject.GetComponent<Building>());
             _map.Decorations.Remove(tile);

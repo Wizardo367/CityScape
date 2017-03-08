@@ -19,10 +19,6 @@ public class Tile : MonoBehaviour
     private bool _clicked;
     private bool _mouseOnTile;
 
-    private bool _enableHighlighting;
-    private Color _highlightColour;
-    private Color _normalColour;
-
     private SpriteRenderer _spriteRenderer;
     private Map2D _map;
 
@@ -30,12 +26,15 @@ public class Tile : MonoBehaviour
     {
         // Initialise
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        _normalColour = _spriteRenderer.color;
         _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 
     private void Update()
     {
+        // Check for escape key
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ProcessHighlighting(false);
+
         // Check for left mouse click
         if (_mouseOnTile && Input.GetMouseButtonDown(0))
             _clicked = true;
@@ -43,8 +42,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (_enableHighlighting)
-            _spriteRenderer.color = _highlightColour;
+        ProcessHighlighting(_map.EnableTileHighlighting);
         _mouseOnTile = true;
 
         // Set current tile
@@ -56,9 +54,14 @@ public class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (_enableHighlighting)
-            _spriteRenderer.color = _normalColour;
+        ProcessHighlighting(false);
         _mouseOnTile = false;
+    }
+
+    private void ProcessHighlighting(bool enable)
+    {
+        // Set highlight colour
+        _spriteRenderer.color = enable ? _map.TileHighlightColour : Color.white;
     }
 
     /// <summary>
@@ -105,15 +108,8 @@ public class Tile : MonoBehaviour
         return clicked;
     }
 
-    public void SetHighlighting(bool enable, Color highlightColour)
-    {
-        _enableHighlighting = enable;
-        _highlightColour = highlightColour;
-        _highlightColour.a = 1f;
-    }
-
     public Color GetHighlightColour()
     {
-        return _highlightColour;
+        return _map.TileHighlightColour;
     }
 }

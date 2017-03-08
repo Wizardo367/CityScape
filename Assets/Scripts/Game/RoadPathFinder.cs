@@ -66,7 +66,7 @@ public class RoadPathFinder : MonoBehaviour
             timeoutTimer.Update();
         }
 
-        // Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
+        Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
 
         // Show path
         if (ShowPath)

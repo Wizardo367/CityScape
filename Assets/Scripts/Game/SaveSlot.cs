@@ -20,7 +20,7 @@ public class SaveSlot : MonoBehaviour
             // Load Path
             SetSavePath();
             // Check if the file exists
-            if (!System.IO.File.Exists(_path)) return;
+            if (!File.Exists(_path)) return;
 
             // Load game
             LoadGame();
