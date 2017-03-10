@@ -24,19 +24,29 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.630169 ms
+UnloadTime: 3.569091 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.518897 ms
+UnloadTime: 6.272284 ms
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 453.
-Total: 0.441278 ms (FindLiveObjects: 0.028931 ms CreateObjectMapping: 0.026009 ms MarkObjects: 0.367049 ms  DeleteObjects: 0.018118 ms)
+Total: 0.496218 ms (FindLiveObjects: 0.033899 ms CreateObjectMapping: 0.028639 ms MarkObjects: 0.412638 ms  DeleteObjects: 0.020164 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.851286 ms
+UnloadTime: 1.545642 ms
 Platform assembly: C:\Users\Harish Bhagat\Documents\Games Programming\Year 3\Computing Project\CityScape\CityScape_Data\Managed\System.Xml.dll (this message is harmless)
 
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 5211.
-Total: 1.176838 ms (FindLiveObjects: 0.125954 ms CreateObjectMapping: 0.046757 ms MarkObjects: 0.988638 ms  DeleteObjects: 0.015196 ms)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 5209.
+Total: 1.082738 ms (FindLiveObjects: 0.118940 ms CreateObjectMapping: 0.047050 ms MarkObjects: 0.905935 ms  DeleteObjects: 0.010520 ms)
+
+Unloading the last loaded scene Assets/Scenes/Game.unity(build index: 2), is not supported. Please use SceneManager.LoadScene()/EditorSceneManager.OpenScene() to switch to another scene.
+ 
+(Filename:  Line: 198)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 9.210144 ms
+
+Unloading 186 unused Assets to reduce memory usage. Loaded Objects now: 454.
+Total: 11.045977 ms (FindLiveObjects: 0.071890 ms CreateObjectMapping: 0.036821 ms MarkObjects: 0.425497 ms  DeleteObjects: 10.510891 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1f64 -> priority: 1 
+  Thread -> id: 3b28 -> priority: 1 

@@ -4,7 +4,7 @@
  *        Year: 2017
  */
 
-// Website used: http://www.oguzkonya.com/2017/01/03/xml-serialization-in-unity/
+// Website used: http://www.oguzkonya.com/2016/01/03/xml-serialization-in-unity/
 // Website used: http://answers.unity3d.com/questions/231647/xmlserializer-encoding-issue.html
 
 using System.IO;
