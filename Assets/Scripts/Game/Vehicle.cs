@@ -12,14 +12,11 @@ public class Vehicle : MonoBehaviour
     private Direction2D _direction;
     private RotatableSprite2D _rotatableSprite2D;
 
-    private Map2D _map;
-
     private void Start()
     {
         // Initialise variables
         _targetPos = gameObject.transform.position;
         _rotatableSprite2D = gameObject.GetComponent<RotatableSprite2D>();
-        _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 
     // Update is called once per frame

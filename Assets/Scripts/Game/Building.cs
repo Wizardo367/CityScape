@@ -118,8 +118,8 @@ public class Building : Tile
         float happy = _happiness == 0 ? 1 : _happiness;
         float occ = _occupants == 0 ? 1 : _occupants;
 
-        float tax = happy * _level / (TaxPercentage / occ); // Check occupantCount and happiness to prevent dividing by 0 error
-        return Mathf.Approximately(tax, 1f) ? 0f : tax; // If tax is 1 collect nothing
+        float tax = happy * (TaxPercentage / 100) * (occ * (Level / LevelMinMax.y)); // Check occupantCount and happiness to prevent dividing by 0 error
+        return tax < 0f ? 0f : tax;
     }
 
     public override void StoreData()

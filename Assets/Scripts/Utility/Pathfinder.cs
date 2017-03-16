@@ -41,7 +41,7 @@ public class Pathfinder
     public void Step()
     {
         // Search next node and neighbours
-
+        
         // Check if path has been found
         if (Path.Count > 0)
             return;

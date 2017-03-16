@@ -26,6 +26,7 @@ public class Game : MonoBehaviour
             return buildings.Sum(building => building.Happiness) / (buildings.Count == 0 ? 1 : buildings.Count); // Check for division by 0
         }
     }
+
     public int Population
     {
         get
@@ -113,6 +114,11 @@ public class Game : MonoBehaviour
             gameDataContainer.DecorationDataList.Add(tile.Data);
         }
 
+        // Save game state data
+        
+        // Money
+        gameDataContainer.GameStateData.Money = Money;
+
         // Serialize data
         XMLSerializer.Serialize(gameDataContainer, Path);
     }
@@ -120,6 +126,12 @@ public class Game : MonoBehaviour
     public bool Load()
     {
         // Load the game
+
+        // Get game state data
+
+        // Deserialize data
+        GameDataContainer tileDataContainer = XMLSerializer.Deserialize<GameDataContainer>(Path);
+        Money = tileDataContainer.GameStateData.Money;
 
         // Load the world
         _map.Load(Path);
@@ -129,8 +141,7 @@ public class Game : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.UnloadSceneAsync("Game");
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 
     public void GameOver()
@@ -180,6 +191,7 @@ public class Game : MonoBehaviour
         {
             if (_gameTimer.IsDone())
             {
+                // Collect tax
                 Money += Mathf.RoundToInt(_map.Buildings.Sum(building => building.CollectTax()));
 
                 // Calculate upkeep costs

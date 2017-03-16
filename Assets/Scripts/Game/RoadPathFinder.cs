@@ -66,7 +66,7 @@ public class RoadPathFinder : MonoBehaviour
             timeoutTimer.Update();
         }
 
-        Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
+        // Debug.Log("Search done, path length: " + _pathfinder.Path.Count + ", iterations: " + _pathfinder.Iterations);
 
         // Show path
         if (ShowPath)
@@ -92,10 +92,8 @@ public class RoadPathFinder : MonoBehaviour
 
         foreach (Node searchNode in searchTiles)
             foreach (Node roadNode in roadNodes)
-            {
-                if (searchNode.gameObject.transform.position == roadNode.gameObject.transform.position)
+                if ((Vector2)searchNode.gameObject.transform.position == (Vector2)roadNode.gameObject.transform.position)
                     _map[searchNode.GridX, searchNode.GridY] = searchNode.Traversable ? 0 : 1;
-            }
     }
 
     public bool PathFound()

@@ -43,6 +43,9 @@ public class Map2D : MonoBehaviour
 
     private void Awake()
     {
+        // Set TimeScale | Bug Fix
+        Time.timeScale = 1f;
+
         // Variable initialisation
         GroundTiles = new Tile[XSize, YSize];
         Buildings = new List<Building>();
@@ -178,6 +181,9 @@ public class Map2D : MonoBehaviour
             // Add to list
             Roads.Add(tile);
         }
+
+        // Process nodes
+        ProcessNodes();
 
         // Process decorations
         List<TileData> decorationDataList = tileDataContainer.DecorationDataList;
@@ -357,10 +363,30 @@ public class Map2D : MonoBehaviour
     public void ToggleDestroyMode()
     {
         DestroyMode = !DestroyMode;
-        Debug.Log(DestroyMode);
         // Set highlight colour
         EnableTileHighlighting = DestroyMode;
         SetHighlightColour(DestroyMode ? "red" : "");
+    }
+
+    public void ProcessNodes()
+    {
+        // Processes nodes during loading
+        foreach (Tile tile in Roads)
+        {
+            Road road = tile.gameObject.GetComponent<Road>();
+            Vector2 roadPosition = road.transform.position;
+
+            foreach (Tile ground in GroundTiles)
+                if ((Vector2) ground.transform.position == roadPosition)
+                {
+                    // Mark node
+                    Node node = ground.GetComponent<Node>();
+                    node.TraversableUp = road.TraversableUp;
+                    node.TraversableDown = road.TraversableDown;
+                    node.TraversableLeft = road.TraversableLeft;
+                    node.TraversableRight = road.TraversableRight;
+                }
+        }
     }
 
     public GameObject GetTileParent(GameObject go)

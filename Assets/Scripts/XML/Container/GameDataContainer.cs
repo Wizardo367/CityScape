@@ -12,6 +12,8 @@ using System.Xml.Serialization;
 [XmlRoot("TileCollection")]
 public class GameDataContainer
 {
+    [XmlElement("GameStateData")]
+    public GameStateData GameStateData = new GameStateData();
     [XmlArray("Tiles"), XmlArrayItem("Tile")]
     public List<TileData> GroundDataList = new List<TileData>();
     [XmlArray("Buildings"), XmlArrayItem("Building")]

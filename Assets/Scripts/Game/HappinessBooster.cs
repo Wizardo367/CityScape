@@ -23,7 +23,6 @@ public class HappinessBooster : MonoBehaviour
     private void Update()
     {
         // Check distance to affected objects
-
         Building[] childBuildings = _buildings.GetComponentsInChildren<Building>();
 
         foreach (Building building in childBuildings)
@@ -37,5 +36,14 @@ public class HappinessBooster : MonoBehaviour
             else
                 building.Boosters.Remove(this);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Building[] childBuildings = _buildings.GetComponentsInChildren<Building>();
+
+        // Removes booster from HashSet to prevent bug
+        foreach (Building building in childBuildings)
+            building.Boosters.Remove(this);
     }
 }
