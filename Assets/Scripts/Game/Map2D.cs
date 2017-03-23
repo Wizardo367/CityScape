@@ -18,29 +18,78 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class Map2D : MonoBehaviour
 {
+    /// <summary>
+    /// Indicates how the map is to be displayed.
+    /// </summary>
     public bool Isometric;
+    /// <summary>
+    /// The size of each tile (x and y) in pixels.
+    /// </summary>
     public int TileSizeX;
+    /// <summary>
+    /// The size of the map in tiles.
+    /// </summary>
     public int XSize, YSize;
+    /// <summary>
+    /// The prefab to be used for generation.
+    /// </summary>
     public GameObject Prefab;
+    /// <summary>
+    /// Container for ground tiles.
+    /// </summary>
     public Tile[,] GroundTiles;
+    /// <summary>
+    /// Container for buildings
+    /// </summary>
     public List<Building> Buildings;
+    /// <summary>
+    /// Containers for roads and decorations.
+    /// </summary>
     public List<Tile> Roads, Decorations;
 
+    /// <summary>
+    /// The active state of tile highlighting.
+    /// </summary>
     public bool EnableTileHighlighting;
+    /// <summary>
+    /// The tile highlight colour.
+    /// </summary>
     public Color TileHighlightColour;
 
     private Game _game;
     private TileType _tileToBePlaced;
 
     // Properties
+
+    /// <summary>
+    /// Gets a value indicating whether [destroy mode] is active.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> if [destroy mode]; otherwise, <c>false</c>.
+    /// </value>
     public bool DestroyMode { get; private set; }
+    /// <summary>
+    /// Gets or sets the current tile.
+    /// </summary>
+    /// <value>
+    /// The current tile.
+    /// </value>
     public Tile CurrentTile { get; set; }
-    public Tile LastTileClicked { get; private set; }
+    /// <summary>
+    /// Gets or sets the last tile clicked.
+    /// </summary>
+    /// <value>
+    /// The last tile clicked.
+    /// </value>
+    public Tile LastTileClicked { get; set; }
 
     // Pathfinding variables
     private RoadPathFinder _roadPathFinder;
     private CountdownTimer _timer;
 
+    /// <summary>
+    /// Initialises this instance, called before Start().
+    /// </summary>
     private void Awake()
     {
         // Set TimeScale | Bug Fix
@@ -59,6 +108,9 @@ public class Map2D : MonoBehaviour
         _game = GameObject.Find("Game").GetComponent<Game>();
     }
 
+    /// <summary>
+    /// Initialises this instance.
+    /// </summary>
     private void Start()
     {
         // Change depth of parent gameobjects to prvent rendering errors
@@ -221,7 +273,7 @@ public class Map2D : MonoBehaviour
     }
 
     /// <summary>
-    /// Creates and return a Tile.
+    /// Creates and returns a Tile.
     /// </summary>
     /// <param name="data">A reference to an existing TileData object, that is to be used for the created Tile object.</param>
     /// <returns></returns>
@@ -231,6 +283,9 @@ public class Map2D : MonoBehaviour
         return CreateTile(data.TileType, new Vector2(data.PosX, data.PosY));
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     private void Update()
     {
         // Check gamestate
@@ -243,14 +298,6 @@ public class Map2D : MonoBehaviour
             if (DestroyMode)
                 ToggleDestroyMode();
         }
-
-        if (GroundTiles != null)
-            foreach (Tile tile in GroundTiles)
-            {
-                // Check for clicks
-                if (tile.WasClicked())
-                    LastTileClicked = tile;
-            }
 
         // Spawn traffic
         if (_timer != null)
@@ -266,6 +313,9 @@ public class Map2D : MonoBehaviour
                 _timer.Update();
     }
 
+    /// <summary>
+    /// Spawns a random building.
+    /// </summary>
     public void SpawnRandomBuilding()
     {
         // Pick a random tile
@@ -298,6 +348,13 @@ public class Map2D : MonoBehaviour
         SpawnBuilding(randTileType, level, tilePosition, Quaternion.identity);
     }
 
+    /// <summary>
+    /// Spawns a building.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <param name="level">The level.</param>
+    /// <param name="position">The position.</param>
+    /// <param name="rotation">The rotation.</param>
     public void SpawnBuilding(TileType type, int level, Vector2 position, Quaternion rotation)
     {
         // Place building
@@ -312,11 +369,19 @@ public class Map2D : MonoBehaviour
         Buildings.Add(building);
     }
 
+    /// <summary>
+    /// Spawns a building.
+    /// </summary>
+    /// <param name="data">The data.</param>
     public void SpawnBuilding(BuildingData data)
     {
         SpawnBuilding(data.TileType, data.Level, new Vector2(data.PosX, data.PosY), Quaternion.Euler(0, data.RotY, 0));
     }
 
+    /// <summary>
+    /// Gets the tile to be placed.
+    /// </summary>
+    /// <returns></returns>
     public TileType GetTileToBePlaced()
     {
         // Return tile type and reset variable
@@ -325,11 +390,22 @@ public class Map2D : MonoBehaviour
         return tileType;
     }
 
+    /// <summary>
+    /// Sets the highlight colour.
+    /// </summary>
+    /// <param name="r">Red</param>
+    /// <param name="g">Green</param>
+    /// <param name="b">Blue</param>
+    /// <param name="a">Alpha</param>
     public void SetHighlightColour(float r, float g, float b, float a)
     {
         TileHighlightColour = new Color(r, g, b, a);
     }
 
+    /// <summary>
+    /// Sets the highlight colour.
+    /// </summary>
+    /// <param name="colour">The colour.</param>
     public void SetHighlightColour(string colour)
     {
         // Prevents case sensitivity
@@ -355,11 +431,18 @@ public class Map2D : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the tile template.
+    /// </summary>
+    /// <param name="tileType">Type of the tile.</param>
     public void SetTileTemplate(string tileType)
     {
         _tileToBePlaced = (TileType)Enum.Parse(typeof(TileType), tileType);
     }
 
+    /// <summary>
+    /// Toggles the destroy mode.
+    /// </summary>
     public void ToggleDestroyMode()
     {
         DestroyMode = !DestroyMode;
@@ -368,6 +451,9 @@ public class Map2D : MonoBehaviour
         SetHighlightColour(DestroyMode ? "red" : "");
     }
 
+    /// <summary>
+    /// Processes the traversibility of node, used when loading a world.
+    /// </summary>
     public void ProcessNodes()
     {
         // Processes nodes during loading
@@ -389,6 +475,12 @@ public class Map2D : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Used to determine the parent GameObject of a tile based on its type. 
+    /// </summary>
+    /// <param name="go">The go.</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     public GameObject GetTileParent(GameObject go)
     {
         // Get the GroundTiles parent and return it, this is done so that gameobjects are organised
@@ -426,6 +518,12 @@ public class Map2D : MonoBehaviour
         return GameObject.Find("Game/Tiles");
     }
 
+    /// <summary>
+    /// Used to determine the prefab path of a tile based on its type.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <returns>A path.</returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     public string GetTilePrefabPath(TileType type)
     {
         switch (type)
@@ -459,6 +557,10 @@ public class Map2D : MonoBehaviour
         return "Prefabs/";
     }
 
+    /// <summary>
+    /// Generates a random path.
+    /// </summary>
+    /// <returns>A random path along road tiles.</returns>
     public bool GenerateRandomPath()
     {
         // Find a path
@@ -504,6 +606,9 @@ public class Map2D : MonoBehaviour
         return _roadPathFinder.GetPath().Count > 0;
     }
 
+    /// <summary>
+    /// Spawns a vehicle which follows a random path.
+    /// </summary>
     public void SpawnTraffic()
     {
         // Get random path, check for errors

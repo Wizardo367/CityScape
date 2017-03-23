@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Allows for the placement of objects.
+/// </summary>
 public class PlaceableObjectSpawner : MonoBehaviour
 {
     [Range(0.0f, 1.0f), Tooltip("The alpha value of the object before it's placed.")]
-    public float HoverAlpha = 0.5f;
+    public float HoverAlpha = 0.5f; /// <summary> The alpha value of the object before it's placed. </summary>
+    /// <summary>
+    /// The object to be placed.
+    /// </summary>
     public GameObject Target;
 
     private GameObject _go;
@@ -13,6 +19,9 @@ public class PlaceableObjectSpawner : MonoBehaviour
     private Map2D _map;
     private Game _game;
 
+    /// <summary>
+    /// Initialises this instance.
+    /// </summary>
     public void Init()
     {
         // Reset map destroy state
@@ -29,13 +38,18 @@ public class PlaceableObjectSpawner : MonoBehaviour
         ToggleAlpha();
     }
 
+    /// <summary>
+    /// Initialises variables.
+    /// </summary>
     private void Start()
     {
         _game = GameObject.Find("Game").GetComponent<Game>();
         _map = _game.gameObject.GetComponent<Map2D>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     private void Update()
     {
         // Check if the object is null
@@ -105,6 +119,9 @@ public class PlaceableObjectSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles the alpha.
+    /// </summary>
     private void ToggleAlpha()
     {
         foreach (SpriteRenderer spriteRenderer in _spriteRenderers)
@@ -116,6 +133,9 @@ public class PlaceableObjectSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Processes the marker.
+    /// </summary>
     private void ProcessMarker()
     {
         // Activate marker script if found
@@ -134,6 +154,10 @@ public class PlaceableObjectSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Processes the node.
+    /// </summary>
+    /// <param name="currentTile">The current tile.</param>
     private void ProcessNode(Tile currentTile)
     {
         // Check if placed object is a road
@@ -151,6 +175,10 @@ public class PlaceableObjectSpawner : MonoBehaviour
         GameObject.Find("Game").GetComponent<RoadPathFinder>().UpdateMap();
     }
 
+    /// <summary>
+    /// Processes the tile.
+    /// </summary>
+    /// <param name="gameObj">The game object.</param>
     private void ProcessTile(GameObject gameObj)
     {
         // Buildings are handled seperately in the SpawnBuilding() method in the Map2D class. (Because of marker spawning)

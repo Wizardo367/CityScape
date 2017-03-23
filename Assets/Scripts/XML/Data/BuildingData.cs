@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 // Video used: https://www.youtube.com/watch?v=Y8Di-Q6qpU4
 
 /// <summary>
-/// Class used to hold Tile data for serialisation.
+/// Class used to hold Building data for serialisation.
 /// </summary>
 public class BuildingData
 {

@@ -48,7 +48,7 @@ public static class Isometric
         // Convert the coordinates from cartesian to isometric
         float yTwo = 2 * y;
 
-        Vector2 newCoordinates = new Vector2()
+        Vector2 newCoordinates = new Vector2
         {
             x = (yTwo + x) * 0.5f,
             y = (yTwo - x) * 0.5f
@@ -68,11 +68,12 @@ public static class Isometric
         return IsoToCart(coordinates.x, coordinates.y);
     }
 
-    /// <summary>
-    /// Used to sort sprites for a pseudo-3D effect.
-    /// </summary>
-    /// <param name="go">GameObject to be sorted.</param>
-    public static void DepthSort(GameObject go)
+	/// <summary>
+	/// Used to sort sprites for a pseudo-3D effect.
+	/// </summary>
+	/// <param name="go">GameObject to be sorted.</param>
+	/// <param name="offset">The amount to offset the final order value by.</param>
+	public static void DepthSort(GameObject go, int offset = 0)
     {
         // Get all children
         Transform[] spriteTransforms = go.GetComponentsInChildren<Transform>();
@@ -83,13 +84,14 @@ public static class Isometric
 
         // Depth sort
         for (int i = 0; i < noOfChildren; i++)
-            spriteRenderers[i].sortingOrder = -(int) (go.transform.position.y * isometricRangePerYUnit) + i;
+            spriteRenderers[i].sortingOrder = -(int) (go.transform.position.y * isometricRangePerYUnit) + i + offset;
     }
 
     /// <summary>
     /// Corrects a position to fit with other isometric tiles.
     /// </summary>
     /// <param name="position"></param>
+    /// <param name="tileSize"></param>
     /// <returns></returns>
     public static Vector3 CorrectPosition(Vector3 position, int tileSize)
     {

@@ -1,16 +1,32 @@
-﻿using UnityEngine;
+﻿/*
+ *       Class: Destroyable
+ *      Author: Harish Bhagat
+ *        Year: 2017
+ */
 
+using UnityEngine;
+
+/// <summary>
+/// Attached to an object to make is destructable.
+/// </summary>
 public class Destroyable : MonoBehaviour
 {
+    /// <summary>
+    /// A reference to the game's current map.
+    /// </summary>
     private Map2D _map;
 
-    // Use this for initialization
+    /// <summary>
+    /// Used to initialise variables.
+    /// </summary>
     private void Start()
     {
         _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Called once per frame; it's used to check if the object is to be destroyed.
+    /// </summary>
     private void Update()
     {
         // Check destroy and hover state

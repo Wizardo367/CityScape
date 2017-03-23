@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Used to display the value of Slider elements via text.
+/// </summary>
 public class SliderHandler : MonoBehaviour
 {
     private Slider _slider;
     private Game _game;
 
+    /// <summary>
+    /// The Text object to modify.
+    /// </summary>
     public Text DisplayText;
 
+    /// <summary>
+    /// Initialises this instance.
+    /// </summary>
     private void Start()
     {
         _slider = gameObject.GetComponent<Slider>();
@@ -24,6 +33,10 @@ public class SliderHandler : MonoBehaviour
             DisplayText.text = _game.OfficeTax + "%";
     }
 
+    /// <summary>
+    /// Updates the in-game displays for the values of the slider.
+    /// </summary>
+    /// <param name="taxType">The type of tax.</param>
     public void UpdateGame(string taxType)
     {
         taxType = taxType.ToLower(); // Prevent case-sensitive errors

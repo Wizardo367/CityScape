@@ -9,14 +9,33 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Stores and manages an instance of the game.
+/// </summary>
 public class Game : MonoBehaviour
 {
+    /// <summary>
+    /// The game state.
+    /// </summary>
     public GameState GameState;
 
     // Game properties
+
+    /// <summary>
+    /// Tax percentages.
+    /// </summary>
     public float ResidentialTax = 5f, CommercialTax = 5f, OfficeTax = 5f;
+    /// <summary>
+    /// The money.
+    /// </summary>
     public int Money;
 
+    /// <summary>
+    /// Gets the happiness.
+    /// </summary>
+    /// <value>
+    /// The happiness.
+    /// </value>
     public int Happiness
     {
         get
@@ -27,6 +46,12 @@ public class Game : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the population.
+    /// </summary>
+    /// <value>
+    /// The population.
+    /// </value>
     public int Population
     {
         get
@@ -36,20 +61,34 @@ public class Game : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// The world path.
+    /// </summary>
     public static string Path;
 
     private Map2D _map;
     private bool _paused;
 
+    /// <summary>
+    /// The music volume
+    /// </summary>
     public float MusicVolume = 1f;
+    /// <summary>
+    /// The SFX volume
+    /// </summary>
     public float SFXVolume = 1f;
 
+    /// <summary>
+    /// The game over screen
+    /// </summary>
     public GameObject GameOverScreen;
 
     private AudioSource _musicSource, _sfxSource;
     private CountdownTimer _gameTimer;
 
-    // Initialisation
+    /// <summary>
+    /// Initialises variables, called before Start().
+    /// </summary>
     private void Awake()
     {
         // Initialise tax timer
@@ -67,6 +106,9 @@ public class Game : MonoBehaviour
         InitGame();
     }
 
+    /// <summary>
+    /// Initialises the game.
+    /// </summary>
     private void InitGame()
     {
         // Load the game
@@ -79,6 +121,9 @@ public class Game : MonoBehaviour
         // InvokeRepeating("Save", 30f, 30f);
     }
 
+    /// <summary>
+    /// Saves this instance.
+    /// </summary>
     public void Save()
     {
         // Save the game
@@ -123,6 +168,10 @@ public class Game : MonoBehaviour
         XMLSerializer.Serialize(gameDataContainer, Path);
     }
 
+    /// <summary>
+    /// Loads an instance.
+    /// </summary>
+    /// <returns></returns>
     public bool Load()
     {
         // Load the game
@@ -139,11 +188,17 @@ public class Game : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Loads the main menu.
+    /// </summary>
     public void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync("Main Menu");
     }
 
+    /// <summary>
+    /// Used to mark the end of a game.
+    /// </summary>
     public void GameOver()
     {
         // Delete the save
@@ -152,6 +207,10 @@ public class Game : MonoBehaviour
         LoadMainMenu();
     }
 
+    /// <summary>
+    /// Sets the pause.
+    /// </summary>
+    /// <param name="state">if set to <c>true</c> [state].</param>
     public void SetPause(bool state)
     {
         // Set gamestate
@@ -160,6 +219,9 @@ public class Game : MonoBehaviour
         Time.timeScale = state ? 0f : 1f;
     }
 
+    /// <summary>
+    /// Toggles the pause.
+    /// </summary>
     public void TogglePause()
     {
         // Toggle Gamestate
@@ -169,18 +231,27 @@ public class Game : MonoBehaviour
         _paused = !_paused;
     }
 
+    /// <summary>
+    /// Toggles the music.
+    /// </summary>
     public void ToggleMusic()
     {
         // Mute or unmute music
         _musicSource.mute = !_musicSource.mute;
     }
 
+    /// <summary>
+    /// Toggles the SFX.
+    /// </summary>
     public void ToggleSFX()
     {
         // Mute or unmute sfx
         _sfxSource.mute = !_sfxSource.mute;
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     private void Update()
     {
         // Check for pause

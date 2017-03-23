@@ -1,42 +1,54 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Defines an object as draggable by the mouse.
+/// </summary>
 public class Draggable : MonoBehaviour
 {
     private bool onObject;
 
-    private void Start()
+	/// <summary>
+	/// Initialises this instance.
+	/// </summary>
+	private void Start()
     {
         // Add collider
         if (!gameObject.GetComponent<Collider2D>())
             gameObject.AddComponent<BoxCollider2D>();
     }
 
-    private void OnMouseEnter()
+	/// <summary>
+	/// Called when [mouse enter].
+	/// </summary>
+	private void OnMouseEnter()
     {
         onObject = true;
     }
 
-    private void OnMouseExit()
+	/// <summary>
+	/// Called when [mouse exit].
+	/// </summary>
+	private void OnMouseExit()
     {
         onObject = false;
     }
 
-    // Update is called once per frame
-    private void Update()
+	/// <summary>
+	/// Updates this instance.
+	/// </summary>
+	private void Update()
     {
-        // TODO Code copied in MouseControls, put in shared method
         // Check if the mouse pointer is over a UI element
         if (EventSystem.current.IsPointerOverGameObject()) return;
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (Input.GetMouseButton(0))
+        // Check for a click and if the pointer is over the object
+        if (Input.GetMouseButton(0) && onObject)
         {
-            // Check if mouse is over object
-            if (onObject)
-                // Set position
-                gameObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
+            // Get mouse position
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // Set position
+            gameObject.transform.position = new Vector3(mousePos.x, mousePos.y, 0f);
         }
     }
 }

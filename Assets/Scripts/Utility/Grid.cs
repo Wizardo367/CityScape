@@ -2,15 +2,36 @@
 
 using UnityEngine;
 
+/// <summary>
+/// Defines a grid for pathfinding.
+/// </summary>
 public class Grid : MonoBehaviour
 {
-    public int Rows;
-    public int Columns;
-    public Node[] Nodes;
-    public GameObject Map;
-    public int[,] Layout;
+	/// <summary>
+	/// The number of rows.
+	/// </summary>
+	public int Rows;
+	/// <summary>
+	/// The numbers of columns.
+	/// </summary>
+	public int Columns;
+	/// <summary>
+	/// The nodes of the grid.
+	/// </summary>
+	public Node[] Nodes;
+	/// <summary>
+	/// An instance of Map2D.
+	/// </summary>
+	public GameObject Map;
+	/// <summary>
+	/// The grid layout; 0 represents a traversable node, 1 a blocked node.
+	/// </summary>
+	public int[,] Layout;
 
-    private void Start()
+	/// <summary>
+	/// Initialises this instance.
+	/// </summary>
+	private void Start()
     {
         // Initialise layout
         if (Layout == null)

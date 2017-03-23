@@ -13,28 +13,59 @@ using UnityEngine;
 /// </summary>
 public class Building : Tile
 {
-    // RTTI Type of building
+    /// <summary>
+    /// Used to store and load data from XML.
+    /// </summary>
     public new BuildingData Data;
 
     // Variables
+
+    /// <summary>
+    /// The direction.
+    /// </summary>
     public BuildingDirection Direction;
 
+    /// <summary>
+    /// The minimum and maximum number of occupants the building can have.
+    /// </summary>
     public Vector2 OccupantMinMax = new Vector2(0, 100);
+    /// <summary>
+    /// The minimum and maximum level the building can be.
+    /// </summary>
     public Vector2 LevelMinMax = new Vector2(1, 3);
+    /// <summary>
+    /// The minimum and maximum level of happiness the building can be at.
+    /// </summary>
     public Vector2 HappinessMinMax = new Vector2(0, 100);
 
     private int _happiness;
     private int _occupants;
     private int _level = 1;
 
+    /// <summary>
+    /// Stores all HappinessBoosters which affect this building.
+    /// </summary>
     public HashSet<HappinessBooster> Boosters;
 
+    /// <summary>
+    /// Used to define how often a building should be checked for upgrades.
+    /// </summary>
     private CountdownTimer _upgradeTimer;
 
     // Game instance
+
+    /// <summary>
+    /// Store's a reference to the instance of the game's manager.
+    /// </summary>
     private Game _game;
+    /// <summary>
+    /// Store's a reference to the instance of the game's map.
+    /// </summary>
     private Map2D _map;
 
+    /// <summary>
+    /// Used for initialisation, called before the Start() function.
+    /// </summary>
     private void Awake()
     {
         // Intialise variables
@@ -62,6 +93,10 @@ public class Building : Tile
     }
 
     // Properties
+
+    /// <summary>
+    /// The building's tax percentage, calculated using the building's type.
+    /// </summary>
     public float TaxPercentage
     {
         get
@@ -80,6 +115,9 @@ public class Building : Tile
         }
     }
 
+    /// <summary>
+    /// The building's level of happiness.
+    /// </summary>
     public int Happiness
     {
         get
@@ -91,6 +129,9 @@ public class Building : Tile
         }
     }
 
+    /// <summary>
+    /// The number of occupants living in the building.
+    /// </summary>
     public int Occupants
     {
         get
@@ -102,6 +143,9 @@ public class Building : Tile
         }
     }
 
+    /// <summary>
+    /// The level of the building.
+    /// </summary>
     public int Level
     {
         get { return _level; }
@@ -111,7 +155,7 @@ public class Building : Tile
     /// <summary>
     /// Calculates the amount of tax generated.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The amount of tax generated.</returns>
     public virtual float CollectTax()
     {
         // Calculate the amount of tax generated
@@ -122,6 +166,9 @@ public class Building : Tile
         return tax < 0f ? 0f : tax;
     }
 
+    /// <summary>
+    /// Stores data to a tileData object, used for saving to XML.
+    /// </summary>
     public override void StoreData()
     {
         base.StoreData();
@@ -140,6 +187,9 @@ public class Building : Tile
         Data.Level = Level;
     }
 
+    /// <summary>
+    /// Loads data from a tileData object.
+    /// </summary>
     public override void LoadData()
     {
         base.LoadData();
@@ -154,12 +204,15 @@ public class Building : Tile
         Level = Data.Level;
     }
 
+    /// <summary>
+    /// Called once per frame, used to process building upgrades.
+    /// </summary>
     private void Update()
     {
         // Check timer and stats to see if this building needs upgrading, don't bother checking if the building is already at it's max level
         if (_upgradeTimer.IsDone() && Level != (int)LevelMinMax.y)
         {
-            // Check if building is eligible for upgrade
+            // Check if building is eligible for an upgrade
             if (Level == 1 && Happiness >= 50 || Level == 2 && Happiness >= 80)
             {
                 // Upgrade

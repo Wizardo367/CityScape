@@ -9,6 +9,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
+/// <summary>Used to serialise game data.</summary>
 [XmlRoot("TileCollection")]
 public class GameDataContainer
 {

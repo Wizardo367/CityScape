@@ -1,10 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Allows for a path to be found between two roads.
+/// </summary>
 public class RoadPathFinder : MonoBehaviour
 {
+    /// <summary>
+    /// The size of the map in tiles.
+    /// </summary>
     public int MapSizeX, MapSizeY;
+    /// <summary>
+    /// The node group to use for pathfinding.
+    /// </summary>
     public GameObject NodeGroup;
+    /// <summary>
+    /// Determines whether or not the path should be highlighted on the map.
+    /// </summary>
     public bool ShowPath;
 
     private int[,] _map;
@@ -13,12 +25,19 @@ public class RoadPathFinder : MonoBehaviour
 
     private int noOfTiles;
 
-    // Use this for initialization
+    /// <summary>
+    /// Initialises this instance.
+    /// </summary>
     private void Start()
     {
         _map = new int[MapSizeX, MapSizeY];
     }
 
+    /// <summary>
+    /// Returns a tile using it's label.
+    /// </summary>
+    /// <param name="label">The label.</param>
+    /// <returns>A tile.</returns>
     private Tile GetTile(string label)
     {
         int id = int.Parse(label);
@@ -27,6 +46,11 @@ public class RoadPathFinder : MonoBehaviour
         return go.GetComponent<Tile>();
     }
 
+    /// <summary>
+    /// Finds a path between two roads.
+    /// </summary>
+    /// <param name="start">The starting point.</param>
+    /// <param name="goal">The destination.</param>
     public void FindPath(Node start, Node goal)
     {
         // Check if the map needs updating
@@ -77,6 +101,9 @@ public class RoadPathFinder : MonoBehaviour
             }
     }
 
+    /// <summary>
+    /// Updates the map.
+    /// </summary>
     public void UpdateMap()
     {
         // Loop through nodes
@@ -96,11 +123,19 @@ public class RoadPathFinder : MonoBehaviour
                     _map[searchNode.GridX, searchNode.GridY] = searchNode.Traversable ? 0 : 1;
     }
 
+    /// <summary>
+    /// Used to determine if a path has been found.
+    /// </summary>
+    /// <returns>A bool.</returns>
     public bool PathFound()
     {
         return _pathfinder.PathFound;
     }
 
+    /// <summary>
+    /// Gets the path.
+    /// </summary>
+    /// <returns></returns>
     public List<Node> GetPath()
     {
         return _pathfinder.Path;

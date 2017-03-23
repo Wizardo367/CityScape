@@ -11,9 +11,17 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Text;
 
+/// <summary>
+/// Serializes and Deserializes XML files.
+/// </summary>
 public class XMLSerializer
 {
-    public static void Serialize(object item, string path)
+	/// <summary>
+	/// Serializes the specified item to the file at the specified path.
+	/// </summary>
+	/// <param name="item">The item.</param>
+	/// <param name="path">The path.</param>
+	public static void Serialize(object item, string path)
     {
         XmlSerializer serializer = new XmlSerializer(item.GetType());
         Encoding encoding = Encoding.GetEncoding("UTF-8");
@@ -22,7 +30,13 @@ public class XMLSerializer
             serializer.Serialize(writer, item);
     }
 
-    public static T Deserialize<T>(string path)
+	/// <summary>
+	/// Deserializes the specified item from the file at the specified path.
+	/// </summary>
+	/// <typeparam name="T">Data type.</typeparam>
+	/// <param name="path">The path.</param>
+	/// <returns>Deserialized object.</returns>
+	public static T Deserialize<T>(string path)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(T));
         Encoding encoding = Encoding.GetEncoding("UTF-8");

@@ -2,52 +2,91 @@
 
 // Video used: https://www.youtube.com/watch?v=3Dw5d7PlcTM&t=580s
 
+/// <summary>
+/// Heap data structure.
+/// </summary>
+/// <typeparam name="T">Data type.</typeparam>
 public class Heap<T> where T : IHeapItem<T>
 {
-    public T[] Items { get; private set; }
-    private int _currentItemCount;
+	/// <summary>
+	/// Heap elements.
+	/// </summary>
+	/// <value>
+	/// The elements.
+	/// </value>
+	public T[] Items { get; private set; }
 
-    public Heap(int maxHeapSize)
+	/// <summary>
+	/// Initializes a new instance of the <see cref="Heap{T}"/> class.
+	/// </summary>
+	/// <param name="maxHeapSize">Maximum size of the heap.</param>
+	public Heap(int maxHeapSize)
     {
         Items = new T[maxHeapSize];
     }
 
-    public void Add(T item)
+	/// <summary>
+	/// Adds the specified item.
+	/// </summary>
+	/// <param name="item">The item.</param>
+	public void Add(T item)
     {
-        item.HeapIndex = _currentItemCount;
-        Items[_currentItemCount] = item;
+        item.HeapIndex = Count;
+        Items[Count] = item;
         SortUp(item);
-        _currentItemCount++;
+        Count++;
     }
 
-    public T RemoveFirst()
+	/// <summary>
+	/// Removes the first item.
+	/// </summary>
+	/// <returns>The first item.</returns>
+	public T RemoveFirst()
     {
         T firstItem = Items[0];
-        _currentItemCount--;
-        Items[0] = Items[_currentItemCount];
+        Count--;
+        Items[0] = Items[Count];
         Items[0].HeapIndex = 0;
         SortDown(Items[0]);
         return firstItem;
     }
 
-    public void UpdateItem(T item)
+	/// <summary>
+	/// Updates the item.
+	/// </summary>
+	/// <param name="item">The item.</param>
+	public void UpdateItem(T item)
     {
         SortUp(item);
     }
 
-    public int Count
-    {
-        get { return _currentItemCount; }
-    }
+	/// <summary>
+	/// Gets the count.
+	/// </summary>
+	/// <value>
+	/// The count.
+	/// </value>
+	public int Count { get; private set; }
 
-    public bool Contains(T item)
+	/// <summary>
+	/// Determines whether the heap contains the specified item.
+	/// </summary>
+	/// <param name="item">The item.</param>
+	/// <returns>
+	///   <c>true</c> if [contains] [the specified item]; otherwise, <c>false</c>.
+	/// </returns>
+	public bool Contains(T item)
     {
         return Equals(Items[item.HeapIndex], item);
     }
 
-    public void SortDown(T item)
+	/// <summary>
+	/// Sorts an item downwards within the tree.
+	/// </summary>
+	/// <param name="item">The item.</param>
+	public void SortDown(T item)
     {
-        // Sorts item downwars within tree
+        // Sorts item downwards within the tree
 
         while (true)
         {
@@ -55,11 +94,11 @@ public class Heap<T> where T : IHeapItem<T>
             int childIndexLeft = heapIndexTwo + 1;
             int childIndexRight = heapIndexTwo + 2;
 
-            if (childIndexLeft < _currentItemCount)
+            if (childIndexLeft < Count)
             {
                 int swapIndex = childIndexLeft;
 
-                if (childIndexRight < _currentItemCount)
+                if (childIndexRight < Count)
                     if (Items[childIndexLeft].CompareTo(Items[childIndexRight]) < 0)
                         swapIndex = childIndexRight;
 
@@ -73,7 +112,11 @@ public class Heap<T> where T : IHeapItem<T>
         }
     }
 
-    public void SortUp(T item)
+	/// <summary>
+	/// Sorts an item upwards within the tree.
+	/// </summary>
+	/// <param name="item">The item.</param>
+	public void SortUp(T item)
     {
         // Sorts item upwards within tree
         int parentIndex = (item.HeapIndex - 1) / 2;
@@ -89,7 +132,12 @@ public class Heap<T> where T : IHeapItem<T>
         }
     }
 
-    private void Swap(T itemA, T itemB)
+	/// <summary>
+	/// Swaps the specified items.
+	/// </summary>
+	/// <param name="itemA">Item a.</param>
+	/// <param name="itemB">Item b.</param>
+	private void Swap(T itemA, T itemB)
     {
         Items[itemA.HeapIndex] = itemB;
         Items[itemB.HeapIndex] = itemA;
@@ -100,6 +148,10 @@ public class Heap<T> where T : IHeapItem<T>
     }
 }
 
+/// <summary>
+/// Defines a heap item.
+/// </summary>
+/// <typeparam name="T">Data type.</typeparam>
 public interface IHeapItem<T> : IComparable<T>
 {
     int HeapIndex

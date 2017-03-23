@@ -5,22 +5,55 @@ using UnityEngine;
 // Video used: https://www.youtube.com/playlist?list=PLhPNOL0P0EY1ksFFhhoN5SsNYHaw8U2AP
 // Video used: https://www.youtube.com/watch?v=mZfyt03LDH4
 
+/// <summary>
+/// Used to find a path between two Nodes within a Grid.
+/// </summary>
 public class Pathfinder
 {
-    public Grid Grid;
-    public List<Node> OpenSet;
-    public List<Node> ClosedSet;
-    public List<Node> Path;
-    public Node GoalNode;
-    public int Iterations;
-    public bool PathFound;
+	/// <summary>
+	/// The grid to search.
+	/// </summary>
+	public Grid Grid;
+	/// <summary>
+	/// The open set of nodes.
+	/// </summary>
+	public List<Node> OpenSet;
+	/// <summary>
+	/// The closed set of nodes.
+	/// </summary>
+	public List<Node> ClosedSet;
+	/// <summary>
+	/// The path found.
+	/// </summary>
+	public List<Node> Path;
+	/// <summary>
+	/// The goal node.
+	/// </summary>
+	public Node GoalNode;
+	/// <summary>
+	/// The number of iterations processed to find the path.
+	/// </summary>
+	public int Iterations;
+	/// <summary>
+	/// Used to determine if the path has been found.
+	/// </summary>
+	public bool PathFound;
 
-    public Pathfinder(Grid grid)
+	/// <summary>
+	/// Initialises a new instance of the <see cref="Pathfinder"/> class.
+	/// </summary>
+	/// <param name="grid">The grid.</param>
+	public Pathfinder(Grid grid)
     {
         Grid = grid;
     }
 
-    public void Start(Node start, Node goal)
+	/// <summary>
+	/// Starts the pathfinder.
+	/// </summary>
+	/// <param name="start">The start node.</param>
+	/// <param name="goal">The goal node.</param>
+	public void Start(Node start, Node goal)
     {
         // Add start to open set
         OpenSet = new List<Node> {start};
@@ -38,7 +71,10 @@ public class Pathfinder
             node.Clear();
     }
 
-    public void Step()
+	/// <summary>
+	/// Used to step between nodes during the pathfinding process.
+	/// </summary>
+	public void Step()
     {
         // Search next node and neighbours
         
@@ -103,7 +139,12 @@ public class Pathfinder
             AddNeighbour(node, neighbour);
     }
 
-    public void AddNeighbour(Node node, Node neighbour)
+	/// <summary>
+	/// Adds a neighbour to the current node.
+	/// </summary>
+	/// <param name="node">The node.</param>
+	/// <param name="neighbour">The neighbour.</param>
+	public void AddNeighbour(Node node, Node neighbour)
     {
         if (ClosedSet.Contains(neighbour)) return;
         
@@ -129,7 +170,12 @@ public class Pathfinder
         }
     }
 
-    public Vector2 GetGridPosition(Node node)
+	/// <summary>
+	/// Gets the grid position.
+	/// </summary>
+	/// <param name="node">The node.</param>
+	/// <returns></returns>
+	public Vector2 GetGridPosition(Node node)
     {
         int nodeSize = node.Size;
         Vector2 worldPosition = node.gameObject.transform.position;
@@ -137,7 +183,13 @@ public class Pathfinder
         return GetGridPosition(worldPosition, nodeSize);
     }
 
-    public Vector2 GetGridPosition(Vector2 worldPosition, int nodeSize)
+	/// <summary>
+	/// Gets the grid position.
+	/// </summary>
+	/// <param name="worldPosition">The world position.</param>
+	/// <param name="nodeSize">Size of the node.</param>
+	/// <returns></returns>
+	public Vector2 GetGridPosition(Vector2 worldPosition, int nodeSize)
     {
         int gridX = (int)Math.Round(worldPosition.x / nodeSize + 0.5f);
         int gridY = (int)Math.Round(worldPosition.y / nodeSize + 0.5f);
@@ -145,7 +197,13 @@ public class Pathfinder
         return new Vector2(gridX, gridY);
     }
 
-    public int GetNodeIndex(Node node, List<Node> nodes)
+	/// <summary>
+	/// Gets the index of the node.
+	/// </summary>
+	/// <param name="node">The node.</param>
+	/// <param name="nodes">The nodes to search through.</param>
+	/// <returns></returns>
+	public int GetNodeIndex(Node node, List<Node> nodes)
     {
         for (int i = 0; i < nodes.Count; i++)
             if (node == nodes[i])
@@ -154,7 +212,13 @@ public class Pathfinder
         return -1;
     }
 
-    public int GetDistance(Node nodeA, Node nodeB)
+	/// <summary>
+	/// Gets the distance between nodes.
+	/// </summary>
+	/// <param name="nodeA">Node a.</param>
+	/// <param name="nodeB">Node b.</param>
+	/// <returns></returns>
+	public int GetDistance(Node nodeA, Node nodeB)
     {
         // Gets the distance between two nodes
         int distX = Mathf.Abs(nodeA.GridX - nodeB.GridX);
@@ -163,7 +227,11 @@ public class Pathfinder
         return distX + distY;
     }
 
-    public Node ChooseNode()
+	/// <summary>
+	/// Chooses the next node.
+	/// </summary>
+	/// <returns>The next node to process.</returns>
+	public Node ChooseNode()
     {
         // Get current node
         Node node;

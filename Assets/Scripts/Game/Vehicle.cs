@@ -1,26 +1,43 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Defines a vehicle.
+/// </summary>
 public class Vehicle : MonoBehaviour
 {
-    public List<Node> Path;
-    public float Speed = 1f;
-    public bool Stationary = true;
+	/// <summary>
+	/// The path to traverse.
+	/// </summary>
+	public List<Node> Path;
+	/// <summary>
+	/// The speed.
+	/// </summary>
+	public float Speed = 1f;
+	/// <summary>
+	/// Defines whether or not the vehicle is stationary.
+	/// </summary>
+	public bool Stationary = true;
 
     private Vector3 _currentPos;
     private Vector3 _targetPos;
     private Direction2D _direction;
     private RotatableSprite2D _rotatableSprite2D;
 
-    private void Start()
+	/// <summary>
+	/// Initialises this instance.
+	/// </summary>
+	private void Start()
     {
         // Initialise variables
         _targetPos = gameObject.transform.position;
         _rotatableSprite2D = gameObject.GetComponent<RotatableSprite2D>();
     }
 
-    // Update is called once per frame
-    private void Update()
+	/// <summary>
+	/// Updates this instance.
+	/// </summary>
+	private void Update()
     {
         // Update current position
         _currentPos = transform.position;
@@ -46,7 +63,11 @@ public class Vehicle : MonoBehaviour
         Path.RemoveAt(0);
     }
 
-    private bool MoveDone()
+	/// <summary>
+	/// Check if a vehicle has finished travelling to it's current target.
+	/// </summary>
+	/// <returns></returns>
+	private bool MoveDone()
     {
         // Check if the move to the target is done
         if (_currentPos == _targetPos)
@@ -58,12 +79,18 @@ public class Vehicle : MonoBehaviour
         return false;
     }
 
-    private void Despawn()
+	/// <summary>
+	/// Despawns this instance.
+	/// </summary>
+	private void Despawn()
     {
         Destroy(gameObject, 2f);
     }
 
-    private void ProcessRotation()
+	/// <summary>
+	/// Processes vehicle rotation/turning.
+	/// </summary>
+	private void ProcessRotation()
     {
         // Get the X and Y difference between the current position and the target position
 

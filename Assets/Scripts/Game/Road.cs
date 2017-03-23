@@ -1,9 +1,18 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Used to define a road.
+/// </summary>
 public class Road : MonoBehaviour
 {
+    /// <summary>
+    /// The traversability directions.
+    /// </summary>
     public bool TraversableUp, TraversableDown, TraversableLeft, TraversableRight;
 
+    /// <summary>
+    /// Rotates the object 180 degrees on it's y axis.
+    /// </summary>
     public void RotateY()
     {
         // Rotates traversable directions by 180 degrees in the Y axis
@@ -35,6 +44,14 @@ public class Road : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Determines whether this road [can travel to] another.
+    /// </summary>
+    /// <param name="other">The other.</param>
+    /// <param name="direction">The direction.</param>
+    /// <returns>
+    ///   <c>true</c> if this instance [can travel to] the specified other; otherwise, <c>false</c>.
+    /// </returns>
     public bool CanTravelTo(Road other, Direction2D direction)
     {
         // Checks if travel between two roads is possible

@@ -11,17 +11,28 @@ using UnityEngine;
 /// </summary>
 public class Tile : MonoBehaviour
 {
+    /// <summary>
+    /// Used to load and save data from XML.
+    /// </summary>
     public TileData Data = new TileData();
 
+    /// <summary>
+    /// Determines whether or not this tile can be built-upon.
+    /// </summary>
     public bool Buildable;
-    public TileType TileType; // RTTI
+    /// <summary>
+    /// The tile type.
+    /// </summary>
+    public TileType TileType;
 
-    private bool _clicked;
     private bool _mouseOnTile;
 
     private SpriteRenderer _spriteRenderer;
     private Map2D _map;
 
+    /// <summary>
+    /// Initialises this instance.
+    /// </summary>
     private void Start()
     {
         // Initialise
@@ -29,6 +40,9 @@ public class Tile : MonoBehaviour
         _map = GameObject.Find("Game").GetComponent<Map2D>();
     }
 
+    /// <summary>
+    /// Updates this instance.
+    /// </summary>
     private void Update()
     {
         // Check for escape key
@@ -37,9 +51,15 @@ public class Tile : MonoBehaviour
 
         // Check for left mouse click
         if (_mouseOnTile && Input.GetMouseButtonDown(0))
-            _clicked = true;
+        {
+            // Set last tile clicked
+            _map.LastTileClicked = this;
+        }
     }
 
+    /// <summary>
+    /// Called when the pointer enters the object.
+    /// </summary>
     private void OnMouseEnter()
     {
         ProcessHighlighting(_map.EnableTileHighlighting);
@@ -52,12 +72,19 @@ public class Tile : MonoBehaviour
             _map.CurrentTile = this;
     }
 
+    /// <summary>
+    /// Called when the pointer exits the object.
+    /// </summary>
     private void OnMouseExit()
     {
         ProcessHighlighting(false);
         _mouseOnTile = false;
     }
 
+    /// <summary>
+    /// Processes highlighting.
+    /// </summary>
+    /// <param name="enable">if set to <c>true</c> [enable].</param>
     private void ProcessHighlighting(bool enable)
     {
         // Set highlight colour
@@ -95,19 +122,9 @@ public class Tile : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns true if the tile was clicked, the value is reset after the check.
+    /// Gets the highlight colour.
     /// </summary>
-    /// <returns>Whether or not the tile was clicked.</returns>
-    public bool WasClicked()
-    {
-        // Store value
-        bool clicked = _clicked;
-        // Reset click
-        _clicked = false;
-        // Return original value
-        return clicked;
-    }
-
+    /// <returns>Current highlight colour.</returns>
     public Color GetHighlightColour()
     {
         return _map.TileHighlightColour;

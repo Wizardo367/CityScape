@@ -1,35 +1,57 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Allows an Image component to toggle between two images.
+/// </summary>
 public class ToggleSprite : MonoBehaviour
 {
-    public Sprite PrimarySprite;
-    public Sprite SecondarySprite;
-    private Sprite currentSprite;
+	/// <summary>
+	/// The primary sprite.
+	/// </summary>
+	public Sprite PrimarySprite;
+	/// <summary>
+	/// The secondary sprite.
+	/// </summary>
+	public Sprite SecondarySprite;
 
+	private Sprite _currentSprite;
     private Image _image;
 
-    private void Start()
+	/// <summary>
+	/// Initialises this instance.
+	/// </summary>
+	private void Start()
     {
-        currentSprite = PrimarySprite;
+        _currentSprite = PrimarySprite;
         _image = gameObject.GetComponent<Image>();
     }
 
-    public void Toggle()
+	/// <summary>
+	/// Toggles the current image being displayed.
+	/// </summary>
+	public void Toggle()
     {
         // Toggle button graphic
-        currentSprite = currentSprite == PrimarySprite ? SecondarySprite : PrimarySprite;
+        _currentSprite = _currentSprite == PrimarySprite ? SecondarySprite : PrimarySprite;
         SetSprite();
     }
 
-    public void Set(bool primaryState)
+	/// <summary>
+	/// Sets which image should be displayed.
+	/// </summary>
+	/// <param name="primaryState">if set to <c>true</c> [primary state].</param>
+	public void Set(bool primaryState)
     {
-        currentSprite = primaryState ? PrimarySprite : SecondarySprite;
+        _currentSprite = primaryState ? PrimarySprite : SecondarySprite;
         SetSprite();
     }
 
-    private void SetSprite()
+	/// <summary>
+	/// Sets the current image.
+	/// </summary>
+	private void SetSprite()
     {
-        _image.sprite = currentSprite;
+        _image.sprite = _currentSprite;
     }
 }

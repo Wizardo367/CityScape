@@ -1,21 +1,31 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Defines a 2D object that can be rotated using it's transform.
+/// </summary>
 public class Rotatable2D : MonoBehaviour
 {
-    public bool RotateX, RotateY;
+	/// <summary>
+	/// The axes of rotation.
+	/// </summary>
+	public bool RotateX, RotateY;
 
     private int _counter;
     private int _maxCounter;
 
-    // Use this for initialization
-    private void Start()
+	/// <summary>
+	/// Initialises this instance.
+	/// </summary>
+	private void Start()
     {
         _counter = 0;
         _maxCounter = 3;
     }
 
-    // TODO Remove repeated code
-    public void Rotate()
+	/// <summary>
+	/// Rotates the object.
+	/// </summary>
+	public void Rotate()
     {
         // Check counter
         _counter++;
@@ -37,12 +47,18 @@ public class Rotatable2D : MonoBehaviour
             RotateYAxis();
     }
 
-    private void RotateXAxis()
+	/// <summary>
+	/// Rotates along the x axis.
+	/// </summary>
+	private void RotateXAxis()
     {
         gameObject.transform.Rotate(180f, 0f, 0f);
     }
 
-    private void RotateYAxis()
+	/// <summary>
+	/// Rotates along the y axis.
+	/// </summary>
+	private void RotateYAxis()
     {
         gameObject.transform.Rotate(0f, 180f, 0f);
     }

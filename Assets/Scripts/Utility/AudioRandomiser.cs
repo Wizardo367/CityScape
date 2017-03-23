@@ -1,11 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to switch between and play different audio tracks.
+/// </summary>
 public class AudioRandomiser : MonoBehaviour
 {
-    public List<AudioClip> Sounds;
+	/// <summary>
+	/// The sounds to play.
+	/// </summary>
+	public List<AudioClip> Sounds;
 
-    void Update()
+	/// <summary>
+	/// Updates this instance.
+	/// </summary>
+	void Update()
     {
         AudioSource audioSource = gameObject.GetComponent<AudioSource>();
 

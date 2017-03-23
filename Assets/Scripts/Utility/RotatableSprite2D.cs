@@ -1,16 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Defines a 2D object that can appear to be rotated using different sprites.
+/// </summary>
 public class RotatableSprite2D : MonoBehaviour
 {
-    public bool RotateX, RotateY;
-    public Sprite Up, Down, Left, Right;
+	/// <summary>
+	/// The axes of rotation.
+	/// </summary>
+	public bool RotateX, RotateY;
+	/// <summary>
+	/// The sprites and the rotation they appear to be in.
+	/// </summary>
+	public Sprite Up, Down, Left, Right;
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _currentSprite;
 
-    // Use this for initialization
-    private void Start()
+	/// <summary>
+	/// Initialises this instance.
+	/// </summary>
+	private void Start()
     {
         // Initialise variables
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -19,7 +30,10 @@ public class RotatableSprite2D : MonoBehaviour
         SetStartingSprite();
     }
 
-    private void SetStartingSprite()
+	/// <summary>
+	/// Sets the starting sprite.
+	/// </summary>
+	private void SetStartingSprite()
     {
         if (_currentSprite == Up)
             _currentSprite = Up;
@@ -31,7 +45,10 @@ public class RotatableSprite2D : MonoBehaviour
             _currentSprite = Right;
     }
 
-    public void Rotate()
+	/// <summary>
+	/// Rotates the object.
+	/// </summary>
+	public void Rotate()
     {
         // Rotate sprite
         if (RotateX && RotateY)
@@ -54,7 +71,12 @@ public class RotatableSprite2D : MonoBehaviour
         _spriteRenderer.sprite = _currentSprite;
     }
 
-    public void SetRotation(Direction2D direction)
+	/// <summary>
+	/// Sets the rotation.
+	/// </summary>
+	/// <param name="direction">The direction.</param>
+	/// <exception cref="ArgumentOutOfRangeException">direction - null</exception>
+	public void SetRotation(Direction2D direction)
     {
         // Set sprite
         switch (direction)
