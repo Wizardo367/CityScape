@@ -5,10 +5,22 @@
 /// </summary>
 public class Road : MonoBehaviour
 {
-    /// <summary>
-    /// The traversability directions.
-    /// </summary>
-    public bool TraversableUp, TraversableDown, TraversableLeft, TraversableRight;
+	/// <summary>
+	/// Used to determine if traversing upwards is valid.
+	/// </summary>
+	public bool TraversableUp;
+	/// <summary>
+	/// Used to determine if traversing downwards is valid.
+	/// </summary>
+	public bool TraversableDown;
+	/// <summary>
+	/// Used to determine if traversing left is valid.
+	/// </summary>
+	public bool TraversableLeft;
+	/// <summary>
+	/// Used to determine if traversing right is valid.
+	/// </summary>
+	public bool TraversableRight;
 
     /// <summary>
     /// Rotates the object 180 degrees on it's y axis.

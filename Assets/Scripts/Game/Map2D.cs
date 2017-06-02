@@ -26,10 +26,15 @@ public class Map2D : MonoBehaviour
     /// The size of each tile (x and y) in pixels.
     /// </summary>
     public int TileSizeX;
-    /// <summary>
-    /// The size of the map in tiles.
-    /// </summary>
-    public int XSize, YSize;
+
+	/// <summary>
+	/// Map size X in tiles.
+	/// </summary>
+	public int XSize;
+	/// <summary>
+	/// Map size Y in tiles.
+	/// </summary>
+	public int YSize;
     /// <summary>
     /// The prefab to be used for generation.
     /// </summary>
@@ -42,10 +47,15 @@ public class Map2D : MonoBehaviour
     /// Container for buildings
     /// </summary>
     public List<Building> Buildings;
-    /// <summary>
-    /// Containers for roads and decorations.
-    /// </summary>
-    public List<Tile> Roads, Decorations;
+
+	/// <summary>
+	/// Container for roads.
+	/// </summary>
+	public List<Tile> Roads;
+	/// <summary>
+	/// Container for decorations.
+	/// </summary>
+	public List<Tile> Decorations;
 
     /// <summary>
     /// The active state of tile highlighting.

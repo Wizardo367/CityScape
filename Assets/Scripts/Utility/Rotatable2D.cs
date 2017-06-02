@@ -6,9 +6,13 @@
 public class Rotatable2D : MonoBehaviour
 {
 	/// <summary>
-	/// The axes of rotation.
+	/// Used to determine if rotation is the X axis is valid.
 	/// </summary>
-	public bool RotateX, RotateY;
+	public bool RotateX;
+	/// <summary>
+	/// Used to determine if rotation is the Y axis is valid.
+	/// </summary>
+	public bool RotateY;
 
     private int _counter;
     private int _maxCounter;

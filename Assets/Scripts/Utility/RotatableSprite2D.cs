@@ -7,13 +7,30 @@ using UnityEngine;
 public class RotatableSprite2D : MonoBehaviour
 {
 	/// <summary>
-	/// The axes of rotation.
+	/// Used to determine if rotation is the X axis is valid.
 	/// </summary>
-	public bool RotateX, RotateY;
+	public bool RotateX;
 	/// <summary>
-	/// The sprites and the rotation they appear to be in.
+	/// Used to determine if rotation is the Y axis is valid.
 	/// </summary>
-	public Sprite Up, Down, Left, Right;
+	public bool RotateY;
+
+	/// <summary>
+	/// Rotation sprite Up.
+	/// </summary>
+	public Sprite Up;
+	/// <summary>
+	/// Rotation sprite Down.
+	/// </summary>
+	public Sprite Down;
+	/// <summary>
+	/// Rotation sprite Left.
+	/// </summary>
+	public Sprite Left;
+	/// <summary>
+	/// Rotation sprite Right.
+	/// </summary>
+	public Sprite Right;
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _currentSprite;

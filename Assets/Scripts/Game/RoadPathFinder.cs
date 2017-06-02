@@ -6,10 +6,15 @@ using UnityEngine;
 /// </summary>
 public class RoadPathFinder : MonoBehaviour
 {
-    /// <summary>
-    /// The size of the map in tiles.
-    /// </summary>
-    public int MapSizeX, MapSizeY;
+	/// <summary>
+	/// The width of the map in tiles.
+	/// </summary>
+	public int MapSizeX;
+	/// <summary>
+	/// The height of the map in tiles.
+	/// </summary>
+	public int MapSizeY;
+
     /// <summary>
     /// The node group to use for pathfinding.
     /// </summary>

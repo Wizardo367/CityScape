@@ -21,10 +21,18 @@ public class Game : MonoBehaviour
 
     // Game properties
 
-    /// <summary>
-    /// Tax percentages.
-    /// </summary>
-    public float ResidentialTax = 5f, CommercialTax = 5f, OfficeTax = 5f;
+	/// <summary>
+	/// Residential tax percentage.
+	/// </summary>
+	public float ResidentialTax = 5f;
+	/// <summary>
+	/// Commercial tax percentage.
+	/// </summary>
+	public float CommercialTax = 5f;
+	/// <summary>
+	/// Office tax percentage.
+	/// </summary>
+	public float OfficeTax = 5f;
     /// <summary>
     /// The money.
     /// </summary>
